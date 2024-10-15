@@ -1,11 +1,10 @@
-import React from "react";
 import Button from "../UI/Button";
 
 export function HeroScreen() {
     return (
         <section className="hero-section bg-hero-screen h-[calc(100vh-100px)] bg-cover bg-no-repeat bg-center flex justify-center">
-            <div className="container 2xl grid grid-cols-12 h-full items-center ">
-                <div className="col-start-7 col-span-6">
+            <div className="container 2xl grid grid-cols-12 h-full items-center mx-5">
+                <div className=" col-start-1 col-span-12 md:col-start-7 md:col-span-6">
                     <div className="content py-60 px-10 bg-FFF3E3 rounded-md">
                         <p className="subtitle font-semibold tracking-widest">
                             New Arrival
