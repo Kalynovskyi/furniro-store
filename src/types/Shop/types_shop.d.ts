@@ -19,3 +19,7 @@ interface Review {
     rating?: number;
     comment?: string;
 }
+
+interface ProductProps {
+    productData: Product
+}
