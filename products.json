@@ -1,0 +1,1567 @@
+[
+    {
+        "id": 1,
+        "title": "Luxury Sofa",
+        "subtitle": "Elegant modern design",
+        "price": 1200,
+        "rating": 4.5,
+        "description": "A luxury sofa with plush seating, perfect for your living room.",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Blue",
+            "Gray"
+        ],
+        "images": [
+            "sofa1.png",
+            "sofa1_alt.png"
+        ],
+        "sku": "SOF123456",
+        "categories": [
+            "Sofas",
+            "Living Room"
+        ],
+        "tags": [
+            "sofa",
+            "luxury",
+            "modern"
+        ],
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "rating": 5,
+                "comment": "Very comfortable and stylish."
+            },
+            {
+                "user": "JaneDoe",
+                "rating": 4,
+                "comment": "Great design but a bit pricey."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Classic Wooden Chair",
+        "subtitle": "Sturdy and durable design",
+        "price": 300,
+        "rating": 4.2,
+        "description": "A classic wooden chair crafted with high-quality wood.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Brown",
+            "Black"
+        ],
+        "images": [
+            "chair1.png",
+            "chair1_alt.png"
+        ],
+        "sku": "CHA234567",
+        "categories": [
+            "Chairs",
+            "Dining Room"
+        ],
+        "tags": [
+            "chair",
+            "wooden",
+            "classic"
+        ],
+        "reviews": [
+            {
+                "user": "SamSmith",
+                "rating": 4,
+                "comment": "Very strong and reliable."
+            },
+            {
+                "user": "LilyRose",
+                "rating": 5,
+                "comment": "Love the design and finish."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Glass Coffee Table",
+        "subtitle": "Sleek design with a modern touch",
+        "price": 450,
+        "rating": 4.7,
+        "description": "A modern coffee table made of tempered glass with a steel base.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Transparent",
+            "Silver"
+        ],
+        "images": [
+            "table1.png",
+            "table1_alt.png"
+        ],
+        "sku": "TAB345678",
+        "categories": [
+            "Tables",
+            "Living Room"
+        ],
+        "tags": [
+            "table",
+            "glass",
+            "modern"
+        ],
+        "reviews": [
+            {
+                "user": "MikeJones",
+                "rating": 5,
+                "comment": "Beautiful table and sturdy design."
+            },
+            {
+                "user": "AnnaWhite",
+                "rating": 4,
+                "comment": "The glass finish is excellent."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Modern Bed Frame",
+        "subtitle": "Strong and minimalist design",
+        "price": 900,
+        "rating": 4.8,
+        "description": "A minimalist bed frame that fits any bedroom decor.",
+        "sizes": [
+            "M",
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "White",
+            "Black"
+        ],
+        "images": [
+            "bed1.png",
+            "bed1_alt.png"
+        ],
+        "sku": "BED456789",
+        "categories": [
+            "Beds",
+            "Bedroom"
+        ],
+        "tags": [
+            "bed",
+            "modern",
+            "minimalist"
+        ],
+        "reviews": [
+            {
+                "user": "TomHarris",
+                "rating": 5,
+                "comment": "Very sturdy and comfortable."
+            },
+            {
+                "user": "EmilyClark",
+                "rating": 5,
+                "comment": "Simple design but looks elegant."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Office Desk",
+        "subtitle": "Ergonomic and spacious design",
+        "price": 650,
+        "rating": 4.6,
+        "description": "A spacious desk with ample storage, perfect for any office space.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Walnut",
+            "Black"
+        ],
+        "images": [
+            "desk1.png",
+            "desk1_alt.png"
+        ],
+        "sku": "DES567890",
+        "categories": [
+            "Desks",
+            "Office"
+        ],
+        "tags": [
+            "desk",
+            "office",
+            "ergonomic"
+        ],
+        "reviews": [
+            {
+                "user": "DavidLee",
+                "rating": 5,
+                "comment": "A great desk with lots of storage."
+            },
+            {
+                "user": "RachelGreen",
+                "rating": 4,
+                "comment": "Spacious but the assembly was tricky."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Dining Table",
+        "subtitle": "Contemporary design for modern homes",
+        "price": 700,
+        "rating": 4.3,
+        "description": "A sleek dining table that accommodates up to 6 people.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Oak",
+            "Black"
+        ],
+        "images": [
+            "dining_table1.png",
+            "dining_table1_alt.png"
+        ],
+        "sku": "DIN678901",
+        "categories": [
+            "Tables",
+            "Dining Room"
+        ],
+        "tags": [
+            "table",
+            "dining",
+            "modern"
+        ],
+        "reviews": [
+            {
+                "user": "SarahJohnson",
+                "rating": 5,
+                "comment": "Perfect size for family dinners."
+            },
+            {
+                "user": "KevinWright",
+                "rating": 4,
+                "comment": "Looks great but scratches easily."
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Modern Sofa",
+        "subtitle": "Luxury big sofa",
+        "price": 499.99,
+        "rating": 4.5,
+        "description": "A comfortable and stylish modern sofa for your living room.",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Gray",
+            "Blue",
+            "Black"
+        ],
+        "images": [
+            "image1.jpg",
+            "image2.jpg"
+        ],
+        "sku": "SOFA-MOD-001",
+        "categories": [
+            "Living Room",
+            "Sofa"
+        ],
+        "tags": [
+            "modern",
+            "luxury",
+            "comfortable"
+        ],
+        "reviews": [
+            {
+                "user": "John Doe",
+                "comment": "Great sofa, very comfortable!",
+                "rating": 5
+            },
+            {
+                "user": "Jane Smith",
+                "comment": "Stylish but a bit too firm for me.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Classic Wooden Dining Table",
+        "subtitle": "Elegant wooden table",
+        "price": 749.99,
+        "rating": 4.8,
+        "description": "A classic wooden dining table that brings elegance to your home.",
+        "sizes": [
+            "M",
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Brown",
+            "Dark Oak"
+        ],
+        "images": [
+            "image3.jpg",
+            "image4.jpg"
+        ],
+        "sku": "TABLE-WOOD-002",
+        "categories": [
+            "Dining Room",
+            "Table"
+        ],
+        "tags": [
+            "classic",
+            "wooden",
+            "elegant"
+        ],
+        "reviews": [
+            {
+                "user": "Alice Brown",
+                "comment": "Perfect for family dinners, love the wood finish.",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Leather Recliner Chair",
+        "subtitle": "Comfortable leather chair",
+        "price": 299.99,
+        "rating": 4.7,
+        "description": "A comfortable leather recliner chair for relaxing after a long day.",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Black",
+            "Brown"
+        ],
+        "images": [
+            "image5.jpg",
+            "image6.jpg"
+        ],
+        "sku": "CHAIR-LEATH-003",
+        "categories": [
+            "Living Room",
+            "Chair"
+        ],
+        "tags": [
+            "leather",
+            "comfortable",
+            "recliner"
+        ],
+        "reviews": [
+            {
+                "user": "Michael Green",
+                "comment": "Very comfortable, perfect for my living room.",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Vintage Bookshelf",
+        "subtitle": "Spacious vintage bookshelf",
+        "price": 199.99,
+        "rating": 4.4,
+        "description": "A spacious and stylish vintage bookshelf for all your books and decorations.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Walnut",
+            "Cherry"
+        ],
+        "images": [
+            "image7.jpg",
+            "image8.jpg"
+        ],
+        "sku": "SHELF-VINT-004",
+        "categories": [
+            "Living Room",
+            "Bookshelf"
+        ],
+        "tags": [
+            "vintage",
+            "spacious",
+            "stylish"
+        ],
+        "reviews": [
+            {
+                "user": "Sara White",
+                "comment": "Love the vintage look, fits perfectly in my home office.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Glass Coffee Table",
+        "subtitle": "Stylish glass table",
+        "price": 159.99,
+        "rating": 4.6,
+        "description": "A stylish and minimalist glass coffee table for a modern living space.",
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "colors": [
+            "Clear",
+            "Black"
+        ],
+        "images": [
+            "image9.jpg",
+            "image10.jpg"
+        ],
+        "sku": "TABLE-GLASS-005",
+        "categories": [
+            "Living Room",
+            "Coffee Table"
+        ],
+        "tags": [
+            "glass",
+            "modern",
+            "minimalist"
+        ],
+        "reviews": [
+            {
+                "user": "Tom Black",
+                "comment": "Looks great, but can be fragile.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Industrial Bar Stool",
+        "subtitle": "Modern industrial style stool",
+        "price": 89.99,
+        "rating": 4.2,
+        "description": "A modern industrial bar stool with adjustable height and sturdy build.",
+        "sizes": [
+            "M"
+        ],
+        "colors": [
+            "Black",
+            "Steel"
+        ],
+        "images": [
+            "image11.jpg",
+            "image12.jpg"
+        ],
+        "sku": "STOOL-INDU-006",
+        "categories": [
+            "Kitchen",
+            "Bar Stool"
+        ],
+        "tags": [
+            "industrial",
+            "modern",
+            "adjustable"
+        ],
+        "reviews": [
+            {
+                "user": "Chris Blue",
+                "comment": "Great for my kitchen counter, solid build.",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Elegant Sofa",
+        "subtitle": "Luxury big sofa",
+        "price": 799.99,
+        "rating": 4.8,
+        "description": "A premium sofa designed with comfort and style in mind, made from high-quality materials.",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Gray",
+            "Beige",
+            "Blue"
+        ],
+        "images": [
+            "elegant_sofa_1.jpg",
+            "elegant_sofa_2.jpg"
+        ],
+        "sku": "SF12345",
+        "categories": [
+            "Sofas",
+            "Living Room"
+        ],
+        "tags": [
+            "luxury",
+            "modern",
+            "comfortable"
+        ],
+        "reviews": [
+            {
+                "user": "JohnD",
+                "comment": "Incredibly comfortable, fits perfectly in my living room.",
+                "rating": 5
+            },
+            {
+                "user": "LisaM",
+                "comment": "Nice design, but I expected softer fabric.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Modern Coffee Table",
+        "subtitle": "Stylish wooden coffee table",
+        "price": 299.99,
+        "rating": 4.5,
+        "description": "A sleek and modern coffee table made of high-quality oak with a smooth finish.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Brown",
+            "Black"
+        ],
+        "images": [
+            "modern_coffee_table_1.jpg",
+            "modern_coffee_table_2.jpg"
+        ],
+        "sku": "CT67890",
+        "categories": [
+            "Tables",
+            "Living Room"
+        ],
+        "tags": [
+            "modern",
+            "wooden",
+            "minimalist"
+        ],
+        "reviews": [
+            {
+                "user": "ChrisR",
+                "comment": "Looks great in my living room, easy to assemble.",
+                "rating": 5
+            },
+            {
+                "user": "SaraP",
+                "comment": "Good table, but slightly smaller than expected.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Classic Wooden Chair",
+        "subtitle": "Comfortable wooden chair",
+        "price": 149.99,
+        "rating": 4.2,
+        "description": "A sturdy wooden chair with a classic design, perfect for dining rooms and kitchens.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Natural Wood",
+            "Dark Wood"
+        ],
+        "images": [
+            "wooden_chair_1.jpg",
+            "wooden_chair_2.jpg"
+        ],
+        "sku": "CH87654",
+        "categories": [
+            "Chairs",
+            "Dining Room"
+        ],
+        "tags": [
+            "classic",
+            "wooden",
+            "sturdy"
+        ],
+        "reviews": [
+            {
+                "user": "EmilyT",
+                "comment": "Simple and elegant design, very comfortable.",
+                "rating": 4
+            },
+            {
+                "user": "MarkF",
+                "comment": "A bit too hard for long sitting periods, but great for dining.",
+                "rating": 3.5
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Luxury Bed Frame",
+        "subtitle": "King size bed frame",
+        "price": 1299.99,
+        "rating": 4.9,
+        "description": "A luxurious king-size bed frame made with high-quality wood and upholstered in fine fabric.",
+        "sizes": [
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "White",
+            "Gray"
+        ],
+        "images": [
+            "luxury_bed_frame_1.jpg",
+            "luxury_bed_frame_2.jpg"
+        ],
+        "sku": "BF56789",
+        "categories": [
+            "Beds",
+            "Bedroom"
+        ],
+        "tags": [
+            "luxury",
+            "king-size",
+            "wooden"
+        ],
+        "reviews": [
+            {
+                "user": "AnnaB",
+                "comment": "The bed frame is amazing! Super sturdy and elegant.",
+                "rating": 5
+            },
+            {
+                "user": "JohnK",
+                "comment": "High-quality materials, worth the price.",
+                "rating": 4.8
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "title": "Compact Desk",
+        "subtitle": "Modern compact office desk",
+        "price": 199.99,
+        "rating": 4.4,
+        "description": "A space-saving office desk with a modern design, perfect for small home offices.",
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "colors": [
+            "White",
+            "Black",
+            "Oak"
+        ],
+        "images": [
+            "compact_desk_1.jpg",
+            "compact_desk_2.jpg"
+        ],
+        "sku": "DK12378",
+        "categories": [
+            "Desks",
+            "Office"
+        ],
+        "tags": [
+            "modern",
+            "compact",
+            "space-saving"
+        ],
+        "reviews": [
+            {
+                "user": "TomS",
+                "comment": "Fits perfectly in my small office, looks great.",
+                "rating": 4.5
+            },
+            {
+                "user": "ClaireA",
+                "comment": "A bit difficult to assemble, but very functional.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Leather Recliner",
+        "subtitle": "Comfortable reclining chair",
+        "price": 699.99,
+        "rating": 4.7,
+        "description": "A leather recliner chair that offers maximum comfort with a stylish design.",
+        "sizes": [
+            "M",
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Black",
+            "Brown"
+        ],
+        "images": [
+            "leather_recliner_1.jpg",
+            "leather_recliner_2.jpg"
+        ],
+        "sku": "LR65432",
+        "categories": [
+            "Chairs",
+            "Living Room"
+        ],
+        "tags": [
+            "recliner",
+            "leather",
+            "comfortable"
+        ],
+        "reviews": [
+            {
+                "user": "MikeD",
+                "comment": "The best recliner I've ever owned. Perfect for relaxing.",
+                "rating": 5
+            },
+            {
+                "user": "JaneH",
+                "comment": "Very comfortable but the leather could be softer.",
+                "rating": 4.5
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "title": "Minimalist Bookshelf",
+        "subtitle": "Simple and modern bookshelf",
+        "price": 249.99,
+        "rating": 4.6,
+        "description": "A sleek and minimalist bookshelf made from high-quality wood, perfect for modern homes.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "White",
+            "Walnut"
+        ],
+        "images": [
+            "minimalist_bookshelf_1.jpg",
+            "minimalist_bookshelf_2.jpg"
+        ],
+        "sku": "BS76543",
+        "categories": [
+            "Storage",
+            "Living Room"
+        ],
+        "tags": [
+            "minimalist",
+            "modern",
+            "wooden"
+        ],
+        "reviews": [
+            {
+                "user": "SarahJ",
+                "comment": "Looks fantastic, and holds a lot of books.",
+                "rating": 4.5
+            },
+            {
+                "user": "PaulG",
+                "comment": "Great design, but shelves could be thicker.",
+                "rating": 4.2
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Elegant Wooden Chair",
+        "subtitle": "Classic design with a modern touch",
+        "price": 89.99,
+        "rating": 4.5,
+        "description": "This elegant wooden chair is perfect for any living space, combining timeless design with modern comfort.",
+        "sizes": [
+            "S",
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Brown",
+            "Dark Wood",
+            "White"
+        ],
+        "images": [
+            "https://dummyimage.com/600x400/000/fff&text=Wooden+Chair+1",
+            "https://dummyimage.com/600x400/000/fff&text=Wooden+Chair+2"
+        ],
+        "sku": "CHAIR12345",
+        "categories": [
+            "Living Room",
+            "Seating"
+        ],
+        "tags": [
+            "wooden",
+            "chair",
+            "classic"
+        ],
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "comment": "Great quality!",
+                "rating": 5
+            },
+            {
+                "user": "JaneSmith",
+                "comment": "Stylish and comfortable.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "title": "Modern Leather Sofa",
+        "subtitle": "Luxury big sofa with leather finish",
+        "price": 499.99,
+        "rating": 4.8,
+        "description": "This luxurious leather sofa provides maximum comfort with an elegant appearance, perfect for modern interiors.",
+        "sizes": [
+            "M",
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Black",
+            "Brown",
+            "White"
+        ],
+        "images": [
+            "https://dummyimage.com/600x400/000/fff&text=Leather+Sofa+1",
+            "https://dummyimage.com/600x400/000/fff&text=Leather+Sofa+2"
+        ],
+        "sku": "SOFA98765",
+        "categories": [
+            "Living Room",
+            "Sofa"
+        ],
+        "tags": [
+            "leather",
+            "sofa",
+            "luxury"
+        ],
+        "reviews": [
+            {
+                "user": "AliceW",
+                "comment": "Super comfortable and stylish.",
+                "rating": 5
+            },
+            {
+                "user": "MikeT",
+                "comment": "A bit expensive but worth it.",
+                "rating": 4.5
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "title": "Minimalist Coffee Table",
+        "subtitle": "Sleek design with tempered glass top",
+        "price": 159.99,
+        "rating": 4.3,
+        "description": "This minimalist coffee table features a sleek design with a tempered glass top, perfect for contemporary living rooms.",
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "colors": [
+            "White",
+            "Black",
+            "Silver"
+        ],
+        "images": [
+            "https://dummyimage.com/600x400/000/fff&text=Coffee+Table+1",
+            "https://dummyimage.com/600x400/000/fff&text=Coffee+Table+2"
+        ],
+        "sku": "TABLE45678",
+        "categories": [
+            "Living Room",
+            "Tables"
+        ],
+        "tags": [
+            "minimalist",
+            "table",
+            "glass"
+        ],
+        "reviews": [
+            {
+                "user": "ChrisP",
+                "comment": "Love the design!",
+                "rating": 4.7
+            },
+            {
+                "user": "LauraG",
+                "comment": "Perfect size for my small space.",
+                "rating": 4.2
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "title": "Contemporary Bookshelf",
+        "subtitle": "Tall wooden bookshelf with adjustable shelves",
+        "price": 199.99,
+        "rating": 4.6,
+        "description": "This tall, contemporary bookshelf offers ample storage and adjustable shelves, making it both functional and stylish.",
+        "sizes": [
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Oak",
+            "Walnut",
+            "Black"
+        ],
+        "images": [
+            "https://dummyimage.com/600x400/000/fff&text=Bookshelf+1",
+            "https://dummyimage.com/600x400/000/fff&text=Bookshelf+2"
+        ],
+        "sku": "SHELF32100",
+        "categories": [
+            "Living Room",
+            "Storage"
+        ],
+        "tags": [
+            "bookshelf",
+            "wood",
+            "adjustable"
+        ],
+        "reviews": [
+            {
+                "user": "TomH",
+                "comment": "Great quality, holds a lot of books.",
+                "rating": 4.8
+            },
+            {
+                "user": "SarahJ",
+                "comment": "Looks amazing in my office.",
+                "rating": 4.5
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "title": "Scandinavian Dining Table",
+        "subtitle": "Simple yet elegant dining table",
+        "price": 349.99,
+        "rating": 4.4,
+        "description": "This Scandinavian-style dining table features clean lines and a natural finish, ideal for any modern dining room.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Natural Wood",
+            "Black",
+            "Gray"
+        ],
+        "images": [
+            "https://dummyimage.com/600x400/000/fff&text=Dining+Table+1",
+            "https://dummyimage.com/600x400/000/fff&text=Dining+Table+2"
+        ],
+        "sku": "DTABLE99887",
+        "categories": [
+            "Dining Room",
+            "Tables"
+        ],
+        "tags": [
+            "dining table",
+            "scandinavian",
+            "modern"
+        ],
+        "reviews": [
+            {
+                "user": "NickF",
+                "comment": "Perfect for my space.",
+                "rating": 4.5
+            },
+            {
+                "user": "EmmaB",
+                "comment": "Very sturdy and well-made.",
+                "rating": 4.3
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "title": "Elegant Wooden Dining Table",
+        "subtitle": "Stylish and durable dining table",
+        "price": 249.99,
+        "ratting": 4.5,
+        "description": "This elegant wooden dining table is perfect for any home, crafted with high-quality oak wood. Designed to seat six people comfortably, it's both functional and stylish.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Brown",
+            "Dark Brown"
+        ],
+        "images": [
+            "image1.jpg",
+            "image2.jpg"
+        ],
+        "sku": "TAB12345",
+        "categories": [
+            "Dining",
+            "Wooden Furniture"
+        ],
+        "tags": [
+            "wood",
+            "table",
+            "dining"
+        ],
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "rating": 5,
+                "comment": "Absolutely love this table! Great quality."
+            },
+            {
+                "user": "JaneSmith",
+                "rating": 4,
+                "comment": "Looks fantastic, but was a bit tricky to assemble."
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "title": "Modern Leather Sofa",
+        "subtitle": "Luxury big sofa",
+        "price": 499.99,
+        "ratting": 4.7,
+        "description": "A spacious modern leather sofa that brings both style and comfort to your living room. Made with premium leather, it's durable and easy to clean.",
+        "sizes": [
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Black",
+            "White",
+            "Beige"
+        ],
+        "images": [
+            "image3.jpg",
+            "image4.jpg"
+        ],
+        "sku": "SOF56789",
+        "categories": [
+            "Living Room",
+            "Sofas"
+        ],
+        "tags": [
+            "sofa",
+            "leather",
+            "modern"
+        ],
+        "reviews": [
+            {
+                "user": "AliceW",
+                "rating": 5,
+                "comment": "Super comfy and stylish!"
+            },
+            {
+                "user": "BobM",
+                "rating": 4,
+                "comment": "Looks amazing but was delivered with a slight scratch."
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "title": "Rustic Wooden Coffee Table",
+        "subtitle": "Solid wood coffee table",
+        "price": 149.99,
+        "ratting": 4.2,
+        "description": "This rustic coffee table is crafted from reclaimed wood, adding a touch of rustic charm to your living room.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Natural",
+            "Walnut"
+        ],
+        "images": [
+            "image5.jpg",
+            "image6.jpg"
+        ],
+        "sku": "COF98765",
+        "categories": [
+            "Living Room",
+            "Tables"
+        ],
+        "tags": [
+            "coffee table",
+            "wood",
+            "rustic"
+        ],
+        "reviews": [
+            {
+                "user": "CharlesD",
+                "rating": 4,
+                "comment": "Very solid build, looks great with my décor."
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "title": "Compact Office Desk",
+        "subtitle": "Stylish compact desk",
+        "price": 199.99,
+        "ratting": 4.6,
+        "description": "A compact office desk with a sleek design that fits perfectly in small workspaces. Equipped with drawers for extra storage.",
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "colors": [
+            "White",
+            "Gray"
+        ],
+        "images": [
+            "image7.jpg",
+            "image8.jpg"
+        ],
+        "sku": "DESK3210",
+        "categories": [
+            "Office",
+            "Desks"
+        ],
+        "tags": [
+            "desk",
+            "office",
+            "compact"
+        ],
+        "reviews": [
+            {
+                "user": "SarahL",
+                "rating": 5,
+                "comment": "Perfect for my small office!"
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "title": "Ergonomic Office Chair",
+        "subtitle": "Adjustable office chair",
+        "price": 129.99,
+        "ratting": 4.3,
+        "description": "This ergonomic chair offers excellent support for long working hours. Adjustable height and backrest ensure maximum comfort.",
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "colors": [
+            "Black",
+            "Gray",
+            "Blue"
+        ],
+        "images": [
+            "image9.jpg",
+            "image10.jpg"
+        ],
+        "sku": "CHAIR456",
+        "categories": [
+            "Office",
+            "Chairs"
+        ],
+        "tags": [
+            "chair",
+            "office",
+            "ergonomic"
+        ],
+        "reviews": [
+            {
+                "user": "MarkG",
+                "rating": 4,
+                "comment": "Comfortable but could use more padding."
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "title": "Minimalist Bookshelf",
+        "subtitle": "Space-saving bookshelf",
+        "price": 89.99,
+        "ratting": 4.4,
+        "description": "A minimalist bookshelf that is perfect for any space. Made with metal frames and wooden shelves, it offers a sleek and modern design.",
+        "sizes": [
+            "XS",
+            "S",
+            "M"
+        ],
+        "colors": [
+            "Black",
+            "White",
+            "Oak"
+        ],
+        "images": [
+            "image11.jpg",
+            "image12.jpg"
+        ],
+        "sku": "BS123456",
+        "categories": [
+            "Storage",
+            "Bookshelves"
+        ],
+        "tags": [
+            "bookshelf",
+            "minimalist",
+            "modern"
+        ],
+        "reviews": [
+            {
+                "user": "EmilyP",
+                "rating": 4,
+                "comment": "Good value for money."
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "title": "Classic Wooden Wardrobe",
+        "subtitle": "Spacious wooden wardrobe",
+        "price": 599.99,
+        "ratting": 4.9,
+        "description": "This classic wardrobe offers ample space for all your clothing needs. Made from solid oak, it's built to last.",
+        "sizes": [
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Oak",
+            "Walnut"
+        ],
+        "images": [
+            "image13.jpg",
+            "image14.jpg"
+        ],
+        "sku": "WAR123789",
+        "categories": [
+            "Bedroom",
+            "Wardrobes"
+        ],
+        "tags": [
+            "wardrobe",
+            "wood",
+            "classic"
+        ],
+        "reviews": [
+            {
+                "user": "GeorgeK",
+                "rating": 5,
+                "comment": "Beautiful and sturdy!"
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "title": "Contemporary Bed Frame",
+        "subtitle": "Stylish and strong bed frame",
+        "price": 299.99,
+        "ratting": 4.6,
+        "description": "A contemporary bed frame with a sleek metal design. Strong and durable, perfect for modern bedrooms.",
+        "sizes": [
+            "M",
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Black",
+            "White",
+            "Silver"
+        ],
+        "images": [
+            "image15.jpg",
+            "image16.jpg"
+        ],
+        "sku": "BED123890",
+        "categories": [
+            "Bedroom",
+            "Beds"
+        ],
+        "tags": [
+            "bed",
+            "frame",
+            "contemporary"
+        ],
+        "reviews": [
+            {
+                "user": "NatalieT",
+                "rating": 4,
+                "comment": "Sturdy but a little squeaky."
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "title": "Elegant Wooden Chair",
+        "subtitle": "Luxury handcrafted chair",
+        "price": 120.99,
+        "ratting": 4.5,
+        "description": "A beautifully handcrafted wooden chair made from sustainable materials. Perfect for your living room or dining area.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Natural Wood",
+            "Dark Brown"
+        ],
+        "images": [
+            "image1.jpg",
+            "image2.jpg"
+        ],
+        "sku": "CHRW001",
+        "categories": [
+            "Chairs",
+            "Wooden Furniture"
+        ],
+        "tags": [
+            "wood",
+            "handcrafted",
+            "elegant"
+        ],
+        "reviews": [
+            {
+                "user": "John Doe",
+                "comment": "Very comfortable and stylish!",
+                "rating": 5
+            },
+            {
+                "user": "Jane Smith",
+                "comment": "Great quality but a bit pricey.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "title": "Modern Sofa Set",
+        "subtitle": "Luxury big sofa",
+        "price": 899.99,
+        "ratting": 4.8,
+        "description": "A large, modern sofa set that brings both comfort and elegance to any living space. Available in multiple colors.",
+        "sizes": [
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Gray",
+            "Blue",
+            "Beige"
+        ],
+        "images": [
+            "image3.jpg",
+            "image4.jpg"
+        ],
+        "sku": "SFMOD002",
+        "categories": [
+            "Sofas",
+            "Living Room"
+        ],
+        "tags": [
+            "modern",
+            "luxury",
+            "comfort"
+        ],
+        "reviews": [
+            {
+                "user": "Alice Lee",
+                "comment": "So comfortable, perfect for family movie nights.",
+                "rating": 5
+            },
+            {
+                "user": "Robert Green",
+                "comment": "Looks great in my living room!",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "title": "Classic Coffee Table",
+        "subtitle": "Elegant round table",
+        "price": 259.49,
+        "ratting": 4.2,
+        "description": "A classic round coffee table made from polished wood. Perfect for bringing a touch of sophistication to your home.",
+        "sizes": [
+            "S",
+            "M"
+        ],
+        "colors": [
+            "Dark Wood",
+            "Light Oak"
+        ],
+        "images": [
+            "image5.jpg",
+            "image6.jpg"
+        ],
+        "sku": "CTABL003",
+        "categories": [
+            "Tables",
+            "Living Room"
+        ],
+        "tags": [
+            "classic",
+            "wooden",
+            "sophisticated"
+        ],
+        "reviews": [
+            {
+                "user": "David Young",
+                "comment": "High-quality finish and the perfect size for my apartment.",
+                "rating": 4
+            },
+            {
+                "user": "Emily Watson",
+                "comment": "Gorgeous design, though slightly heavy.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "title": "Contemporary Bed Frame",
+        "subtitle": "Stylish and sturdy bed frame",
+        "price": 699.00,
+        "ratting": 4.6,
+        "description": "A contemporary bed frame designed for comfort and durability. Available in king and queen sizes.",
+        "sizes": [
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "White",
+            "Black",
+            "Gray"
+        ],
+        "images": [
+            "image7.jpg",
+            "image8.jpg"
+        ],
+        "sku": "BFRM004",
+        "categories": [
+            "Beds",
+            "Bedroom"
+        ],
+        "tags": [
+            "contemporary",
+            "sturdy",
+            "stylish"
+        ],
+        "reviews": [
+            {
+                "user": "Sophia Turner",
+                "comment": "The best bed frame I've ever owned.",
+                "rating": 5
+            },
+            {
+                "user": "Michael Scott",
+                "comment": "Easy to assemble, very sturdy.",
+                "rating": 4
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "title": "Vintage Dresser",
+        "subtitle": "Elegant vintage wooden dresser",
+        "price": 499.99,
+        "ratting": 4.3,
+        "description": "An elegant vintage dresser with spacious drawers. Perfect for adding charm to your bedroom or guest room.",
+        "sizes": [
+            "M",
+            "L"
+        ],
+        "colors": [
+            "Dark Oak",
+            "Cherry Wood"
+        ],
+        "images": [
+            "image9.jpg",
+            "image10.jpg"
+        ],
+        "sku": "DRESS005",
+        "categories": [
+            "Dressers",
+            "Bedroom"
+        ],
+        "tags": [
+            "vintage",
+            "wood",
+            "elegant"
+        ],
+        "reviews": [
+            {
+                "user": "Olivia Davis",
+                "comment": "Looks beautiful and has plenty of storage space.",
+                "rating": 4
+            },
+            {
+                "user": "Ethan Brooks",
+                "comment": "The wood finish is gorgeous.",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "title": "Compact Nightstand",
+        "subtitle": "Minimalist nightstand with drawer",
+        "price": 89.99,
+        "ratting": 4.7,
+        "description": "A sleek and compact nightstand featuring a minimalist design with one drawer for storage.",
+        "sizes": [
+            "S"
+        ],
+        "colors": [
+            "White",
+            "Black",
+            "Natural"
+        ],
+        "images": [
+            "image79.jpg",
+            "image80.jpg"
+        ],
+        "sku": "NTSTND040",
+        "categories": [
+            "Nightstands",
+            "Bedroom"
+        ],
+        "tags": [
+            "minimalist",
+            "compact",
+            "storage"
+        ],
+        "reviews": [
+            {
+                "user": "Grace Miller",
+                "comment": "Perfect size for my bedroom!",
+                "rating": 5
+            },
+            {
+                "user": "Benjamin Adams",
+                "comment": "Great quality for the price.",
+                "rating": 4
+            }
+        ]
+    }
+]

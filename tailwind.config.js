@@ -23,7 +23,7 @@ export default {
                 
             },
             backgroundImage: {
-                'hero-screen': 'url(/src/assets/images/hero-screen.jpg)'
+                'hero-screen': 'url(https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/hero-screen.jpg)'
             },
             fontSize: {
                 52: '3.25em'

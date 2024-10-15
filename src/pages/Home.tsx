@@ -1,24 +1,40 @@
-import Button from "../components/UI/Button";
+import { HeroScreen } from "./../components/Home/HeroScreen";
+import Products from "../../products.json";
 
 const Home = () => {
+    Products.map((product: Product) => {
+        console.log(product.categories);
+    });
+
     return (
         <>
-            <section className="hero-section bg-hero-screen h-[calc(100vh-100px)] bg-cover bg-no-repeat bg-center flex justify-center">
-                <div className="container 2xl grid grid-cols-12 h-full items-center ">
-                    <div className="col-start-7 col-span-6">
-                        <div className="content py-60 px-10 bg-FFF3E3 rounded-md">
-                            <p className="subtitle font-semibold tracking-widest">New Arrival</p>
-                            <h1 className="text-52 font-bold leading-tight text-brand-color mt-1 mb-5">Discover Our New Collection</h1>
-                            <p className="subtitle font-medium text-lg mb-45">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Ut elit tellus, luctus nec
-                                ullamcorper mattis.
-                            </p>
-                            <Button>Buy Now</Button>
-                        </div>
+            <HeroScreen />
+
+            <div className="container 2xl col-span-12 col-start-1 col-end-12 text-center">
+                <h3>Browse The Range</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                <div className="flex">
+                    <div>
+                        <a href="">
+                            <img src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-dining.jpg" alt="" />
+                            <h4>Dining</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <img src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-living.jpg" alt="" />
+                            <h4>Living</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <img src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-bedroom.jpg" alt="" />
+                            <h4>Bedroom</h4>
+                        </a>
                     </div>
                 </div>
-            </section>
+            </div>
         </>
     );
 };
