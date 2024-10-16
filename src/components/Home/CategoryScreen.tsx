@@ -1,3 +1,5 @@
+import { Overlay } from "./../UI/Overlay";
+
 export function CategoryScreen() {
     return (
         <div className="container 2xl grid grid-cols-12 text-center py-50">
@@ -8,40 +10,40 @@ export function CategoryScreen() {
                 </p>
 
                 <div className="sm:flex space-x-5">
-                    <a href="" className="group ">
+                    <a href="" className="group/overlay ">
                         <div className="relative rounded-xl overflow-hidden">
                             <img
                                 src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-dining.jpg"
                                 alt="Category Dining"
                             />
-                            <div className="w-full h-full absolute top-0 overlay transition-all duration-300 opacity-0 bg-3A3A3A group-hover:opacity-70"></div>
+                            <Overlay />
                         </div>
 
-                        <h4 className="mt-8 transition-all duration-300 group-hover:text-brand-color">
+                        <h4 className="mt-8 transition-all duration-300 group-hover/overlay:text-brand-color">
                             Dining
                         </h4>
                     </a>
-                    <a href="" className="group">
+                    <a href="" className="group/overlay">
                         <div className="relative rounded-xl overflow-hidden">
                             <img
                                 src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-living.jpg"
                                 alt="Category Living"
                             />
-                            <div className="w-full h-full absolute top-0 overlay transition-all duration-300 opacity-0 bg-3A3A3A group-hover:opacity-70"></div>
+                            <Overlay />
                         </div>
-                        <h4 className="mt-8 transition-all duration-300 group-hover:text-brand-color">
+                        <h4 className="mt-8 transition-all duration-300 group-hover/overlay:text-brand-color">
                             Living
                         </h4>
                     </a>
-                    <a href="" className="group ">
+                    <a href="" className="group/overlay ">
                         <div className="relative rounded-xl overflow-hidden">
                             <img
                                 src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-bedroom.jpg"
                                 alt="Category Bedroom"
                             />
-                            <div className="w-full h-full absolute top-0 overlay transition-all duration-300 opacity-0 bg-3A3A3A group-hover:opacity-70"></div>
+                            <Overlay />
                         </div>
-                        <h4 className="mt-8 transition-all duration-300 group-hover:text-brand-color">
+                        <h4 className="mt-8 transition-all duration-300 group-hover/overlay:text-brand-color">
                             Bedroom
                         </h4>
                     </a>

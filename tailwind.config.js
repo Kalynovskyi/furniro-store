@@ -6,7 +6,10 @@ export default {
             colors: {
                 "brand-color": "#B88E2F",
                 "FFF3E3": '#FFF3E3',
-                "3A3A3A": '#3A3A3A'
+                "3A3A3A": '#3A3A3A',
+                "(3A3A3A,.7)": 'rgba(58,58,58,.7)',
+                "898989": '#898989',
+                "F4F5F7": '#F4F5F7'
             },
             container: {
                 center: true,

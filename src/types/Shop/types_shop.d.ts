@@ -7,11 +7,11 @@ interface Product {
     description?: string;
     sizes?: Array<string>;
     colors?: Array<string>;
-    images?: Array<string>;
+    images?: Array<string> | undefined;
     sku?: string;
     categories?: Array<string>;
     tags?: Array<string>;
-    reviews?: Array<Review>
+    reviews?: Array<Review>;
 }
 
 interface Review {
@@ -21,5 +21,9 @@ interface Review {
 }
 
 interface ProductProps {
-    productData: Product
+    productData: Product;
+}
+
+interface ProductsScreenProps {
+    products: Product[];
 }

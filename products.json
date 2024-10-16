@@ -16,8 +16,7 @@
             "Gray"
         ],
         "images": [
-            "sofa1.png",
-            "sofa1_alt.png"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-1.jpg"
         ],
         "sku": "SOF123456",
         "categories": [
@@ -58,8 +57,7 @@
             "Black"
         ],
         "images": [
-            "chair1.png",
-            "chair1_alt.png"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-2.jpg"
         ],
         "sku": "CHA234567",
         "categories": [
@@ -100,8 +98,7 @@
             "Silver"
         ],
         "images": [
-            "table1.png",
-            "table1_alt.png"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-3.jpg"
         ],
         "sku": "TAB345678",
         "categories": [
@@ -143,8 +140,7 @@
             "Black"
         ],
         "images": [
-            "bed1.png",
-            "bed1_alt.png"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-4.jpg"
         ],
         "sku": "BED456789",
         "categories": [
@@ -185,8 +181,7 @@
             "Black"
         ],
         "images": [
-            "desk1.png",
-            "desk1_alt.png"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-5.jpg"
         ],
         "sku": "DES567890",
         "categories": [
@@ -227,8 +222,7 @@
             "Black"
         ],
         "images": [
-            "dining_table1.png",
-            "dining_table1_alt.png"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-6.jpg"
         ],
         "sku": "DIN678901",
         "categories": [
@@ -271,8 +265,7 @@
             "Black"
         ],
         "images": [
-            "image1.jpg",
-            "image2.jpg"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-7.jpg"
         ],
         "sku": "SOFA-MOD-001",
         "categories": [
@@ -314,8 +307,7 @@
             "Dark Oak"
         ],
         "images": [
-            "image3.jpg",
-            "image4.jpg"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-8.jpg"
         ],
         "sku": "TABLE-WOOD-002",
         "categories": [

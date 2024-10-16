@@ -4,3 +4,8 @@ interface ButtonProps {
     type?: "button" | "submit" | "reset";
     className?: string;
 }
+
+interface OverlayProps {
+    children?: React.ReactNode;
+    className?: string;
+}
