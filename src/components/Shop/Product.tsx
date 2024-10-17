@@ -1,13 +1,19 @@
 import { Overlay } from "./../UI/Overlay";
 import Button from "../UI/Button";
+import { useState } from "react";
 
 export function Product(props: ProductProps) {
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
     const product = props.productData;
     const imgSrc = product.images || "";
 
+    const imageLoaded = () => {
+        setIsImageLoaded(true)
+    }
+
     return (
-        <div className="relative group/overlay md:col-span-6 lg:col-span-4 xl:col-span-3 flex flex-col pt-full">
-            <img className="w-full" src={imgSrc[0]} alt={product.title} />
+        <div className={`relative group/overlay md:col-span-6 lg:col-span-4 xl:col-span-3 flex flex-col ${!isImageLoaded ? 'pt-full ' : ''} `}>
+            <img className={`w-full ${!isImageLoaded ? 'hidden ' : ''}`} src={imgSrc[0]} alt={product.title} onLoad={imageLoaded}/>
             <div className="px-4 pt-4 pb-3 bg-F4F5F7 space-y-2 flex-1">
                 <h5 className="text-2xl font-semibold leading-tight text-3A3A3A">
                     {product.title}
