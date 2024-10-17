@@ -10,7 +10,9 @@ export default {
                 "(3A3A3A,.7)": 'rgba(58,58,58,.7)',
                 "898989": '#898989',
                 "F4F5F7": '#F4F5F7',
-                "FCF8F3": '#FCF8F3'
+                "FCF8F3": '#FCF8F3',
+                "(fffff,.7)": 'rgba(255,255,255,.7)',
+                "616161": '#616161',
             },
             container: {
                 center: true,
@@ -32,6 +34,7 @@ export default {
                 'hero-screen': 'url(https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/hero-screen.jpg)'
             },
             fontSize: {
+                28: '1.75em',
                 32: '2em',
                 40: '2.5em',
                 52: '3.25em',
