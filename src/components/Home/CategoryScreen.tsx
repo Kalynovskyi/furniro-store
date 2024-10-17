@@ -2,7 +2,7 @@ import { Overlay } from "./../UI/Overlay";
 
 export function CategoryScreen() {
     return (
-        <div className="container 2xl grid grid-cols-12 text-center py-50">
+        <section className="container 2xl grid grid-cols-12 text-center py-50">
             <div className="col-start-2 col-end-12">
                 <h3 className="text-32 font-semibold">Browse The Range</h3>
                 <p className="text-xl pb-60">
@@ -49,6 +49,6 @@ export function CategoryScreen() {
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

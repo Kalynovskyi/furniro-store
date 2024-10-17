@@ -1294,8 +1294,7 @@
             "Dark Brown"
         ],
         "images": [
-            "image1.jpg",
-            "image2.jpg"
+            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-6.jpg"
         ],
         "sku": "CHRW001",
         "categories": [

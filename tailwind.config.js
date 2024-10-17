@@ -25,7 +25,7 @@ export default {
                 60: " 3.75rem ",
                 72: " 4.5rem ",
                 75: " 4.688rem ",
-                
+                'full': '100%'
             },
             backgroundImage: {
                 'hero-screen': 'url(https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/hero-screen.jpg)'

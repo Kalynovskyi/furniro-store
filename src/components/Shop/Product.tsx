@@ -6,7 +6,7 @@ export function Product(props: ProductProps) {
     const imgSrc = product.images || "";
 
     return (
-        <div className="relative group/overlay md:col-span-6 lg:col-span-4 xl:col-span-3 flex flex-col">
+        <div className="relative group/overlay md:col-span-6 lg:col-span-4 xl:col-span-3 flex flex-col pt-full">
             <img className="w-full" src={imgSrc[0]} alt={product.title} />
             <div className="px-4 pt-4 pb-3 bg-F4F5F7 space-y-2 flex-1">
                 <h5 className="text-2xl font-semibold leading-tight text-3A3A3A">
