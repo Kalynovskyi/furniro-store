@@ -9,7 +9,8 @@ export default {
                 "3A3A3A": '#3A3A3A',
                 "(3A3A3A,.7)": 'rgba(58,58,58,.7)',
                 "898989": '#898989',
-                "F4F5F7": '#F4F5F7'
+                "F4F5F7": '#F4F5F7',
+                "FCF8F3": '#FCF8F3'
             },
             container: {
                 center: true,
