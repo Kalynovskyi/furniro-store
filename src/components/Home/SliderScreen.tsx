@@ -44,6 +44,12 @@ export function SliderScreen() {
         setIsImageLoaded(true);
     };
 
+    const handledGetSliderData = (SliderData: SliderData) => {
+        console.log(SliderData.activeSlide);
+
+        setActiveSliderItem(SliderData.activeSlide ?? 0);
+    }
+
     return (
         <section className="py-11 bg-FCF8F3">
             <div className="container 2xl w-full  ">
@@ -63,6 +69,7 @@ export function SliderScreen() {
                     <div className="col-span-12 md:col-span-4">
                         <Slider
                             isImageLoaded={isImageLoaded}
+                            getSliderData={handledGetSliderData}
                         >
                             {sliderItems.map((item, index) => (
                                 <SliderItem

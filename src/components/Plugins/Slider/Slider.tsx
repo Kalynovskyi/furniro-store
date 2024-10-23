@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, Children } from "react";
 interface SliderProps {
     children: React.ReactNode;
     isImageLoaded?: boolean;
-    getSlideData?: (arg: SliderData) => void;
+    getSliderData: (arg: SliderData) => void;
 }
 
 export function Slider(props: SliderProps) {
@@ -33,6 +33,12 @@ export function Slider(props: SliderProps) {
                     setSliderItemHeight(sliderItems[i].offsetHeight);
                 }
             }
+
+            const sliderData = {
+                activeSlide: activeSlide,
+            };
+
+            props.getSliderData(sliderData);
         }
     }, [
         props.isImageLoaded,
@@ -43,7 +49,11 @@ export function Slider(props: SliderProps) {
     ]);
 
     /*Slider navigation logic*/
-    const toSlide = (activeSlide: number, nextSlide: number, itemGap: number = 24) => {
+    const toSlide = (
+        activeSlide: number,
+        nextSlide: number,
+        itemGap: number = 24
+    ) => {
         if (sliderItemWidth === undefined || nextSlide === activeSlide) return;
 
         const newPosition = -((sliderItemWidth + itemGap) * nextSlide);
@@ -64,7 +74,7 @@ export function Slider(props: SliderProps) {
         const target = e.target as HTMLDivElement;
         const nextSlide = target.dataset.slide;
 
-        if (nextSlide === undefined) throw new Error("Next slide is undefined"); ; 
+        if (nextSlide === undefined) throw new Error("Next slide is undefined");
 
         toSlide(activeSlide, +nextSlide);
     };
@@ -88,7 +98,7 @@ export function Slider(props: SliderProps) {
     return (
         <div className="slider relative" ref={slider}>
             <div
-                className="slider-stage flex space-x-6 transition-all duration-300"
+                className={`slider-stage flex space-x-6 transition-all duration-300`}
                 style={{ transform: `translateX(${sliderStagePosition}px)` }}
             >
                 {props.children}
