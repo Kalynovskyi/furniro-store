@@ -43,10 +43,10 @@ export function Slider(props: SliderProps) {
     ]);
 
     /*Slider navigation logic*/
-    const toSlide = (activeSlide: number, nextSlide: number, paddingValue: number = 24) => {
+    const toSlide = (activeSlide: number, nextSlide: number, itemGap: number = 24) => {
         if (sliderItemWidth === undefined || nextSlide === activeSlide) return;
 
-        const newPosition = -((sliderItemWidth + paddingValue) * nextSlide);
+        const newPosition = -((sliderItemWidth + itemGap) * nextSlide);
 
         setActiveSlide(nextSlide);
         setSliderStagePosition(newPosition);
