@@ -3,16 +3,46 @@ import Button from "../UI/Button";
 import { SliderItem } from "../Plugins/Slider/SliderItem";
 import { useState } from "react";
 
+
+
 export function SliderScreen() {
     const [isImageLoaded, setIsImageLoaded] = useState(false);
+    const [activeSliderItem, setActiveSliderItem] = useState<number>(0);
+
+    const sliderItems = [
+        {
+            id: 1,
+            title: "Inner Peace",
+            category: "Bed Room",
+            image: "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-1.jpg",
+            imageAlt: "Bed Room Image",
+        },
+        {
+            id: 2,
+            title: "Inner Peace",
+            category: "Bed Room",
+            image: "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-2.jpg",
+            imageAlt: "Bed Room Image",
+        },
+        {
+            id: 3,
+            title: "Inner Peace",
+            category: "Bed Room",
+            image: "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-3.jpg",
+            imageAlt: "Bed Room Image",
+        },
+        {
+            id: 4,
+            title: "Inner Peace",
+            category: "Bed Room",
+            image: "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-2.jpg",
+            imageAlt: "Bed Room Image",
+        },
+    ];
 
     const imageLoaded = () => {
         setIsImageLoaded(true);
-    }
-
-    const handleGetActiveSlide = (activeSlide: number) => {
-        console.log(activeSlide);
-    }
+    };
 
     return (
         <section className="py-11 bg-FCF8F3">
@@ -31,92 +61,53 @@ export function SliderScreen() {
                         </div>
                     </div>
                     <div className="col-span-12 md:col-span-4">
-                        <Slider isImageLoaded={isImageLoaded} getActiveSlide={handleGetActiveSlide}>
-                            
-                            <SliderItem className="relative min-w-full">
-                                <div className="image">
-                                    <img
-                                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-1.jpg"
-                                        alt=""
-                                        onLoad={imageLoaded}
-                                    />
-                                </div>
-                                <div className="content absolute bottom-6 left-6">
-                                    <div className="bg-(fffff,.7) p-8">
-                                        <p className="text-616161 flex items-center">
-                                            01
-                                            <span className="bg-616161 h-px w-6 inline-block mx-2"></span>
-                                            Bed Room
-                                        </p>
-                                        <h5 className="text-28 leading-tight">
-                                            Inner Peace
-                                        </h5>
+                        <Slider
+                            isImageLoaded={isImageLoaded}
+                        >
+                            {sliderItems.map((item, index) => (
+                                <SliderItem
+                                    className={`relative min-w-full overflow-hidden ${
+                                        activeSliderItem === index
+                                            ? "active"
+                                            : ""
+                                    } ${
+                                        activeSliderItem > index ? "prev" : ""
+                                    } ${
+                                        activeSliderItem < index ? "next" : ""
+                                    } ${
+                                        activeSliderItem !== index
+                                            ? "h-2/3"
+                                            : ""
+                                    }`}
+                                    key={item.id}
+                                >
+                                    <div className="image">
+                                        <img
+                                            src={item.image}
+                                            alt=""
+                                            onLoad={imageLoaded}
+                                        />
                                     </div>
-                                </div>
-                            </SliderItem>
-                            <SliderItem className="relative min-w-full">
-                                <div className="image">
-                                    <img
-                                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-2.jpg"
-                                        alt=""
-                                        onLoad={imageLoaded}
-                                    />
-                                </div>
-                                <div className="content absolute bottom-6 left-6">
-                                    <div className="bg-(fffff,.7) p-8">
-                                        <p className="text-616161 flex items-center">
-                                            01
-                                            <span className="bg-616161 h-px w-6 inline-block mx-2"></span>
-                                            Bed Room
-                                        </p>
-                                        <h5 className="text-28 leading-tight">
-                                            Inner Peace
-                                        </h5>
+                                    <div
+                                        className={`content absolute bottom-6 left-6 transition-all duration-300 ${
+                                            activeSliderItem !== index
+                                                ? "opacity-0"
+                                                : ""
+                                        }`}
+                                    >
+                                        <div className="bg-(fffff,.7) p-8">
+                                            <p className="text-616161 flex items-center">
+                                                {item.id}
+                                                <span className="bg-616161 h-px w-6 inline-block mx-2"></span>
+                                                {item.category}
+                                            </p>
+                                            <h5 className="text-28 leading-tight">
+                                                {item.title}
+                                            </h5>
+                                        </div>
                                     </div>
-                                </div>
-                            </SliderItem>
-                            <SliderItem className="relative min-w-full">
-                                <div className="image">
-                                    <img
-                                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-3.jpg"
-                                        alt=""
-                                        onLoad={imageLoaded}
-                                    />
-                                </div>
-                                <div className="content absolute bottom-6 left-6">
-                                    <div className="bg-(fffff,.7) p-8">
-                                        <p className="text-616161 flex items-center">
-                                            01
-                                            <span className="bg-616161 h-px w-6 inline-block mx-2"></span>
-                                            Bed Room
-                                        </p>
-                                        <h5 className="text-28 leading-tight">
-                                            Inner Peace
-                                        </h5>
-                                    </div>
-                                </div>
-                            </SliderItem>
-                            <SliderItem className="relative min-w-full">
-                                <div className="image">
-                                    <img
-                                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-2.jpg"
-                                        alt=""
-                                        onLoad={imageLoaded}
-                                    />
-                                </div>
-                                <div className="content absolute bottom-6 left-6">
-                                    <div className="bg-(fffff,.7) p-8">
-                                        <p className="text-616161 flex items-center">
-                                            01
-                                            <span className="bg-616161 h-px w-6 inline-block mx-2"></span>
-                                            Bed Room
-                                        </p>
-                                        <h5 className="text-28 leading-tight">
-                                            Inner Peace
-                                        </h5>
-                                    </div>
-                                </div>
-                            </SliderItem>
+                                </SliderItem>
+                            ))}
                         </Slider>
                     </div>
                 </div>

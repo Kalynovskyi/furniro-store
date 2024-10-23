@@ -9,3 +9,9 @@ interface OverlayProps {
     children?: React.ReactNode;
     className?: string;
 }
+
+interface SliderData {
+    activeSlide?: number,
+    itemWidth?: number | undefined,
+    itemHeight?: number | undefined
+}

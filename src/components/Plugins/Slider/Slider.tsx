@@ -3,17 +3,20 @@ import { useEffect, useRef, useState, Children } from "react";
 interface SliderProps {
     children: React.ReactNode;
     isImageLoaded?: boolean;
-    getActiveSlide: (arg: number) => void;
+    getSlideData?: (arg: SliderData) => void;
 }
 
 export function Slider(props: SliderProps) {
     const slider = useRef<HTMLInputElement>(null);
-    const [activeSlide, setActiveSlide] = useState<number>(1);
-    const [sliderItemWidth, setSliderItemWidth] = useState<number>();
+    const [activeSlide, setActiveSlide] = useState<number>(0);
+    const [sliderItemWidth, setSliderItemWidth] = useState<
+        number | undefined
+    >();
+    const [sliderItemHeight, setSliderItemHeight] = useState<
+        number | undefined
+    >();
     const [sliderStagePosition, setSliderStagePosition] = useState<number>(0);
     const sliderItemsAmount = Children.count(props.children);
-
-    props.getActiveSlide(activeSlide);
 
     useEffect(() => {
         if (props.isImageLoaded) {
@@ -22,26 +25,64 @@ export function Slider(props: SliderProps) {
             const sliderItems =
                 slider.current.querySelectorAll<HTMLElement>(".slider-item");
 
-            sliderItems.forEach((element) => {
-                setSliderItemWidth(element.offsetWidth);
-            });
+            for (let i = 0; i < sliderItems.length; i++) {
+                if (sliderItemWidth === undefined) {
+                    setSliderItemWidth(sliderItems[i].offsetWidth);
+                }
+                if (sliderItemHeight === undefined) {
+                    setSliderItemHeight(sliderItems[i].offsetHeight);
+                }
+            }
         }
-    }, [props.isImageLoaded]);
+    }, [
+        props.isImageLoaded,
+        activeSlide,
+        props,
+        sliderItemWidth,
+        sliderItemHeight,
+    ]);
 
-    const onNextClick = () => {
-        if (sliderItemWidth === undefined) return;
-        const newPosition = sliderStagePosition - (sliderItemWidth + 24);
-        setActiveSlide(activeSlide + 1);
+    /*Slider navigation logic*/
+    const toSlide = (activeSlide: number, nextSlide: number, paddingValue: number = 24) => {
+        if (sliderItemWidth === undefined || nextSlide === activeSlide) return;
 
+        const newPosition = -((sliderItemWidth + paddingValue) * nextSlide);
+
+        setActiveSlide(nextSlide);
         setSliderStagePosition(newPosition);
-        props.getActiveSlide(activeSlide);
     };
 
-    const onPrevClick = () => {
-        if (sliderItemWidth === undefined) return;
-        setSliderStagePosition(sliderStagePosition + (sliderItemWidth + 24));
-        setActiveSlide(activeSlide - 1);
-        props.getActiveSlide(activeSlide);
+    const handleNextSlideClick = () => {
+        toSlide(activeSlide, activeSlide + 1);
+    };
+
+    const handlePrevSlideClick = () => {
+        toSlide(activeSlide, activeSlide - 1);
+    };
+
+    const handleNavDotClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        const target = e.target as HTMLDivElement;
+        const nextSlide = target.dataset.slide;
+
+        if (nextSlide === undefined) throw new Error("Next slide is undefined"); ; 
+
+        toSlide(activeSlide, +nextSlide);
+    };
+    /*Slider dots creation*/
+    const createSliderNavDots = () => {
+        const dots = [];
+        for (let i = 0; i < sliderItemsAmount; i++) {
+            dots.push(
+                <div
+                    key={i}
+                    className="h-4 w-4 bg-black cursor-auto"
+                    data-slide={i}
+                    onClick={handleNavDotClick}
+                ></div>
+            );
+        }
+
+        return dots;
     };
 
     return (
@@ -53,22 +94,26 @@ export function Slider(props: SliderProps) {
                 {props.children}
             </div>
             <div className="slider-nav-arrows">
-                {activeSlide !== sliderItemsAmount && (
+                {activeSlide !== sliderItemsAmount - 1 && (
                     <div
                         className="next bg-brand-color cursor-pointer absolute top-1/2 right-0"
-                        onClick={onNextClick}
+                        onClick={handleNextSlideClick}
                     >
                         Next
                     </div>
                 )}
-                {activeSlide !== 1 && (
+                {activeSlide !== 0 && (
                     <div
                         className="prev bg-brand-color cursor-pointer absolute top-1/2 left-0"
-                        onClick={onPrevClick}
+                        onClick={handlePrevSlideClick}
                     >
                         Prev
                     </div>
                 )}
+            </div>
+
+            <div className="slider-nav-dots flex space-x-4">
+                {createSliderNavDots()}
             </div>
         </div>
     );
