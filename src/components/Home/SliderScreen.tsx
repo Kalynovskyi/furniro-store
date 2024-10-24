@@ -3,11 +3,12 @@ import Button from "../UI/Button";
 import { SliderItem } from "../Plugins/Slider/SliderItem";
 import { useState } from "react";
 
-
-
 export function SliderScreen() {
     const [isImageLoaded, setIsImageLoaded] = useState(false);
     const [activeSliderItem, setActiveSliderItem] = useState<number>(0);
+    const [sliderItemHeight, setSliderItemHeight] = useState<number>(0);
+    const [inactiveSliderItemHeight, setInactiveSliderItemHeight] =
+        useState<number>(0);
 
     const sliderItems = [
         {
@@ -44,11 +45,18 @@ export function SliderScreen() {
         setIsImageLoaded(true);
     };
 
-    const handledGetSliderData = (SliderData: SliderData) => {
-        console.log(SliderData.activeSlide);
+    const getInactiveSliderItemHeight = () => {
+        return sliderItemHeight - sliderItemHeight * 0.15;
+    };
 
+    const handledGetSliderData = (SliderData: SliderData) => {
         setActiveSliderItem(SliderData.activeSlide ?? 0);
-    }
+        setSliderItemHeight(SliderData.itemHeight ?? 0);
+
+        setInactiveSliderItemHeight(getInactiveSliderItemHeight());
+    };
+
+    console.log(inactiveSliderItemHeight);
 
     return (
         <section className="py-11 bg-FCF8F3">
@@ -61,7 +69,7 @@ export function SliderScreen() {
                             </h3>
                             <p className="subtitle font-normal text-lg mb-6">
                                 Our designer already made a lot of beautiful
-                                prototipe of rooms that inspire you
+                                prototype of rooms that inspire you
                             </p>
                             <Button className="py-3">Explore More</Button>
                         </div>
@@ -70,25 +78,28 @@ export function SliderScreen() {
                         <Slider
                             isImageLoaded={isImageLoaded}
                             getSliderData={handledGetSliderData}
+                            className={`h-[${sliderItemHeight}px]`}
                         >
                             {sliderItems.map((item, index) => (
                                 <SliderItem
-                                    className={`relative min-w-full overflow-hidden ${
-                                        activeSliderItem === index
-                                            ? "active"
-                                            : ""
-                                    } ${
+                                    className={`relative min-w-full overflow-hidden transition-all duration-300  ${
                                         activeSliderItem > index ? "prev" : ""
                                     } ${
                                         activeSliderItem < index ? "next" : ""
                                     } ${
+                                        activeSliderItem === index
+                                            ? `active h-[${sliderItemHeight}px]`
+                                            : ""
+                                    }${
                                         activeSliderItem !== index
-                                            ? "h-2/3"
+                                            ? `h-[${inactiveSliderItemHeight}px]`
                                             : ""
                                     }`}
                                     key={item.id}
                                 >
-                                    <div className="image">
+                                    <div
+                                        className={`image overflow-hidden `}
+                                    >
                                         <img
                                             src={item.image}
                                             alt=""

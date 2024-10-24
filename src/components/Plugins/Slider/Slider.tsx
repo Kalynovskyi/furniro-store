@@ -4,6 +4,7 @@ interface SliderProps {
     children: React.ReactNode;
     isImageLoaded?: boolean;
     getSliderData: (arg: SliderData) => void;
+    className?: string;
 }
 
 export function Slider(props: SliderProps) {
@@ -17,6 +18,7 @@ export function Slider(props: SliderProps) {
     >();
     const [sliderStagePosition, setSliderStagePosition] = useState<number>(0);
     const sliderItemsAmount = Children.count(props.children);
+    const className = props.className || '';
 
     useEffect(() => {
         if (props.isImageLoaded) {
@@ -36,6 +38,7 @@ export function Slider(props: SliderProps) {
 
             const sliderData = {
                 activeSlide: activeSlide,
+                itemHeight: sliderItemHeight
             };
 
             props.getSliderData(sliderData);
@@ -96,7 +99,7 @@ export function Slider(props: SliderProps) {
     };
 
     return (
-        <div className="slider relative" ref={slider}>
+        <div className={`slider relative ${className}`} ref={slider}>
             <div
                 className={`slider-stage flex space-x-6 transition-all duration-300`}
                 style={{ transform: `translateX(${sliderStagePosition}px)` }}
