@@ -56,8 +56,6 @@ export function SliderScreen() {
         setInactiveSliderItemHeight(getInactiveSliderItemHeight());
     };
 
-    console.log(inactiveSliderItemHeight);
-
     return (
         <section className="py-11 bg-FCF8F3">
             <div className="container 2xl w-full  ">
@@ -74,7 +72,7 @@ export function SliderScreen() {
                             <Button className="py-3">Explore More</Button>
                         </div>
                     </div>
-                    <div className="col-span-12 md:col-span-4">
+                    <div className="col-span-12 md:col-span-6 lg:col-span-4">
                         <Slider
                             isImageLoaded={isImageLoaded}
                             getSliderData={handledGetSliderData}
@@ -83,7 +81,7 @@ export function SliderScreen() {
                             {sliderItems.map((item, index) => (
                                 <SliderItem
                                     className={`relative min-w-full overflow-hidden transition-all duration-300  ${
-                                        activeSliderItem > index ? "prev" : ""
+                                        activeSliderItem > index ? "prev blur-sm opacity-25" : ""
                                     } ${
                                         activeSliderItem < index ? "next" : ""
                                     } ${

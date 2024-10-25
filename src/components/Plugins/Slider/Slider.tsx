@@ -18,7 +18,7 @@ export function Slider(props: SliderProps) {
     >();
     const [sliderStagePosition, setSliderStagePosition] = useState<number>(0);
     const sliderItemsAmount = Children.count(props.children);
-    const className = props.className || '';
+    const className = props.className || "";
 
     useEffect(() => {
         if (props.isImageLoaded) {
@@ -38,10 +38,21 @@ export function Slider(props: SliderProps) {
 
             const sliderData = {
                 activeSlide: activeSlide,
-                itemHeight: sliderItemHeight
+                itemHeight: sliderItemHeight,
             };
 
             props.getSliderData(sliderData);
+
+            function handleResize() {
+                console.log(
+                    "resized to: ",
+                    window.innerWidth,
+                    "x",
+                    window.innerHeight
+                );
+            }
+
+            window.addEventListener('resize', handleResize)
         }
     }, [
         props.isImageLoaded,
@@ -50,6 +61,8 @@ export function Slider(props: SliderProps) {
         sliderItemWidth,
         sliderItemHeight,
     ]);
+
+    
 
     /*Slider navigation logic*/
     const toSlide = (
@@ -76,7 +89,6 @@ export function Slider(props: SliderProps) {
     const handleNavDotClick = (e: React.MouseEvent<HTMLDivElement>) => {
         const target = e.target as HTMLDivElement;
         const nextSlide = target.dataset.slide;
-
         if (nextSlide === undefined) throw new Error("Next slide is undefined");
 
         toSlide(activeSlide, +nextSlide);
@@ -88,10 +100,21 @@ export function Slider(props: SliderProps) {
             dots.push(
                 <div
                     key={i}
-                    className="h-4 w-4 bg-black cursor-auto"
+                    className={`h-[27px] w-[27px] rounded-full cursor-pointer flex items-center justify-center ${
+                        activeSlide === i ? `border-brand-color border` : ``
+                    }`}
                     data-slide={i}
                     onClick={handleNavDotClick}
-                ></div>
+                >
+                    <div
+                        className={`h-[11px] w-[11px] rounded-full cursor-pointer ${
+                            activeSlide === i
+                                ? `bg-brand-color `
+                                : `bg-[#D8D8D8]`
+                        }`}
+                        data-slide={i}
+                    ></div>
+                </div>
             );
         }
 
@@ -109,23 +132,52 @@ export function Slider(props: SliderProps) {
             <div className="slider-nav-arrows">
                 {activeSlide !== sliderItemsAmount - 1 && (
                     <div
-                        className="next bg-brand-color cursor-pointer absolute top-1/2 right-0"
+                        className="next flex items-center justify-center bg-white w-12 h-12 rounded-full cursor-pointer absolute top-1/2 right-0 shadow-md"
                         onClick={handleNextSlideClick}
                     >
-                        Next
+                        <svg
+                            width="9"
+                            height="16"
+                            viewBox="0 0 9 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M1.00006 1L8.00006 8L1.00006 15"
+                                stroke="#B88E2F"
+                                strokeWidth="1.8"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
                     </div>
                 )}
                 {activeSlide !== 0 && (
                     <div
-                        className="prev bg-brand-color cursor-pointer absolute top-1/2 left-0"
+                        className="next flex items-center justify-center bg-white w-12 h-12 rounded-full cursor-pointer absolute top-1/2 left-0 shadow-md"
                         onClick={handlePrevSlideClick}
                     >
-                        Prev
+                        <svg
+                            className="rotate-180"
+                            width="9"
+                            height="16"
+                            viewBox="0 0 9 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M1.00006 1L8.00006 8L1.00006 15"
+                                stroke="#B88E2F"
+                                strokeWidth="1.8"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
                     </div>
                 )}
             </div>
 
-            <div className="slider-nav-dots flex space-x-4">
+            <div className="slider-nav-dots lg:flex space-x-4 absolute -right-6 bottom-7 translate-x-full hidden">
                 {createSliderNavDots()}
             </div>
         </div>
