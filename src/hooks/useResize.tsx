@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const useResize = (callback: () => void) => {
-    const [size, setSize] = useState([window.outerWidth, window.outerHeight]);
 
     useEffect(() => {
-        
+
         const handleResize = () => {
-            setSize([window.outerWidth, window.outerHeight]);
-            console.log(size);
             callback();
-        }
+        };
 
-        window.addEventListener('resize', handleResize)
+        let timeOutFunctionId: number;
 
-        return () => {window.removeEventListener('resize', handleResize)}
-    }, [callback])
+        window.addEventListener("resize", () => {
+            clearTimeout(timeOutFunctionId);
 
-}
+            timeOutFunctionId = setTimeout(handleResize, 250);
+        });
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [callback]);
+};
 
 export default useResize;
