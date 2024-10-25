@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, Children } from "react";
+import useResize from "../../../hooks/useResize";
 
 interface SliderProps {
     children: React.ReactNode;
@@ -42,17 +43,6 @@ export function Slider(props: SliderProps) {
             };
 
             props.getSliderData(sliderData);
-
-            function handleResize() {
-                console.log(
-                    "resized to: ",
-                    window.innerWidth,
-                    "x",
-                    window.innerHeight
-                );
-            }
-
-            window.addEventListener('resize', handleResize)
         }
     }, [
         props.isImageLoaded,
@@ -62,7 +52,24 @@ export function Slider(props: SliderProps) {
         sliderItemHeight,
     ]);
 
-    
+    useResize(() => {
+        setActiveSlide(0);
+        setSliderStagePosition(0);
+
+        if (slider.current === null) return;
+
+        const sliderItems =
+            slider.current.querySelectorAll<HTMLElement>(".slider-item");
+
+        for (let i = 0; i < sliderItems.length; i++) {
+            if (sliderItemWidth === undefined) {
+                setSliderItemWidth(sliderItems[i].offsetWidth);
+            }
+            if (sliderItemHeight === undefined) {
+                setSliderItemHeight(sliderItems[i].offsetHeight);
+            }
+        }
+    });
 
     /*Slider navigation logic*/
     const toSlide = (
