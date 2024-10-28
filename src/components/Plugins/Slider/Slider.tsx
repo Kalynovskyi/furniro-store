@@ -98,6 +98,7 @@ export function Slider(props: SliderProps) {
             <SliderNavButtons
                 activeSlide={activeSlide}
                 itemsAmount={sliderItemsAmount}
+                toSlide={toSlide}
             />
 
             <SliderDots
