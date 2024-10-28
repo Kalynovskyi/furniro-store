@@ -11,7 +11,9 @@ interface OverlayProps {
 }
 
 interface SliderData {
-    activeSlide?: number,
+    activeSlide: number,
     itemWidth?: number | undefined,
     itemHeight?: number | undefined
+    itemsAmount?: number;
+    toSlide?: (activeSlide: number, nextSlide: number) => void;
 }
