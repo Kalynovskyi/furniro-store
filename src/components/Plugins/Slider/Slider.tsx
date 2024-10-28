@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, Children } from "react";
+import { useEffect, useRef, useState, Children, useCallback } from "react";
 import useResize from "../../../hooks/useResize";
 
 interface SliderProps {
@@ -21,54 +21,56 @@ export function Slider(props: SliderProps) {
     const sliderItemsAmount = Children.count(props.children);
     const className = props.className || "";
 
-    useEffect(() => {
+    const handleSliderItemSize = useCallback(() => {
         if (props.isImageLoaded) {
             if (slider.current === null) return;
 
             const sliderItems =
                 slider.current.querySelectorAll<HTMLElement>(".slider-item");
-
+    
             for (let i = 0; i < sliderItems.length; i++) {
+    
                 if (sliderItemWidth === undefined) {
                     setSliderItemWidth(sliderItems[i].offsetWidth);
                 }
+    
                 if (sliderItemHeight === undefined) {
                     setSliderItemHeight(sliderItems[i].offsetHeight);
                 }
             }
+        }
 
+    }, [sliderItemWidth, sliderItemHeight, props.isImageLoaded]);
+
+    useEffect(() => {
+        if (props.isImageLoaded) {
             const sliderData = {
                 activeSlide: activeSlide,
                 itemHeight: sliderItemHeight,
             };
 
             props.getSliderData(sliderData);
+
+            handleSliderItemSize();
         }
+
+        return () => {
+            handleSliderItemSize();
+        };
     }, [
         props.isImageLoaded,
         activeSlide,
         props,
         sliderItemWidth,
         sliderItemHeight,
+        handleSliderItemSize,
     ]);
 
+    /*Update slider on resize*/
     useResize(() => {
         setActiveSlide(0);
         setSliderStagePosition(0);
-
-        if (slider.current === null) return;
-
-        const sliderItems =
-            slider.current.querySelectorAll<HTMLElement>(".slider-item");
-
-        for (let i = 0; i < sliderItems.length; i++) {
-            if (sliderItemWidth === undefined) {
-                setSliderItemWidth(sliderItems[i].offsetWidth);
-            }
-            if (sliderItemHeight === undefined) {
-                setSliderItemHeight(sliderItems[i].offsetHeight);
-            }
-        }
+        handleSliderItemSize();
     });
 
     /*Slider navigation logic*/
