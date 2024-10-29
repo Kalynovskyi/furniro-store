@@ -1,4 +1,18 @@
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Inputs = {
+    email: string
+};
+
 const Footer = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<Inputs>();
+
+    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
     return (
         <footer className="w-full pt-12 pb-10 border-t border-[#D9D9D9]">
             <div className="container 2xl pb-12 border-b border-[#D9D9D9]">
@@ -19,16 +33,36 @@ const Footer = () => {
                         </h5>
                         <ul className="space-y-12">
                             <li>
-                                <a href="#" className="hover:text-brand-color transition-colors duration-300">Home</a>
+                                <a
+                                    href="#"
+                                    className="hover:text-brand-color transition-colors duration-300"
+                                >
+                                    Home
+                                </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-brand-color transition-colors duration-300">Shop</a>
+                                <a
+                                    href="#"
+                                    className="hover:text-brand-color transition-colors duration-300"
+                                >
+                                    Shop
+                                </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-brand-color transition-colors duration-300">About</a>
+                                <a
+                                    href="#"
+                                    className="hover:text-brand-color transition-colors duration-300"
+                                >
+                                    About
+                                </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-brand-color transition-colors duration-300">Contact</a>
+                                <a
+                                    href="#"
+                                    className="hover:text-brand-color transition-colors duration-300"
+                                >
+                                    Contact
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -38,13 +72,28 @@ const Footer = () => {
                         </h5>
                         <ul className="space-y-12">
                             <li>
-                                <a href="#" className="hover:text-brand-color transition-colors duration-300">Payment Options</a>
+                                <a
+                                    href="#"
+                                    className="hover:text-brand-color transition-colors duration-300"
+                                >
+                                    Payment Options
+                                </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-brand-color transition-colors duration-300">Returns</a>
+                                <a
+                                    href="#"
+                                    className="hover:text-brand-color transition-colors duration-300"
+                                >
+                                    Returns
+                                </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-brand-color transition-colors duration-300">Privacy Policy</a>
+                                <a
+                                    href="#"
+                                    className="hover:text-brand-color transition-colors duration-300"
+                                >
+                                    Privacy Policy
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -53,26 +102,33 @@ const Footer = () => {
                         <h5 className="mb-[3.125rem] text-[#9F9F9F] font-light">
                             Newsletter
                         </h5>
-                        <label htmlFor="email" className=" w-full flex">
-                            <input
-                                type="email"
-                                id="email"
-                                placeholder="Enter Your Email Address"
-                                className="w-full flex-grow border-b border-black placeholder-shown:text-ellipsis"
-                            />
-                            <button
-                                type="submit"
-                                className="border-b border-black ml-[0.688rem]"
-                            >
-                                SUBSCRIBE
-                            </button>
-                        </label>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <label htmlFor="email" className=" w-full flex">
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Enter Your Email Address"
+                                    {...register("email", { required: true })}
+                                    className="w-full flex-grow border-b border-black placeholder-shown:text-ellipsis"
+                                />
+                                
+                                <button
+                                    type="submit"
+                                    className="border-b border-black ml-[0.688rem]"
+                                >
+                                    SUBSCRIBE
+                                </button>
+                            </label>
+                            {errors.email && <span>This field is required</span>}
+                        </form>
                     </div>
                 </div>
             </div>
 
             <div className="mx-5 container 2xl pt-[2.188rem]">
-                <p className="font-extralight">2023 furino. All rights reverved</p>
+                <p className="font-extralight">
+                    2023 furino. All rights reverved
+                </p>
             </div>
         </footer>
     );
