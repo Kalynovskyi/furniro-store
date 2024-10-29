@@ -58,7 +58,7 @@ export function SliderScreen() {
 
     return (
         <section className="py-11 bg-FCF8F3">
-            <div className="container 2xl w-full  ">
+            <div className="container 2xl w-full ">
                 <div className="mx-5 grid grid-cols-12 gap-10">
                     <div className="col-span-12 md:col-span-4 h-full flex flex-col justify-center">
                         <div className="z-20">
