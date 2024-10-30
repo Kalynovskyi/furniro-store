@@ -13,7 +13,7 @@ const useResize = (callback: () => void) => {
         window.addEventListener("resize", () => {
             clearTimeout(timeOutFunctionId);
 
-            timeOutFunctionId = setTimeout(handleResize, 250);
+            timeOutFunctionId = window.setTimeout(handleResize, 250);
         });
 
         return () => {

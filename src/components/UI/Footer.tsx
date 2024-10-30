@@ -1,3 +1,6 @@
+'use client'
+
+
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {
@@ -12,7 +15,7 @@ const Footer = () => {
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-
+    console.log('footer rendered');
     return (
         <footer className="w-full pt-12 pb-10 border-t border-[#D9D9D9]">
             <div className="container 2xl pb-12 border-b border-[#D9D9D9]">
@@ -125,7 +128,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="mx-5 container 2xl pt-[2.188rem]">
+            <div className="mx-5 md:mx-auto container  2xl pt-[2.188rem]">
                 <p className="font-extralight">
                     2023 furino. All rights reverved
                 </p>

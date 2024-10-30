@@ -1,31 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from './pages/Layout'
-import Home from './pages/Home'
-import Blog from './pages/Blog'
-import Cart from './pages/Cart'
-import Checkout from './pages/Checkout'
-import Contact from './pages/Contact'
-import ProductComparison from './pages/ProductComparison'
-import Shop from './pages/Shop'
-import SingleProduct from './pages/SingleProduct'
+
 import "./App.css";
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path="blog" element={<Blog />} />
-                    <Route path="contact" element={<Contact />} />
-                    <Route path="Cart" element={<Cart />} />
-                    <Route path="Checkout" element={<Checkout />} />
-                    <Route path="ProductComparison" element={<ProductComparison />} />
-                    <Route path="Shop" element={<Shop />} />
-                    <Route path="SingleProduct" element={<SingleProduct />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <></>
+        // <BrowserRouter>
+        //     <Routes>
+        //         <Route path="/" element={<Layout />}>
+        //             <Route index element={<Home />} />
+        //             <Route path="blog" element={<Blog />} />
+        //             <Route path="contact" element={<Contact />} />
+        //             <Route path="Cart" element={<Cart />} />
+        //             <Route path="Checkout" element={<Checkout />} />
+        //             <Route path="ProductComparison" element={<ProductComparison />} />
+        //             <Route path="Shop" element={<Shop />} />
+        //             <Route path="SingleProduct" element={<SingleProduct />} />
+        //         </Route>
+        //     </Routes>
+        // </BrowserRouter>
     );
 }
 

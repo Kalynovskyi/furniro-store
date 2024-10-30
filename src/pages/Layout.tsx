@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+
 import Logo from "../assets/images/logo.svg";
 import Account from "../assets/images/account-alert-outline.svg";
 import Search from "../assets/images/akar-icons_search.svg";
@@ -8,7 +8,7 @@ import Cart from "../assets/images/hopping-cart-outlined.svg";
 const Layout = () => {
     return (
         <>
-            <div className="container 2xl py-30 ">
+            {/* <div className="container 2xl py-30 ">
                 <nav className="flex justify-between items-center">
                     <div className="logo">
                         <Link to="/"><img src={Logo} alt="Main logo" /></Link>
@@ -45,9 +45,7 @@ const Layout = () => {
                         </ul>
                     </div>
                 </nav>
-            </div>
-
-            <Outlet />
+            </div> */}
         </>
     );
 };
