@@ -16,7 +16,7 @@
             "Gray"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-1.jpg"
+            "/assets/images/product-1.jpg"
         ],
         "sku": "SOF123456",
         "categories": [
@@ -57,7 +57,7 @@
             "Black"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-2.jpg"
+            "/assets/images/product-2.jpg"
         ],
         "sku": "CHA234567",
         "categories": [
@@ -98,7 +98,7 @@
             "Silver"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-3.jpg"
+            "/assets/images/product-3.jpg"
         ],
         "sku": "TAB345678",
         "categories": [
@@ -140,7 +140,7 @@
             "Black"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-4.jpg"
+            "/assets/images/product-4.jpg"
         ],
         "sku": "BED456789",
         "categories": [
@@ -181,7 +181,7 @@
             "Black"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-5.jpg"
+            "/assets/images/product-5.jpg"
         ],
         "sku": "DES567890",
         "categories": [
@@ -222,7 +222,7 @@
             "Black"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-6.jpg"
+            "/assets/images/product-6.jpg"
         ],
         "sku": "DIN678901",
         "categories": [
@@ -265,7 +265,7 @@
             "Black"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-7.jpg"
+            "/assets/images/product-7.jpg"
         ],
         "sku": "SOFA-MOD-001",
         "categories": [
@@ -307,7 +307,7 @@
             "Dark Oak"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-8.jpg"
+            "/assets/images/product-8.jpg"
         ],
         "sku": "TABLE-WOOD-002",
         "categories": [
@@ -344,7 +344,7 @@
             "Brown"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-9.jpg"
+            "/assets/images/product-9.jpg"
         ],
         "sku": "CHAIR-LEATH-003",
         "categories": [
@@ -380,7 +380,7 @@
             "Cherry"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-10.jpg"
+            "/assets/images/product-10.jpg"
         ],
         "sku": "SHELF-VINT-004",
         "categories": [
@@ -416,7 +416,7 @@
             "Black"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-11.jpg"
+            "/assets/images/product-11.jpg"
         ],
         "sku": "TABLE-GLASS-005",
         "categories": [
@@ -451,7 +451,7 @@
             "Steel"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-12.jpg"
+            "/assets/images/product-12.jpg"
         ],
         "sku": "STOOL-INDU-006",
         "categories": [
@@ -489,7 +489,7 @@
             "Blue"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-13.jpg"
+            "/assets/images/product-13.jpg"
         ],
         "sku": "SF12345",
         "categories": [
@@ -530,7 +530,7 @@
             "Black"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-14.jpg"
+            "/assets/images/product-14.jpg"
         ],
         "sku": "CT67890",
         "categories": [
@@ -571,7 +571,7 @@
             "Dark Wood"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-15.jpg"
+            "/assets/images/product-15.jpg"
         ],
         "sku": "CH87654",
         "categories": [
@@ -612,7 +612,7 @@
             "Gray"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-16.jpg"
+            "/assets/images/product-16.jpg"
         ],
         "sku": "BF56789",
         "categories": [
@@ -654,7 +654,7 @@
             "Oak"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-17.jpg"
+            "/assets/images/product-17.jpg"
         ],
         "sku": "DK12378",
         "categories": [
@@ -696,7 +696,7 @@
             "Brown"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-18.jpg"
+            "/assets/images/product-18.jpg"
         ],
         "sku": "LR65432",
         "categories": [
@@ -737,7 +737,7 @@
             "Walnut"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-19.jpg"
+            "/assets/images/product-19.jpg"
         ],
         "sku": "BS76543",
         "categories": [
@@ -780,7 +780,7 @@
             "White"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-20.jpg"
+            "/assets/images/product-20.jpg"
         ],
         "sku": "CHAIR12345",
         "categories": [
@@ -823,7 +823,7 @@
             "White"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-21.jpg"
+            "/assets/images/product-21.jpg"
         ],
         "sku": "SOFA98765",
         "categories": [
@@ -865,7 +865,7 @@
             "Silver"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-22.jpg"
+            "/assets/images/product-22.jpg"
         ],
         "sku": "TABLE45678",
         "categories": [
@@ -907,7 +907,7 @@
             "Black"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-1.jpg"
+            "/assets/images/product-1.jpg"
         ],
         "sku": "SHELF32100",
         "categories": [
@@ -949,7 +949,7 @@
             "Gray"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-2.jpg"
+            "/assets/images/product-2.jpg"
         ],
         "sku": "DTABLE99887",
         "categories": [
@@ -990,7 +990,7 @@
             "Dark Brown"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-3.jpg"
+            "/assets/images/product-3.jpg"
         ],
         "sku": "TAB12345",
         "categories": [
@@ -1032,7 +1032,7 @@
             "Beige"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-4.jpg"
+            "/assets/images/product-4.jpg"
         ],
         "sku": "SOF56789",
         "categories": [
@@ -1073,7 +1073,7 @@
             "Walnut"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-5.jpg"
+            "/assets/images/product-5.jpg"
         ],
         "sku": "COF98765",
         "categories": [
@@ -1109,7 +1109,7 @@
             "Gray"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-6.jpg"
+            "/assets/images/product-6.jpg"
         ],
         "sku": "DESK3210",
         "categories": [
@@ -1146,7 +1146,7 @@
             "Blue"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-7.jpg"
+            "/assets/images/product-7.jpg"
         ],
         "sku": "CHAIR456",
         "categories": [
@@ -1184,7 +1184,7 @@
             "Oak"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-8.jpg"
+            "/assets/images/product-8.jpg"
         ],
         "sku": "BS123456",
         "categories": [
@@ -1220,7 +1220,7 @@
             "Walnut"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-9.jpg"
+            "/assets/images/product-9.jpg"
         ],
         "sku": "WAR123789",
         "categories": [
@@ -1258,7 +1258,7 @@
             "Silver"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-10.jpg"
+            "/assets/images/product-10.jpg"
         ],
         "sku": "BED123890",
         "categories": [
@@ -1294,7 +1294,7 @@
             "Dark Brown"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-6.jpg"
+            "/assets/images/product-6.jpg"
         ],
         "sku": "CHRW001",
         "categories": [
@@ -1336,7 +1336,7 @@
             "Beige"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-11.jpg"
+            "/assets/images/product-11.jpg"
         ],
         "sku": "SFMOD002",
         "categories": [
@@ -1377,7 +1377,7 @@
             "Light Oak"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-12.jpg"
+            "/assets/images/product-12.jpg"
         ],
         "sku": "CTABL003",
         "categories": [
@@ -1419,7 +1419,7 @@
             "Gray"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-13.jpg"
+            "/assets/images/product-13.jpg"
         ],
         "sku": "BFRM004",
         "categories": [
@@ -1460,7 +1460,7 @@
             "Cherry Wood"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-14.jpg"
+            "/assets/images/product-14.jpg"
         ],
         "sku": "DRESS005",
         "categories": [
@@ -1501,7 +1501,7 @@
             "Natural"
         ],
         "images": [
-            "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/product-15.jpg"
+            "/assets/images/product-15.jpg"
         ],
         "sku": "NTSTND040",
         "categories": [

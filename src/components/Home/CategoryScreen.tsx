@@ -1,5 +1,7 @@
 import { Overlay } from "./../UI/Overlay";
 
+import Image from "next/image";
+
 export function CategoryScreen() {
     return (
         <section className="container 2xl grid grid-cols-12 text-center py-50">
@@ -12,8 +14,10 @@ export function CategoryScreen() {
                 <div className="sm:flex space-x-5">
                     <a href="" className="group/overlay ">
                         <div className="relative rounded-xl overflow-hidden">
-                            <img
-                                src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-dining.jpg"
+                            <Image
+                                width={500}
+                                height={500}
+                                src="/assets/images/category-screen-dining.jpg"
                                 alt="Category Dining"
                             />
                             <Overlay />
@@ -25,8 +29,10 @@ export function CategoryScreen() {
                     </a>
                     <a href="" className="group/overlay">
                         <div className="relative rounded-xl overflow-hidden">
-                            <img
-                                src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-living.jpg"
+                            <Image
+                                width={500}
+                                height={500}
+                                src="/assets/images/category-screen-living.jpg"
                                 alt="Category Living"
                             />
                             <Overlay />
@@ -37,8 +43,10 @@ export function CategoryScreen() {
                     </a>
                     <a href="" className="group/overlay ">
                         <div className="relative rounded-xl overflow-hidden">
-                            <img
-                                src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/category-screen-bedroom.jpg"
+                            <Image
+                                width={500}
+                                height={500}
+                                src="/assets/images/category-screen-bedroom.jpg"
                                 alt="Category Bedroom"
                             />
                             <Overlay />

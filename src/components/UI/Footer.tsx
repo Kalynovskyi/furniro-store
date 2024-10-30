@@ -15,7 +15,7 @@ const Footer = () => {
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-    console.log('footer rendered');
+
     return (
         <footer className="w-full pt-12 pb-10 border-t border-[#D9D9D9]">
             <div className="container 2xl pb-12 border-b border-[#D9D9D9]">

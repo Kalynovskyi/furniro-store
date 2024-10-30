@@ -3,8 +3,9 @@ import Button from "../UI/Button";
 import { SliderItem } from "../Plugins/Slider/SliderItem";
 import { useState } from "react";
 
+import Image from "next/image";
+
 export function SliderScreen() {
-    const [isImageLoaded, setIsImageLoaded] = useState(false);
     const [activeSliderItem, setActiveSliderItem] = useState<number>(0);
     const [sliderItemHeight, setSliderItemHeight] = useState<number>(0);
     const [inactiveSliderItemHeight, setInactiveSliderItemHeight] =
@@ -15,35 +16,31 @@ export function SliderScreen() {
             id: 1,
             title: "Inner Peace",
             category: "Bed Room",
-            image: "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-1.jpg",
+            image: "/assets/images/home-slider-image-1.jpg",
             imageAlt: "Bed Room Image",
         },
         {
             id: 2,
             title: "Inner Peace",
             category: "Bed Room",
-            image: "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-2.jpg",
+            image: "/assets/images/home-slider-image-2.jpg",
             imageAlt: "Bed Room Image",
         },
         {
             id: 3,
             title: "Inner Peace",
             category: "Bed Room",
-            image: "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-3.jpg",
+            image: "/assets/images/home-slider-image-3.jpg",
             imageAlt: "Bed Room Image",
         },
         {
             id: 4,
             title: "Inner Peace",
             category: "Bed Room",
-            image: "https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-slider-image-2.jpg",
+            image: "/assets/images/home-slider-image-2.jpg",
             imageAlt: "Bed Room Image",
         },
     ];
-
-    const imageLoaded = () => {
-        setIsImageLoaded(true);
-    };
 
     const getInactiveSliderItemHeight = () => {
         return sliderItemHeight - sliderItemHeight * 0.15;
@@ -54,6 +51,7 @@ export function SliderScreen() {
         setSliderItemHeight(SliderData.itemHeight ?? 0);
 
         setInactiveSliderItemHeight(getInactiveSliderItemHeight());
+
     };
 
     return (
@@ -74,14 +72,15 @@ export function SliderScreen() {
                     </div>
                     <div className="col-span-12 md:col-span-6 lg:col-span-4">
                         <Slider
-                            isImageLoaded={isImageLoaded}
                             getSliderData={handledGetSliderData}
                             className={`h-[${sliderItemHeight}px]`}
                         >
                             {sliderItems.map((item, index) => (
                                 <SliderItem
                                     className={`relative min-w-full overflow-hidden transition-all duration-300  ${
-                                        activeSliderItem > index ? "prev blur-sm opacity-25" : ""
+                                        activeSliderItem > index
+                                            ? "prev blur-sm opacity-25"
+                                            : ""
                                     } ${
                                         activeSliderItem < index ? "next" : ""
                                     } ${
@@ -95,13 +94,23 @@ export function SliderScreen() {
                                     }`}
                                     key={item.id}
                                 >
-                                    <div
-                                        className={`image overflow-hidden `}
-                                    >
-                                        <img
+                                    <div className={`image overflow-hidden `}>
+                                        <Image
+                                            width={500}
+                                            height={500}
                                             src={item.image}
                                             alt=""
-                                            onLoad={imageLoaded}
+                                            priority={true}
+                                            className="transition-all duration-300"
+                                            style={
+                                                activeSliderItem !== index
+                                                    ? {
+                                                          maxHeight:
+                                                              inactiveSliderItemHeight +
+                                                              "px",
+                                                      }
+                                                    : { maxHeight: "600px" }
+                                            }
                                         />
                                     </div>
                                     <div

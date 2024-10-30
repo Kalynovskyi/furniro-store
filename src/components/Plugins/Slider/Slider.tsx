@@ -5,7 +5,6 @@ import useResize from "../../../hooks/useResize";
 
 interface SliderProps {
     children: React.ReactNode;
-    isImageLoaded?: boolean;
     getSliderData: (arg: SliderData) => void;
     className?: string;
 }
@@ -24,26 +23,24 @@ export function Slider(props: SliderProps) {
     const className = props.className || "";
 
     const handleSliderItemSize = useCallback(() => {
-        if (props.isImageLoaded) {
-            if (slider.current === null) return;
+        if (slider.current === null) return;
 
-            const sliderItems =
-                slider.current.querySelectorAll<HTMLElement>(".slider-item");
+        const sliderItems =
+            slider.current.querySelectorAll<HTMLElement>(".slider-item");
 
-            for (let i = 0; i < sliderItems.length; i++) {
-                if (sliderItemWidth === undefined) {
-                    setSliderItemWidth(sliderItems[i].offsetWidth);
-                }
+        for (let i = 0; i < sliderItems.length; i++) {
+            if (sliderItemWidth === undefined) {
+                setSliderItemWidth(sliderItems[i].offsetWidth);
+            }
 
-                if (sliderItemHeight === undefined) {
-                    setSliderItemHeight(sliderItems[i].offsetHeight);
-                }
+            if (sliderItemHeight === undefined) {
+                setSliderItemHeight(sliderItems[i].offsetHeight);
             }
         }
-    }, [sliderItemWidth, sliderItemHeight, props.isImageLoaded]);
+    }, [sliderItemWidth, sliderItemHeight]);
 
     useEffect(() => {
-        if (props.isImageLoaded) {
+
             const sliderData = {
                 activeSlide: activeSlide,
                 itemHeight: sliderItemHeight,
@@ -52,13 +49,12 @@ export function Slider(props: SliderProps) {
             props.getSliderData(sliderData);
 
             handleSliderItemSize();
-        }
+
 
         return () => {
             handleSliderItemSize();
         };
     }, [
-        props.isImageLoaded,
         activeSlide,
         props,
         sliderItemWidth,

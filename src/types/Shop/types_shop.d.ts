@@ -1,6 +1,6 @@
 interface Product {
     id?: number;
-    title?: string;
+    title: string;
     subtitle?: string;
     price?: number;
     rating?: number;

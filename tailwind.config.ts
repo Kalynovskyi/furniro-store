@@ -5,6 +5,7 @@ const config: Config = {
         "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/**/*.{js,jsx,ts,tsx}",
     ],
     theme: {
         extend: {
@@ -37,7 +38,7 @@ const config: Config = {
             },
             backgroundImage: {
                 "hero-screen":
-                    "url(https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/hero-screen.jpg)",
+                    "url(/assets/images/hero-screen.jpg)",
             },
             fontSize: {
                 28: "1.75em",

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function ShareScreen() {
     return (
         <section className="pt-[4.18rem] pb-12">
@@ -13,65 +15,83 @@ export function ShareScreen() {
 
             <div className="grid grid-cols-[repeat(24,minmax(0,1fr))] auto-rows-auto gap-4 relative left-[-5vw] w-[110vw]">
                 <div className="col-start-1 col-span-4 self-end row-start-1 row-span-1">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-1.jpg"
+                        src="/assets/images/home-share-screen-1.jpg"
                         alt=""
                     />
                 </div>
                 <div className="col-start-5 col-span-6  row-start-1 row-span-1 self-end">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-2.jpg"
+                        src="/assets/images/home-share-screen-2.jpg"
                         alt=""
                     />
                 </div>
                 <div className="col-start-1 col-span-5 row-start-2 row-span-1 self-start">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-3.jpg"
+                        src="/assets/images/home-share-screen-3.jpg"
                         alt=""
                     />
                 </div>
                 <div className="col-start-6 col-span-5 row-start-2 row-span-1  self-start">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-4.jpg"
+                        src="/assets/images/home-share-screen-4.jpg"
                         alt=""
                     />
                 </div>
                 <div className="col-start-11 col-span-4 row-start-1 row-span-2 self-center">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-5.jpg"
+                        src="/assets/images/home-share-screen-5.jpg"
                         alt=""
                     />
                 </div>
                 <div className="col-start-16 col-span-4 row-start-1 row-span-1 self-end">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-6.jpg"
+                        src="/assets/images/home-share-screen-6.jpg"
                         alt=""
                     />
                 </div>
                 <div className="col-start-16 col-span-3 row-start-2 row-span-1  self-start">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-7.jpg"
+                        src="/assets/images/home-share-screen-7.jpg"
                         alt=""
                     />
                 </div>
                 <div className="col-start-20 col-span-6 row-start-1 row-span-1 self-end">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-8.jpg"
+                        src="/assets/images/home-share-screen-8.jpg"
                         alt=""
                     />
                 </div>
                 <div className="col-start-19 col-span-5 row-start-2 row-span-1 self-start">
-                    <img
+                    <Image
+                        width={500}
+                        height={500}
                         className="w-full"
-                        src="https://raw.githubusercontent.com/Kalynovskyi/furniro-store/refs/heads/master/src/assets/images/home-share-screen-9.jpg"
+                        src="/assets/images/home-share-screen-9.jpg"
                         alt=""
                     />
                 </div>
