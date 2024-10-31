@@ -1,3 +1,5 @@
+'use client'
+
 import { Slider } from "./../Plugins/Slider/Slider";
 import Button from "../UI/Button";
 import { SliderItem } from "../Plugins/Slider/SliderItem";
@@ -104,11 +106,7 @@ export function SliderScreen() {
                                             className="transition-all duration-300"
                                             style={
                                                 activeSliderItem !== index
-                                                    ? {
-                                                          maxHeight:
-                                                              inactiveSliderItemHeight +
-                                                              "px",
-                                                      }
+                                                    ? { maxHeight: inactiveSliderItemHeight + "px"}
                                                     : { maxHeight: "600px" }
                                             }
                                         />
