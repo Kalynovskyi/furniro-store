@@ -1,11 +1,18 @@
-import { useEffect } from "react";
+"use client";
 
-const useResize = (callback: () => void) => {
+import { useEffect, useState } from "react";
+
+const useResize = (callback?: () => void) => {
+    const [size, setSize] = useState([
+        typeof window !== "undefined" ? window.outerWidth : 0,
+        typeof window !== "undefined" ? window.outerHeight : 0,
+    ]);
 
     useEffect(() => {
-
         const handleResize = () => {
-            callback();
+            setSize([window.outerWidth, window.outerHeight]);
+
+            if (typeof callback === "function") callback();
         };
 
         let timeOutFunctionId: number;
@@ -19,7 +26,9 @@ const useResize = (callback: () => void) => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [callback]);
+    }, [callback, size]);
+
+    return size;
 };
 
 export default useResize;
