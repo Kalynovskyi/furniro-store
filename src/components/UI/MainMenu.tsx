@@ -9,11 +9,11 @@ import Heart from "../../../public/assets/images/akar-icons_heart.svg";
 import Cart from "../../../public/assets/images/hopping-cart-outlined.svg";
 import { useEffect, useState } from "react";
 import useResize from "@/hooks/useResize";
+import { Overlay } from "./../UI/Overlay";
 
 const MainMenu = () => {
     const [isMobileMenuShown, setIsMobileMenuShown] = useState(false);
     const [isMobileScreen, setIsMobileScreen] = useState(false);
-
     const [width, height] = useResize();
 
     useEffect(() => {
@@ -24,10 +24,9 @@ const MainMenu = () => {
             setIsMobileScreen(false);
             setIsMobileMenuShown(true);
         }
-    }, []);
+    }, [width]);
 
     const handleMobileMenuToggle = () => {
-
         if (isMobileMenuShown) {
             setIsMobileMenuShown(false);
         } else {
@@ -54,10 +53,10 @@ const MainMenu = () => {
                         className={`
                                 ${
                                     isMobileScreen
-                                        ? "absolute w-2/4 h-screen top-0 right-5 bg-white z-40"
+                                        ? "absolute w-2/4 h-screen top-0 right-5 bg-white z-40 transition-all duration-300"
                                         : ""
                                 }
-                                ${isMobileMenuShown ? "" : "hidden"}
+                                ${isMobileMenuShown ? "opacity-1" : "invisible opacity-0"}
                         `}
                     >
                         <ul
@@ -81,6 +80,15 @@ const MainMenu = () => {
                             </li>
                         </ul>
                     </div>
+                    <Overlay
+                        onClick={handleMobileMenuToggle}
+
+                        className={` w-svw h-svh -left-5 ${
+                            isMobileScreen && isMobileMenuShown
+                                ? "opacity-1 visible"
+                                : "opacity-0 invisible"
+                        }`}
+                    />
 
                     <div
                         className="relative z-50 w-[50px] h-[50px] rounded-full bg-gray-100 flex flex-col justify-center items-center space-y-1 cursor-pointer md:hidden"

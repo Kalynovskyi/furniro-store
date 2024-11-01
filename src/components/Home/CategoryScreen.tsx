@@ -20,7 +20,7 @@ export function CategoryScreen() {
                                 src="/assets/images/category-screen-dining.jpg"
                                 alt="Category Dining"
                             />
-                            <Overlay />
+                            <Overlay className="opacity-0 group-hover/overlay:opacity-100" />
                         </div>
 
                         <h4 className="mt-8 transition-all duration-300 group-hover/overlay:text-brand-color">
@@ -35,7 +35,7 @@ export function CategoryScreen() {
                                 src="/assets/images/category-screen-living.jpg"
                                 alt="Category Living"
                             />
-                            <Overlay />
+                            <Overlay className="opacity-0 group-hover/overlay:opacity-100" />
                         </div>
                         <h4 className="mt-8 transition-all duration-300 group-hover/overlay:text-brand-color">
                             Living
@@ -49,7 +49,7 @@ export function CategoryScreen() {
                                 src="/assets/images/category-screen-bedroom.jpg"
                                 alt="Category Bedroom"
                             />
-                            <Overlay />
+                            <Overlay className="opacity-0 group-hover/overlay:opacity-100" />
                         </div>
                         <h4 className="mt-8 transition-all duration-300 group-hover/overlay:text-brand-color">
                             Bedroom

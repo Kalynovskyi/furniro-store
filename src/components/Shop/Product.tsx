@@ -29,7 +29,7 @@ export function Product(props: ProductProps) {
                 </p>
             </div>
 
-            <Overlay className="flex flex-col justify-center items-center">
+            <Overlay className="flex flex-col justify-center items-center opacity-0 group-hover/overlay:opacity-100">
                 <Button className="bg-white text-brand-color">
                     Add to cart
                 </Button>

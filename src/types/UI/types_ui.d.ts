@@ -8,6 +8,7 @@ interface ButtonProps {
 interface OverlayProps {
     children?: React.ReactNode;
     className?: string;
+    onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 interface SliderData {

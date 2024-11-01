@@ -9,6 +9,7 @@ const useResize = (callback?: () => void) => {
     ]);
 
     useEffect(() => {
+        
         const handleResize = () => {
             setSize([window.outerWidth, window.outerHeight]);
 
