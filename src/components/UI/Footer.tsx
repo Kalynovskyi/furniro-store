@@ -16,8 +16,8 @@ const Footer = () => {
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
     return (
-        <footer className="w-full pt-12 pb-10 border-t border-[#D9D9D9]">
-            <div className="container 2xl pb-12 border-b border-[#D9D9D9]">
+        <footer className="w-full pt-12 pb-10 border-t border-border-color">
+            <div className="container 2xl pb-12 border-b border-border-color">
                 <div className="mx-5 grid grid-cols-12">
                     <div className="col-span-12 md:col-span-3 pb-12 md:pb-0">
                         <h2 className="font-bold text-2xl mb-[3.125rem]">

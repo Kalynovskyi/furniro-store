@@ -11,6 +11,7 @@ const config: Config = {
         extend: {
             colors: {
                 "brand-color": "#B88E2F",
+                "border-color": "#D9D9D9",
                 FFF3E3: "#FFF3E3",
                 "3A3A3A": "#3A3A3A",
                 "(3A3A3A,.7)": "rgba(58,58,58,.7)",
@@ -19,6 +20,7 @@ const config: Config = {
                 FCF8F3: "#FCF8F3",
                 "(fffff,.7)": "rgba(255,255,255,.7)",
                 616161: "#616161",
+
             },
             container: {
                 center: true,
