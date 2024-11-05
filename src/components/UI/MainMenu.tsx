@@ -15,7 +15,7 @@ import { toggleState } from "@/utils/toggleState";
 const MainMenu = () => {
     const [isMobileMenuShown, setIsMobileMenuShown] = useState(false);
     const [isMobileScreen, setIsMobileScreen] = useState(false);
-    const [width, height] = useResize();
+    const [width] = useResize();
 
     useEffect(() => {
         if (width < 768) {

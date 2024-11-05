@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { Overlay } from "../UI/Overlay";
 import { useState } from "react";
 import { toggleState } from "@/utils/toggleState";
+import { useAppSelector } from "@/redux/hooks";
 
 export function Cart({}) {
     const [isCartShown, setIsCartShown] = useState(false);
@@ -11,6 +12,10 @@ export function Cart({}) {
     const handleCartClick = () => {
         toggleState(isCartShown, setIsCartShown);
     };
+
+    const cart = useAppSelector((state) => state.cartReducer);
+
+    console.log(cart);
 
     return (
         <>

@@ -1,10 +1,27 @@
 import { Overlay } from "./../UI/Overlay";
 import Button from "../UI/Button";
 import Image from "next/image";
+import { createAction } from "@reduxjs/toolkit";
+import { useAppDispatch } from "@/redux/hooks";
 
 export function Product(props: ProductProps) {
     const product = props.productData;
     const imgSrc = product.images || "";
+    const dispatch = useAppDispatch()
+
+    const addToCart = createAction("cart/cartAdding", function prepare(product: Product) {
+        return {
+            payload: {
+                product
+            },
+        };
+    });
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(product));
+    }
+
+    
 
     return (
         <div
@@ -30,7 +47,7 @@ export function Product(props: ProductProps) {
             </div>
 
             <Overlay className="flex flex-col justify-center items-center opacity-0 group-hover/overlay:opacity-100">
-                <Button className="bg-white text-brand-color">
+                <Button className="bg-white text-brand-color" onClick={handleAddToCart}>
                     Add to cart
                 </Button>
                 <div className="text-white space-x-5 mt-6">

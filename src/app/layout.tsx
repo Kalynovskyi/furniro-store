@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "../components/UI/Footer";
 import MainMenu from "../components/UI/MainMenu";
+import StoreProvider from "../redux/StoreProvider";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -16,11 +17,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`antialiased`}>
-                <div id="cart-portal"></div>
-                <MainMenu />
-                {children}
+                <StoreProvider>
+                    <div id="cart-portal"></div>
+                    <MainMenu />
+                    {children}
 
-                <Footer />
+                    <Footer />
+                </StoreProvider>
             </body>
         </html>
     );
