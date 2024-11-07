@@ -11,17 +11,13 @@ export function Product(props: ProductProps) {
 
     const addToCart = createAction("cart/cartAdding", function prepare(product: Product) {
         return {
-            payload: {
-                product
-            },
+            payload: product,
         };
     });
 
     const handleAddToCart = () => {
         dispatch(addToCart(product));
     }
-
-    
 
     return (
         <div
