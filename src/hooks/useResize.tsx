@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 const useResize = (callback?: () => void) => {
     const [size, setSize] = useState([
-        typeof window !== "undefined" ? window.outerWidth : 0,
-        typeof window !== "undefined" ? window.outerHeight : 0,
+        typeof window !== "undefined" ? window.innerWidth : 0,
+        typeof window !== "undefined" ? window.innerHeight : 0,
     ]);
 
     useEffect(() => {
