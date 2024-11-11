@@ -1,8 +1,24 @@
 import Image from "next/image";
+import { createAction } from "@reduxjs/toolkit";
+import { useAppDispatch } from "@/redux/hooks";
 
 const CartItem = (props: ProductProps) => {
     const product = props.productData;
     const imgSrc = product.images || "";
+    const dispatch = useAppDispatch();
+
+    const removeFromCart = createAction(
+        "cart/cartRemove",
+        function prepare(product: Product) {
+            return {
+                payload: product,
+            };
+        }
+    );
+
+    const handleRemoveFromCart = () => {
+        dispatch(removeFromCart(product));
+    }
 
     return (
         <li className="flex items-center w-full">
@@ -15,11 +31,11 @@ const CartItem = (props: ProductProps) => {
                     className="rounded-lg w-[6.563rem] h-[6.563rem]"
                 ></Image>
             </div>
-            <div className="grow ml-8 flex flex-col">
+            <div className="grow mx-8 flex flex-col">
                 <h6 className="mb-2">{product.title}</h6>
                 <span>1 x <span className="text-brand-color">${product.price}</span></span>
             </div>
-            <div className="justify-self-end">
+            <div className="justify-self-end cursor-pointer hover:opacity-80 transition-all duration-300" onClick={handleRemoveFromCart}>
                 <svg
                     width="20"
                     height="20"

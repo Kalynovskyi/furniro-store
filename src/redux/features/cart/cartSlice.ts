@@ -20,6 +20,10 @@ const cartSlice = createSlice({
 
             state.push(action.payload);
         },
+
+        cartRemove(state, action: PayloadAction<Product>) {
+            return state.filter((item) => (item.product.id !== action.payload.id))
+        }
     },
 });
 

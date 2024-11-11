@@ -1,11 +1,12 @@
 "use client";
 
-import { ComponentType, ReactNode, useState } from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import { Overlay } from "../UI/Overlay";
 import { toggleState } from "@/utils/toggleState";
 import { useAppSelector } from "@/redux/hooks";
 import CartItem from "./CartItem";
+import Button from "../UI/Button";
 
 export function Cart({}) {
     const [isCartShown, setIsCartShown] = useState(false);
@@ -21,12 +22,11 @@ export function Cart({}) {
     const getSubtotal = (cartItems: CartProduct[]) => {
         let subtotal = 0;
         for (let i = 0; i < cartItems.length; i++) {
-            subtotal = subtotal + cartItems[i].product.price!
+            subtotal = subtotal + cartItems[i].product.price!;
         }
 
         return subtotal;
-    }
-
+    };
 
     return (
         <>
@@ -49,9 +49,9 @@ export function Cart({}) {
                 createPortal(
                     <div
                         id="cart-portal"
-                        className="fixed w-full h-full top-0 left-0"
+                        className="fixed w-full h-full top-0 left-0 z-[100]"
                     >
-                        <div className="flex flex-col justify-between  bg-white absolute right-0 top-0 z-50 min-w-[26.063rem] min-h-[46.625rem]">
+                        <div className="flex flex-col justify-between  bg-white absolute right-0 top-0 z-50 w-full h-full sm:w-[26.063rem] sm:min-h-[46.625rem] sm:max-h-[46.625rem]">
                             <div className="flex items-center">
                                 <h5 className="py-[1.625rem] mx-7 border-b border-border-color grow">
                                     Shopping Cart
@@ -80,26 +80,40 @@ export function Cart({}) {
                                     </svg>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-between pt-12 pb-3 px-7 grow">
-                                <ul className="space-y-5 ">
-                                    {cartItems.map((item) => (
-                                        <CartItem
-                                            productData={item.product}
-                                            key={item.product.id}
-                                        ></CartItem>
-                                    ))}
-                                </ul>
-                                <div className="grid grid-cols-2 w-full">
-                                    <div className="col-start-1 col-span-1">
-                                        Subtotal
+                            {cartItems.length !== 0 && (
+                                <>
+                                    <div className="flex flex-col justify-between pt-12 pb-3 px-7 grow overflow-auto">
+                                        <ul className="space-y-5 ">
+                                            {cartItems.map((item) => (
+                                                <CartItem
+                                                    productData={item.product}
+                                                    key={item.product.id}
+                                                ></CartItem>
+                                            ))}
+                                        </ul>
                                     </div>
-                                    <div className="col-start-2 col-span-1 text-brand-color">
-                                        {getSubtotal(cartItems)}
+                                    <div className="grid grid-cols-2 w-full py-5 px-7">
+                                        <div className="col-start-1 col-span-1">
+                                            Subtotal
+                                        </div>
+                                        <div className="col-start-2 col-span-1 text-brand-color">
+                                            ${getSubtotal(cartItems)}
+                                        </div>
                                     </div>
+                                </>
+                            )}
+
+                            {cartItems.length === 0 && (
+                                <div className="flex justify-center items-center">
+                                    <h4 className="text-3xl">Cart is empty</h4>
                                 </div>
-                            </div>
+                            )}
+
                             <div className="py-[1.625rem]  border-t border-border-color">
-                                <div className="px-7">buttons</div>
+                                <div className="px-7 space-x-3">
+                                    <Button className="px-[1.875rem] py-[0.375rem] rounded-[3.125rem] bg-transparent text-black border border-black hover:bg-brand-color hover:text-white hover:border-brand-color">Cart</Button>
+                                    <Button className="px-[1.875rem] py-[0.375rem] rounded-[3.125rem] bg-transparent text-black border border-black hover:bg-brand-color hover:text-white hover:border-brand-color">Checkout</Button>
+                                </div>
                             </div>
                         </div>
 
