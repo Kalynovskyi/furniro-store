@@ -7,17 +7,25 @@ import { useAppDispatch } from "@/redux/hooks";
 export function Product(props: ProductProps) {
     const product = props.productData;
     const imgSrc = product.images || "";
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
 
-    const addToCart = createAction("cart/cartAdding", function prepare(product: Product) {
-        return {
-            payload: product,
-        };
-    });
+    const addToCart = createAction(
+        "cart/cartAdding",
+        function prepare(product: CartProduct) {
+            return {
+                payload: product,
+            };
+        }
+    );
 
     const handleAddToCart = () => {
-        dispatch(addToCart(product));
-    }
+        const productData = {
+            product,
+            quantity: 1,
+        };
+
+        dispatch(addToCart(productData));
+    };
 
     return (
         <div
@@ -43,7 +51,10 @@ export function Product(props: ProductProps) {
             </div>
 
             <Overlay className="flex flex-col justify-center items-center opacity-0 group-hover/overlay:opacity-100">
-                <Button className="bg-white text-brand-color" onClick={handleAddToCart}>
+                <Button
+                    className="bg-white text-brand-color"
+                    onClick={handleAddToCart}
+                >
                     Add to cart
                 </Button>
                 <div className="text-white space-x-5 mt-6">

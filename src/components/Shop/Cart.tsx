@@ -14,31 +14,19 @@ export function Cart({}) {
         toggleState(isCartShown, setIsCartShown);
     };
 
-    const cartItems = useAppSelector((state) => state.cartReducer);
+    const cartItems: CartProduct[] = useAppSelector(
+        (state) => state.cartReducer
+    );
 
-    const getProducts = (Products: Product[], Element: ComponentType<{ productData: Product }>, isSubtotal = false, productsAmount: number = Products.length) => {
-        const content: ReactNode[] = [];
+    const getSubtotal = (cartItems: CartProduct[]) => {
         let subtotal = 0;
-
-        for (let index: number = 0; index < Products.length; index++) {
-            if (index < productsAmount) {
-                content.push(
-                    <Element
-                        key={Products[index].id}
-                        productData={Products[index]}
-                    ></Element>
-                );
-
-                if (isSubtotal === true) {
-                    subtotal = subtotal + Products[index].price!;
-                } 
-            }
+        for (let i = 0; i < cartItems.length; i++) {
+            subtotal = subtotal + cartItems[i].product.price!
         }
 
-        return [content, subtotal];
-    };
+        return subtotal;
+    }
 
-    const [cartItemsContent, subtotal] = getProducts(cartItems, CartItem, true);
 
     return (
         <>
@@ -94,14 +82,19 @@ export function Cart({}) {
                             </div>
                             <div className="flex flex-col justify-between pt-12 pb-3 px-7 grow">
                                 <ul className="space-y-5 ">
-                                    {cartItemsContent}
+                                    {cartItems.map((item) => (
+                                        <CartItem
+                                            productData={item.product}
+                                            key={item.product.id}
+                                        ></CartItem>
+                                    ))}
                                 </ul>
                                 <div className="grid grid-cols-2 w-full">
                                     <div className="col-start-1 col-span-1">
                                         Subtotal
                                     </div>
                                     <div className="col-start-2 col-span-1 text-brand-color">
-                                        ${subtotal}
+                                        {getSubtotal(cartItems)}
                                     </div>
                                 </div>
                             </div>

@@ -14,6 +14,11 @@ interface Product {
     reviews?: Array<Review>;
 }
 
+interface CartProduct {
+    product: Product;
+    quantity: number;
+}
+
 interface Review {
     user?: string;
     rating?: number;
