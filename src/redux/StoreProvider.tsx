@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Provider } from "react-redux";
 import { makeStore, AppStore } from "./store";
 
-export default function SotreProvider({
+export default function StoreProvider({
     children,
 }: {
     children: React.ReactNode;
