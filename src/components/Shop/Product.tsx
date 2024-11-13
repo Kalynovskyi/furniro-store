@@ -19,7 +19,7 @@ export function Product(props: ProductProps) {
             };
         }
     );
-    
+
     /*Handle adding to cart*/
     const handleAddToCart = () => {
         const productData = {
@@ -47,9 +47,8 @@ export function Product(props: ProductProps) {
 
     return (
         <div
-            className={`relative group/overlay md:col-span-6 lg:col-span-4 xl:col-span-3 flex flex-col`}
+            className={`group/overlay relative md:col-span-6 lg:col-span-4 xl:col-span-3 flex flex-col`}
         >
-            {" "}
             <Image
                 width={500}
                 height={500}
@@ -68,12 +67,10 @@ export function Product(props: ProductProps) {
                     $ {product.price}
                 </p>
             </div>
+
             <Overlay className="flex flex-col justify-center items-center opacity-0 group-hover/overlay:opacity-100">
-                <Link
-                    className="w-full h-full absolute top-0 lef-0 z-10"
-                    href={`/single-product/${product.id}`}
-                ></Link>
-                <div className="z-20 h-full flex flex-col justify-center items-center">
+                <Link className="absolute w-full h-full z-10" href={`/single-product/${product.id}`}></Link>
+                <div className="z-20 flex flex-col justify-center items-center">
                     <Button
                         className="bg-white text-brand-color"
                         onClick={handleAddToCart}
