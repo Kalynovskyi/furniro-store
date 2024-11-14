@@ -32,7 +32,7 @@ const MainMenu = () => {
     };
 
     return (
-        <div className="container 2xl py-30 mx-5 md:mx-auto relative">
+        <header className="container 2xl py-30 mx-5 md:mx-auto relative">
             <nav className="flex justify-between items-center w-[calc(100%-40px)] md:w-full">
                 <div className="logo md:flex-1 max-md:flex-grow">
                     <Link href="/">
@@ -71,7 +71,7 @@ const MainMenu = () => {
                                 <Link href="/">Home</Link>
                             </li>
                             <li>
-                                <Link href="/Shop">Shop</Link>
+                                <Link href="/shop">Shop</Link>
                             </li>
                             <li>
                                 <Link href="/blog">Blog</Link>
@@ -180,7 +180,7 @@ const MainMenu = () => {
                     </ul>
                 </div>
             </nav>
-        </div>
+        </header>
     );
 };
 

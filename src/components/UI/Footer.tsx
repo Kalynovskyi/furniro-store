@@ -23,14 +23,14 @@ const Footer = () => {
                         <h2 className="font-bold text-2xl mb-[3.125rem]">
                             Funiro.
                         </h2>
-                        <p className="text-[#9F9F9F] font-light">
+                        <p className="text-secondary-color font-light">
                             400 University Drive Suite 200 Coral Gables,
                             <br />
                             FL 33134 USA
                         </p>
                     </div>
                     <div className="col-span-12 md:col-start-5 md:col-span-2 pb-12 md:pb-0">
-                        <h5 className="mb-[3.125rem] text-[#9F9F9F] font-light">
+                        <h5 className="mb-[3.125rem] text-secondary-color font-light">
                             Links
                         </h5>
                         <ul className="space-y-12">
@@ -69,7 +69,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="col-span-12 md:col-span-2 pb-12 md:pb-0">
-                        <h5 className="mb-[3.125rem] text-[#9F9F9F] font-light">
+                        <h5 className="mb-[3.125rem] text-secondary-color font-light">
                             Help
                         </h5>
                         <ul className="space-y-12">
@@ -101,7 +101,7 @@ const Footer = () => {
                     </div>
 
                     <div className="col-span-12 md:col-span-4 lg:col-span-3">
-                        <h5 className="mb-[3.125rem] text-[#9F9F9F] font-light">
+                        <h5 className="mb-[3.125rem] text-secondary-color font-light">
                             Newsletter
                         </h5>
                         <form onSubmit={handleSubmit(onSubmit)}>

@@ -29,6 +29,6 @@ interface ProductProps {
     productData: Product;
 }
 
-interface ProductsScreenProps {
+interface ProductsGridProps {
     products: Product[];
 }

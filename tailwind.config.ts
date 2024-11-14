@@ -11,6 +11,8 @@ const config: Config = {
         extend: {
             colors: {
                 "brand-color": "#B88E2F",
+                "secondary-color": "#9F9F9F",
+                "secondary-bg-color": "#F9F1E7",
                 "border-color": "#D9D9D9",
                 FFF3E3: "#FFF3E3",
                 "3A3A3A": "#3A3A3A",
@@ -41,6 +43,8 @@ const config: Config = {
             backgroundImage: {
                 "hero-screen":
                     "url(/assets/images/hero-screen.jpg)",
+                "page-header":
+                    "url(/assets/images/page-main-heading-background.jpg)",
             },
             fontSize: {
                 28: "1.75em",
