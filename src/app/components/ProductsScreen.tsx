@@ -1,4 +1,4 @@
-import { ProductsGrid } from "./../Shop/ProductsGrid";
+import { ProductsGrid } from "../../components/Shop/ProductsGrid";
 import getAllProducts from "@/Libs/getAllProducts";
 
 export async function ProductsScreen(props: ProductsGridProps) {

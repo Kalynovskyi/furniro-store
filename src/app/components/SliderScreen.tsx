@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { Slider } from "./../Plugins/Slider/Slider";
-import Button from "../UI/Button";
-import { SliderItem } from "../Plugins/Slider/SliderItem";
+import { Slider } from "../../components/Plugins/Slider/Slider";
+import Button from "../../components/UI/Button";
+import { SliderItem } from "../../components/Plugins/Slider/SliderItem";
 import { useState } from "react";
 
 import Image from "next/image";
@@ -53,7 +53,6 @@ export function SliderScreen() {
         setSliderItemHeight(SliderData.itemHeight ?? 0);
 
         setInactiveSliderItemHeight(getInactiveSliderItemHeight());
-
     };
 
     return (
@@ -106,7 +105,11 @@ export function SliderScreen() {
                                             className="transition-all duration-300"
                                             style={
                                                 activeSliderItem !== index
-                                                    ? { maxHeight: inactiveSliderItemHeight + "px"}
+                                                    ? {
+                                                          maxHeight:
+                                                              inactiveSliderItemHeight +
+                                                              "px",
+                                                      }
                                                     : { maxHeight: "600px" }
                                             }
                                         />

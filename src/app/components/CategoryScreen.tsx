@@ -1,4 +1,4 @@
-import { Overlay } from "./../UI/Overlay";
+import { Overlay } from "../../components/UI/Overlay";
 
 import Image from "next/image";
 

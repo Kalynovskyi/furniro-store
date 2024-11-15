@@ -14,10 +14,11 @@ const config: Config = {
                 "secondary-color": "#9F9F9F",
                 "secondary-bg-color": "#F9F1E7",
                 "border-color": "#D9D9D9",
+                "text-grey": "#898989",
                 FFF3E3: "#FFF3E3",
                 "3A3A3A": "#3A3A3A",
                 "(3A3A3A,.7)": "rgba(58,58,58,.7)",
-                898989: "#898989",
+                
                 F4F5F7: "#F4F5F7",
                 FCF8F3: "#FCF8F3",
                 "(fffff,.7)": "rgba(255,255,255,.7)",

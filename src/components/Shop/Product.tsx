@@ -60,7 +60,7 @@ export function Product(props: ProductProps) {
                 <h5 className="text-2xl font-semibold leading-tight text-3A3A3A">
                     {product.title}
                 </h5>
-                <p className="text-base leading-normal text-898989">
+                <p className="text-base leading-normal text-text-grey">
                     {product.subtitle}
                 </p>
                 <p className="text-xl font-semibold leading-normal text-3A3A3A">
