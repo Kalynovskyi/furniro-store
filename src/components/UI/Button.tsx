@@ -2,6 +2,8 @@
 const Button = (props: ButtonProps) => {
     let className = props.className ? props.className : '';
     const buttonType = props.type ? props.type : 'button';
+    const id = props.id;
+    //console.log(props);
 
     if (!className.includes('text-')) {
         className = className + ' text-white'
@@ -16,7 +18,7 @@ const Button = (props: ButtonProps) => {
     }
     
     return(
-        <button onClick={props.onClick} type={buttonType} className={`${className}  px-72 hover:opacity-80 transition-all duration-300 `}>{props.children}</button>
+        <button onClick={props.onClick} id={id} type={buttonType} className={`${className}  px-72 hover:opacity-80 transition-all duration-300 `}>{props.children}</button>
     );
 }
 

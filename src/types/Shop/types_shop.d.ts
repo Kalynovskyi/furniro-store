@@ -31,6 +31,13 @@ interface ProductProps {
 
 interface ProductsGridProps {
     products: Product[];
+    paginationType: string;
+}
+
+interface ProductsPaginationProps {
+    products: Product[];
+    productsShown: number;
+    paginationType: string;
 }
 
 interface ShopFilterProps {

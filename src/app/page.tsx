@@ -18,7 +18,7 @@ export default async function Home() {
 
             <CategoryScreen />
 
-            <ProductsScreen products={Products}/>
+            <ProductsScreen products={Products} paginationType="lazy"/>
 
             <SliderScreen />
 

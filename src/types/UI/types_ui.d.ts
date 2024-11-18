@@ -3,6 +3,7 @@ interface ButtonProps {
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     type?: "button" | "submit" | "reset";
     className?: string;
+    id?: string;
 }
 
 interface OverlayProps {

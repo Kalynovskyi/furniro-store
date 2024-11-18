@@ -13,7 +13,7 @@ export async function ProductsScreen(props: ProductsGridProps) {
                     Our Products
                 </h3>
 
-                <ProductsGrid products={Products} />
+                <ProductsGrid products={Products} paginationType='lazy'/>
             </div>
         </section>
     );

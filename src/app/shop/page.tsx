@@ -23,6 +23,7 @@ export default async function Page() {
                 <div className="mx-5">
                     <ProductsGrid
                         products={Products}
+                        paginationType="numeric"
                     ></ProductsGrid>
                 </div>
             </section>
