@@ -1,24 +1,14 @@
 import { Overlay } from "./../UI/Overlay";
 import Button from "../UI/Button";
 import Image from "next/image";
-import { createAction } from "@reduxjs/toolkit";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { cartAdding } from "@/redux/features/cart/cartSlice";
 import Link from "next/link";
 
 export function Product(props: ProductProps) {
     const product = props.productData;
     const imgSrc = product.images || "";
     const dispatch = useAppDispatch();
-
-    /* Create add to cart action*/
-    const addToCart = createAction(
-        "cart/cartAdding",
-        function prepare(product: CartProduct) {
-            return {
-                payload: product,
-            };
-        }
-    );
 
     /*Handle adding to cart*/
     const handleAddToCart = () => {
@@ -27,7 +17,7 @@ export function Product(props: ProductProps) {
             quantity: 1,
         };
 
-        dispatch(addToCart(productData));
+        dispatch(cartAdding(productData));
     };
 
     /*Get current cart state*/

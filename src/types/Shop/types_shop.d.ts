@@ -32,3 +32,19 @@ interface ProductProps {
 interface ProductsGridProps {
     products: Product[];
 }
+
+interface ShopFilterProps {
+    productsShown: number;
+    allProductsAmount: number;
+}
+
+interface ShopFilterState {
+    productsAmount: number;
+    minPrice?: number | null;
+    maxPrice?: number| null;
+    rating?: number| null;
+    sizes?: string | null | undefined;
+    colors?: string | null | undefined;
+    categories?: string | null | undefined;
+    tags?: string | null | undefined;
+}

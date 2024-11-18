@@ -1,5 +1,25 @@
-import React from "react";
-export function ShopFilter() {
+"use client";
+
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { filterChange } from "@/redux/features/shop-filter/filterSlice";
+
+export function ShopFilter(props: ShopFilterProps) {
+    const dispatcher = useAppDispatch();
+
+    const filter: ShopFilterState = useAppSelector(
+        (state) => state.filterReducer
+    );
+
+    const handleProductsShownChange = (
+        event: React.FormEvent<HTMLInputElement>
+    ) => {
+
+        const productAmountValue = +event.currentTarget.value;
+
+        dispatcher(filterChange({ productsAmount: productAmountValue }));
+    };
+
     return (
         <div className="bg-secondary-bg-color py-8">
             <div className="mx-5">
@@ -58,14 +78,19 @@ export function ShopFilter() {
                                 </i>
                             </li>
                         </ul>
-                        <span className="pl-8">Showing 1–16 of 32 results</span>
+                        <span className="pl-8">
+                            Showing 1–{filter.productsAmount} of{" "}
+                            {props.allProductsAmount} results
+                        </span>
                     </div>
                     <div className="flex items-center space-x-7 max-md:justify-between">
                         <div>
-                            <label htmlFor="">
+                            <label>
                                 Show
                                 <input
                                     type="number"
+                                    value={filter.productsAmount}
+                                    onChange={handleProductsShownChange}
                                     min={1}
                                     className="inline ml-4 py-4 px-3 max-w-14 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                 />
@@ -73,13 +98,9 @@ export function ShopFilter() {
                         </div>
 
                         <div className="">
-                            <label htmlFor="">
+                            <label>
                                 Sort by
-                                <select
-                                    name=""
-                                    id=""
-                                    className="ml-4 py-4 px-3 appearance-none"
-                                >
+                                <select className="ml-4 py-4 px-3 appearance-none">
                                     <option value="default">Default</option>
                                     <option value="min-price">Low price</option>
                                     <option value="max-price">

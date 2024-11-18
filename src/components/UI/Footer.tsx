@@ -21,7 +21,7 @@ const Footer = () => {
                 <div className="mx-5 grid grid-cols-12">
                     <div className="col-span-12 md:col-span-3 pb-12 md:pb-0">
                         <h2 className="font-bold text-2xl mb-[3.125rem]">
-                            Funiro.
+                            Furniro.
                         </h2>
                         <p className="text-secondary-color font-light">
                             400 University Drive Suite 200 Coral Gables,

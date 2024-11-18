@@ -1,23 +1,14 @@
 import Image from "next/image";
-import { createAction } from "@reduxjs/toolkit";
 import { useAppDispatch } from "@/redux/hooks";
+import { cartRemove } from "@/redux/features/cart/cartSlice";
 
 const CartItem = (props: ProductProps) => {
     const product = props.productData;
     const imgSrc = product.images || "";
     const dispatch = useAppDispatch();
 
-    const removeFromCart = createAction(
-        "cart/cartRemove",
-        function prepare(product: Product) {
-            return {
-                payload: product,
-            };
-        }
-    );
-
     const handleRemoveFromCart = () => {
-        dispatch(removeFromCart(product));
+        dispatch(cartRemove(product));
     };
 
     return (
