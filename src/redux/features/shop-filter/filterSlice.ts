@@ -9,6 +9,7 @@ const initialState: ShopFilterState = {
     colors: null,
     categories: null,
     tags: null,
+    sort: 'default'
 };
 
 const filterSlice = createSlice({
@@ -26,6 +27,7 @@ const filterSlice = createSlice({
             state.colors = action.payload.colors ?? currentState.colors;
             state.categories = action.payload.categories ?? currentState.categories;
             state.tags = action.payload.tags ?? currentState.tags;
+            state.sort = action.payload.sort ?? currentState.sort;
         },
     },
 });

@@ -1,46 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import Button from "../UI/Button";
-import { Product } from "./Product";
-import { useAppSelector } from "@/redux/hooks";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import productsSorting from "@/utils/productsSorting";
+import productsGridMarkup from "@/utils/productsGridMarkup";
+import { filterChange } from "@/redux/features/shop-filter/filterSlice";
 
 export function ProductsGrid(props: ProductsGridProps) {
-
-    const filter: ShopFilterState = useAppSelector(
-        (state) => state.filterReducer
-    );
+    const dispatcher = useAppDispatch();
+    const filter: ShopFilterState = useAppSelector((state) => state.filterReducer);
 
     const productsShown = filter.productsAmount;
-    const [productsAmount, setProductsAmount] = useState(productsShown);
-    const Products = props.products;
 
+    const initialProductsAmount = useRef(productsShown);
+
+    /*Check on necessary values*/
+    if (productsShown === undefined) throw new Error("Variable productsShown is undefined");
+
+    /*Handle pagination*/
     const handleShowMore = () => {
-        setProductsAmount(productsAmount + productsShown);
+        dispatcher(filterChange({ productsAmount: productsShown + initialProductsAmount.current!}));
     };
 
-    const getProducts = (Products: Product[]) => {
-        const content = [];
-
-        for (let index: number = 0; index < Products.length; index++) {
-            if (index < productsShown) {
-                content.push(
-                    <Product
-                        key={Products[index].id}
-                        productData={Products[index]}
-                    ></Product>
-                );
-            }
-        }
-
-        return content;
-    };
-
+    /*Get sorted products*/
+    const Products = productsSorting(filter, props.products)!;
+    
+    /*Create product grid markup */
+    const productsGrid = productsGridMarkup(Products, productsShown);
 
     return (
         <>
             <div className="space-y-8 md:space-y-0 md:grid md:grid-cols-12 md:gap-8 auto-rows-max">
-                {getProducts(Products)}
+                {productsGrid}
             </div>
             <div
                 className={`text-center mb-16 ${

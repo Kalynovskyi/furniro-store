@@ -39,7 +39,7 @@ interface ShopFilterProps {
 }
 
 interface ShopFilterState {
-    productsAmount: number;
+    productsAmount?: number;
     minPrice?: number | null;
     maxPrice?: number| null;
     rating?: number| null;
@@ -47,4 +47,5 @@ interface ShopFilterState {
     colors?: string | null | undefined;
     categories?: string | null | undefined;
     tags?: string | null | undefined;
+    sort?: string;
 }

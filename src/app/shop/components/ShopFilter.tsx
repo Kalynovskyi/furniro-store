@@ -11,14 +11,13 @@ export function ShopFilter(props: ShopFilterProps) {
         (state) => state.filterReducer
     );
 
-    const handleProductsShownChange = (
-        event: React.FormEvent<HTMLInputElement>
-    ) => {
+    const handleProductsShownChange = ((event: React.FormEvent<HTMLInputElement>) => {
+        dispatcher(filterChange({ productsAmount: +event.currentTarget.value }));
+    });
 
-        const productAmountValue = +event.currentTarget.value;
-
-        dispatcher(filterChange({ productsAmount: productAmountValue }));
-    };
+    const handleProductSort = ((event: React.FormEvent<HTMLSelectElement>) => {
+        dispatcher(filterChange({ sort: event.currentTarget.value }));
+    });
 
     return (
         <div className="bg-secondary-bg-color py-8">
@@ -79,7 +78,7 @@ export function ShopFilter(props: ShopFilterProps) {
                             </li>
                         </ul>
                         <span className="pl-8">
-                            Showing 1–{filter.productsAmount} of{" "}
+                            Showing 1–{filter.productsAmount} of
                             {props.allProductsAmount} results
                         </span>
                     </div>
@@ -92,6 +91,7 @@ export function ShopFilter(props: ShopFilterProps) {
                                     value={filter.productsAmount}
                                     onChange={handleProductsShownChange}
                                     min={1}
+                                    max={props.allProductsAmount}
                                     className="inline ml-4 py-4 px-3 max-w-14 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                 />
                             </label>
@@ -100,7 +100,7 @@ export function ShopFilter(props: ShopFilterProps) {
                         <div className="">
                             <label>
                                 Sort by
-                                <select className="ml-4 py-4 px-3 appearance-none">
+                                <select className="ml-4 py-4 px-3 appearance-none" onChange={handleProductSort}>
                                     <option value="default">Default</option>
                                     <option value="min-price">Low price</option>
                                     <option value="max-price">
