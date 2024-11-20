@@ -78,8 +78,7 @@ export function ShopFilter(props: ShopFilterProps) {
                             </li>
                         </ul>
                         <span className="pl-8">
-                            Showing 1–{filter.productsAmount} of
-                            {props.allProductsAmount} results
+                            Showing 1–{filter.productsAmount} of {props.allProductsAmount} results
                         </span>
                     </div>
                     <div className="flex items-center space-x-7 max-md:justify-between">

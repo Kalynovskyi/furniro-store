@@ -1,18 +1,22 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { pageChange } from "@/redux/features/shop-pagination/paginationSlice";
 import { filterChange } from "@/redux/features/shop-filter/filterSlice";
 import Button from "../UI/Button";
 
 export function ProductsPagination(props: ProductsPaginationProps) {
-    const [activePage, setActivePage] = useState(1);
     const dispatcher = useAppDispatch();
     const products = props.products;
     const productsShown = props.productsShown;
     const productsPagination = props.paginationType;
 
     const initialProductsAmount = useRef(productsShown);
+
+    const pagination: PaginationState = useAppSelector(
+        (state) => state.paginationReducer
+    );
 
     /*Handle pagination*/
     const handleShowMore = () => {
@@ -23,71 +27,75 @@ export function ProductsPagination(props: ProductsPaginationProps) {
         );
     };
 
-    const handlePaginationClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handlePaginationClick = (
+        event: React.MouseEvent<HTMLButtonElement>
+    ) => {
         const value = event.currentTarget.id;
+        const currentPage = pagination.page
 
         if (value === "next") {
-            setActivePage(activePage + 1);
+            dispatcher(pageChange(currentPage + 1))
         } else if (value === "prev") {
-            setActivePage(activePage - 1);
+            dispatcher(pageChange(currentPage - 1))
         } else {
-            setActivePage(+value);
+            dispatcher(pageChange(+value))
         }
+    };
+
+    const numericPaginationMarkup = () => {
+        const pages = Math.ceil(products.length / productsShown);
+        const buttons = [];
+
+        for (let index: number = 1; index <= pages; index++) {
+            buttons.push(
+                <Button
+                    key={index}
+                    id={index.toString()}
+                    className={`w-[3.75rem] h-[3.75rem] px-0 py-0 rounded-lg 
+                            ${
+                                index === pagination.page
+                                    ? ""
+                                    : "bg-secondary-bg-color text-black"
+                            }`}
+                    onClick={handlePaginationClick}
+                >
+                    {index}
+                </Button>
+            );
+        }
+
+        if (pagination.page < pages) {
+            buttons.push(
+                <Button
+                    key={pages + 1}
+                    className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black"
+                    id="next"
+                    onClick={handlePaginationClick}
+                >
+                    Next
+                </Button>
+            );
+        }
+
+        if (pagination.page > 1) {
+            buttons.unshift(
+                <Button
+                    key={0}
+                    className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black"
+                    id="prev"
+                    onClick={handlePaginationClick}
+                >
+                    Prev
+                </Button>
+            );
+        }
+
+        return buttons;
     };
 
     const paginationMarkup = () => {
         if (productsPagination === "numeric") {
-            const pages = Math.ceil(products.length / productsShown);
-            const buttons = [];
-
-            for (let index: number = 1; index <= pages; index++) {
-                
-                if (index < productsShown) {
-                    buttons.push(
-                        <Button
-                            key={index}
-                            id={index.toString()}
-                            className={`w-[3.75rem] h-[3.75rem] px-0 py-0 rounded-lg 
-                                ${
-                                    index === activePage
-                                        ? ""
-                                        : "bg-secondary-bg-color text-black"
-                                }`}
-                            onClick={handlePaginationClick}
-                        >
-                            {index}
-                        </Button>
-                    );
-                }
-            }
-
-            if (activePage < pages) {
-                buttons.push(
-                    <Button
-                        key={pages + 1}
-                        className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black"
-                        id="next"
-                        onClick={handlePaginationClick}
-                    >
-                        Next
-                    </Button>
-                );
-            } 
-
-            if (activePage > 1 ) {
-                buttons.unshift(
-                    <Button
-                        key={0}
-                        className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black"
-                        id="prev"
-                        onClick={handlePaginationClick}
-                    >
-                        Prev
-                    </Button>
-                );
-            }
-
-            return <ul className="space-x-[2.375rem]">{buttons}</ul>;
+            return <ul className="space-x-[2.375rem]">{numericPaginationMarkup()}</ul>;
         } else {
             return (
                 <Button

@@ -3,13 +3,12 @@ import { PageHeader } from "./../../components/UI/PageHeader";
 import { ShopFilter } from "./components/ShopFilter";
 import { ProductsGrid } from "@/components/Shop/ProductsGrid";
 import getAllProducts from "@/Libs/getAllProducts";
-import { useAppSelector } from "@/redux/hooks";
 
 
 export default async function Page() {
     const productsData: Promise<Product[]> = getAllProducts();
     const Products = await productsData;
-
+    
     const productsShown = 16;
     const allProductsAmount = Products.length;
 

@@ -56,3 +56,7 @@ interface ShopFilterState {
     tags?: string | null | undefined;
     sort?: string;
 }
+
+interface PaginationState {
+    page: number;
+}

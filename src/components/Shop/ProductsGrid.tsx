@@ -8,6 +8,7 @@ import { ProductsPagination } from "./ProductsPagination";
 
 export function ProductsGrid(props: ProductsGridProps) {
     const filter: ShopFilterState = useAppSelector((state) => state.filterReducer);
+    const pagination: PaginationState = useAppSelector((state) => state.paginationReducer);
 
     const productsShown = filter.productsAmount;
 
@@ -18,7 +19,7 @@ export function ProductsGrid(props: ProductsGridProps) {
     const Products = productsSorting(filter, props.products)!;
     
     /*Create product grid markup */
-    const productsGrid = productsGridMarkup(Products, productsShown);
+    const productsGrid = productsGridMarkup(Products, productsShown, pagination.page);
 
     return (
         <>
