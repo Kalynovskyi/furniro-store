@@ -3,7 +3,6 @@ const Button = (props: ButtonProps) => {
     let className = props.className ? props.className : '';
     const buttonType = props.type ? props.type : 'button';
     const id = props.id;
-    //console.log(props);
 
     if (!className.includes('text-')) {
         className = className + ' text-white'
