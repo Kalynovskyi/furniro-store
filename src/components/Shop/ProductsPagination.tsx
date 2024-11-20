@@ -71,7 +71,7 @@ export function ProductsPagination(props: ProductsPaginationProps) {
                 <li key={index}>
                     <Button
                         id={index.toString()}
-                        className={`w-[3.75rem] h-[3.75rem] !px-0 !py-0 rounded-lg 
+                        className={`w-8 h-8  sm:w-[3.75rem] sm:h-[3.75rem] !px-0 !py-0 rounded-lg 
                             ${
                                 index === currentPage
                                     ? ""
@@ -95,7 +95,7 @@ export function ProductsPagination(props: ProductsPaginationProps) {
                 <li key={pages}>
                     <Button
                         id={pages.toString()}
-                        className={`w-[3.75rem] h-[3.75rem] !px-0 !py-0 rounded-lg 
+                        className={`w-8 h-8 sm:w-[3.75rem] sm:h-[3.75rem] !px-0 !py-0 rounded-lg 
                     ${
                         pages === currentPage
                             ? ""
@@ -119,7 +119,7 @@ export function ProductsPagination(props: ProductsPaginationProps) {
                 <li key={1}>
                     <Button
                         id={"1"}
-                        className={`w-[3.75rem] h-[3.75rem] !px-0 !py-0 rounded-lg 
+                        className={`w-8 h-8 sm:w-[3.75rem] sm:h-[3.75rem] !px-0 !py-0 rounded-lg 
                     ${
                         1 === currentPage
                             ? ""
@@ -138,7 +138,7 @@ export function ProductsPagination(props: ProductsPaginationProps) {
             buttons.push(
                 <li key={pages + 1}>
                     <Button
-                        className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black"
+                        className=" h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black max-sm:hidden"
                         id="next"
                         onClick={handlePaginationClick}
                     >
@@ -152,7 +152,7 @@ export function ProductsPagination(props: ProductsPaginationProps) {
             buttons.unshift(
                 <Button
                     key={0}
-                    className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black"
+                    className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black max-sm:hidden"
                     id="prev"
                     onClick={handlePaginationClick}
                 >
@@ -167,7 +167,7 @@ export function ProductsPagination(props: ProductsPaginationProps) {
     const paginationMarkup = () => {
         if (productsPagination === "numeric") {
             return (
-                <ul className="space-x-[2.375rem] flex items-center justify-center">
+                <ul className="space-x-4 md:space-x-[2.375rem] flex items-center justify-center">
                     {numericPaginationMarkup()}
                 </ul>
             );
