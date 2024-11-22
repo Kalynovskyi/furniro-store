@@ -7,7 +7,7 @@ const initialState: ShopFilterState = {
     rating: null,
     sizes: null,
     colors: null,
-    categories: null,
+    categories: [],
     tags: null,
     sort: 'default'
 };
@@ -18,6 +18,16 @@ const filterSlice = createSlice({
     reducers: {
         filterChange(state, action: PayloadAction<ShopFilterState>) {
             const currentState = current(state);
+            console.log(action.payload.categories![0]);
+
+            if (action.payload.categories !== undefined) {
+
+                if (state.categories?.includes(action.payload.categories![0])) return;
+
+                state.categories?.push(action.payload.categories![0])
+            }
+
+            //state.categories = action.payload.categories ?? currentState.categories;
 
             state.productsAmount = action.payload.productsAmount ?? currentState.productsAmount;
             state.minPrice = action.payload.minPrice ?? currentState.minPrice;
@@ -25,13 +35,23 @@ const filterSlice = createSlice({
             state.rating = action.payload.rating ?? currentState.rating;
             state.sizes = action.payload.sizes ?? currentState.sizes;
             state.colors = action.payload.colors ?? currentState.colors;
-            state.categories = action.payload.categories ?? currentState.categories;
             state.tags = action.payload.tags ?? currentState.tags;
             state.sort = action.payload.sort ?? currentState.sort;
+        },
+
+        filterRemove(state, action: PayloadAction<ShopFilterState>) {
+            const currentState = current(state);
+            console.log(action.payload.categories![0]);
+
+            if (action.payload.categories !== undefined) {
+                const categoryIndex = state.categories?.indexOf(action.payload.categories![0]);
+                
+                state.categories?.splice(categoryIndex!, 1)
+            }
         },
     },
 });
 
 // Export the actions and reducer
-export const { filterChange } = filterSlice.actions;
+export const { filterChange, filterRemove } = filterSlice.actions;
 export default filterSlice.reducer;

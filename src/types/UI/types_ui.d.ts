@@ -19,3 +19,11 @@ interface SliderData {
     itemsAmount?: number;
     toSlide?: (activeSlide: number, nextSlide: number) => void;
 }
+
+interface InputProps {
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    className?: string
+    type: string;
+    placeholder?: string;
+    id?: string;
+}

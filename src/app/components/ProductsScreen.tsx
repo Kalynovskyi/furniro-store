@@ -1,7 +1,7 @@
 import { ProductsGrid } from "../../components/Shop/ProductsGrid";
 import getAllProducts from "@/Libs/getAllProducts";
 
-export async function ProductsScreen(props: ProductsGridProps) {
+export async function ProductsScreen() {
     const productsData: Promise<Product[]> = getAllProducts();
 
     const Products = await productsData;

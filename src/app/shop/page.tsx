@@ -16,7 +16,7 @@ export default async function Page() {
         <>
             <PageHeader pageName="Shop" />
 
-            <ShopFilter productsShown={productsShown} allProductsAmount={allProductsAmount}/>
+            <ShopFilter products={Products} productsShown={productsShown} allProductsAmount={allProductsAmount} />
 
             <section className="container 2xl w-full mx-auto pt-[3.938rem]">
                 <div className="mx-5">

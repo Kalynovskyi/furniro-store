@@ -19,6 +19,7 @@ export default function RootLayout({
             <body className={`antialiased`}>
                 <StoreProvider>
                     <div id="cart-portal"></div>
+                    <div id="filter-portal"></div>
                     <MainMenu />
                     {children}
 

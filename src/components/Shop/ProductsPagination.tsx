@@ -58,7 +58,6 @@ export function ProductsPagination(props: ProductsPaginationProps) {
         }
 
         if (arePagesLimited) {
-
             if (currentPage > 1 && currentPage !== pages) {
                 pageIndexStart = currentPage - 1;
             } else if (currentPage == pages) {
@@ -66,7 +65,11 @@ export function ProductsPagination(props: ProductsPaginationProps) {
             }
         }
 
-        for (let index: number = pageIndexStart; index <= pageIndexStart + pagesLimit - 1; index++ ) {
+        for (
+            let index: number = pageIndexStart;
+            index <= pageIndexStart + pagesLimit - 1;
+            index++
+        ) {
             buttons.push(
                 <li key={index}>
                     <Button
@@ -85,10 +88,9 @@ export function ProductsPagination(props: ProductsPaginationProps) {
             );
         }
 
-        if (arePagesLimited && (currentPage < pages - 1)) {
-
-            if (currentPage < pages - 2) {
-                buttons.push(<li>...</li>);
+        if (arePagesLimited && currentPage < pages - 1) {
+            if (currentPage < pages + 2) {
+                buttons.push(<li key={pages + '1'}>...</li>);
             }
 
             buttons.push(
@@ -110,11 +112,10 @@ export function ProductsPagination(props: ProductsPaginationProps) {
         }
 
         if (arePagesLimited && currentPage >= 3) {
-
             if (currentPage > 3) {
-                buttons.unshift(<li>...</li>);
+                buttons.unshift(<li key={pages + '0'}>...</li>);
             }
-            
+
             buttons.unshift(
                 <li key={1}>
                     <Button
@@ -131,7 +132,6 @@ export function ProductsPagination(props: ProductsPaginationProps) {
                     </Button>
                 </li>
             );
-
         }
 
         if (currentPage < pages) {
@@ -150,14 +150,16 @@ export function ProductsPagination(props: ProductsPaginationProps) {
 
         if (currentPage > 1) {
             buttons.unshift(
-                <Button
-                    key={0}
-                    className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black max-sm:hidden"
-                    id="prev"
-                    onClick={handlePaginationClick}
-                >
-                    Prev
-                </Button>
+                <li key={0}>
+                    <Button
+                        
+                        className="h-[3.75rem] py-0 rounded-lg !px-7 bg-secondary-bg-color text-black max-sm:hidden"
+                        id="prev"
+                        onClick={handlePaginationClick}
+                    >
+                        Prev
+                    </Button>
+                </li>
             );
         }
 

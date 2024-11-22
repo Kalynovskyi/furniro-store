@@ -1,116 +1,206 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { filterChange } from "@/redux/features/shop-filter/filterSlice";
+import { filterChange, filterRemove } from "@/redux/features/shop-filter/filterSlice";
+import { createPortal } from "react-dom";
+import { Overlay } from "@/components/UI/Overlay";
+import { toggleState } from "@/utils/toggleState";
+import Input from "../../../components/UI/input";
+import getProductsAttributeCollection from "@/Libs/getProductsAttribute";
 
 export function ShopFilter(props: ShopFilterProps) {
-    const dispatcher = useAppDispatch();
+	const [isFilterShown, setIsFilterShown] = useState(false);
+	const dispatcher = useAppDispatch();
 
-    const filter: ShopFilterState = useAppSelector(
-        (state) => state.filterReducer
-    );
+	const filter: ShopFilterState = useAppSelector((state) => state.filterReducer);
 
-    const handleProductsShownChange = ((event: React.FormEvent<HTMLInputElement>) => {
-        dispatcher(filterChange({ productsAmount: +event.currentTarget.value }));
-    });
+	const handleProductsShownChange = (event: React.FormEvent<HTMLInputElement>) => {
+		dispatcher(filterChange({ productsAmount: +event.currentTarget.value }));
+	};
 
-    const handleProductSort = ((event: React.FormEvent<HTMLSelectElement>) => {
-        dispatcher(filterChange({ sort: event.currentTarget.value }));
-    });
+	const handleProductSort = (event: React.FormEvent<HTMLSelectElement>) => {
+		dispatcher(filterChange({ sort: event.currentTarget.value }));
+	};
 
-    return (
-        <div className="bg-secondary-bg-color py-8">
-            <div className="mx-5">
-                <div className="container 2xl w-full mx-auto flex justify-between max-md:flex-col max-md:space-y-8">
-                    <div className="flex items-center max-md:justify-between">
-                        <ul className="inline-flex items-center space-x-6 pr-8 md:border-r border-border-color">
-                            <li className="flex items-center">
-                                <i className="text-black mr-3">
-                                    <svg
-                                        width="25"
-                                        height="25"
-                                        viewBox="0 0 25 25"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M22.0238 7.14285H8.92857M6.54762 7.14285H2.97619M22.0238 19.0476H8.92857M6.54762 19.0476H2.97619M16.0714 13.0952H2.97619M22.0238 13.0952H18.4524M7.7381 4.7619C8.05383 4.7619 8.35663 4.88733 8.57989 5.11058C8.80315 5.33384 8.92857 5.63664 8.92857 5.95238V8.33333C8.92857 8.64906 8.80315 8.95187 8.57989 9.17512C8.35663 9.39838 8.05383 9.52381 7.7381 9.52381C7.42236 9.52381 7.11956 9.39838 6.8963 9.17512C6.67304 8.95187 6.54762 8.64906 6.54762 8.33333V5.95238C6.54762 5.63664 6.67304 5.33384 6.8963 5.11058C7.11956 4.88733 7.42236 4.7619 7.7381 4.7619V4.7619ZM7.7381 16.6667C8.05383 16.6667 8.35663 16.7921 8.57989 17.0153C8.80315 17.2386 8.92857 17.5414 8.92857 17.8571V20.2381C8.92857 20.5538 8.80315 20.8566 8.57989 21.0799C8.35663 21.3031 8.05383 21.4286 7.7381 21.4286C7.42236 21.4286 7.11956 21.3031 6.8963 21.0799C6.67304 20.8566 6.54762 20.5538 6.54762 20.2381V17.8571C6.54762 17.5414 6.67304 17.2386 6.8963 17.0153C7.11956 16.7921 7.42236 16.6667 7.7381 16.6667ZM17.2619 10.7143C17.5776 10.7143 17.8804 10.8397 18.1037 11.063C18.327 11.2862 18.4524 11.589 18.4524 11.9048V14.2857C18.4524 14.6014 18.327 14.9042 18.1037 15.1275C17.8804 15.3508 17.5776 15.4762 17.2619 15.4762C16.9462 15.4762 16.6434 15.3508 16.4201 15.1275C16.1969 14.9042 16.0714 14.6014 16.0714 14.2857V11.9048C16.0714 11.589 16.1969 11.2862 16.4201 11.063C16.6434 10.8397 16.9462 10.7143 17.2619 10.7143V10.7143Z"
-                                            stroke="currentColor"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                </i>
-                                <p>Filter</p>
-                            </li>
-                            <li>
-                                <i className="text-black">
-                                    <svg
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 18 18"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M13.6667 17.1667C12.7384 17.1667 11.8482 16.7979 11.1918 16.1416C10.5354 15.4852 10.1667 14.5949 10.1667 13.6667C10.1667 12.7384 10.5354 11.8482 11.1918 11.1918C11.8482 10.5354 12.7384 10.1667 13.6667 10.1667C14.5949 10.1667 15.4852 10.5354 16.1415 11.1918C16.7979 11.8482 17.1667 12.7384 17.1667 13.6667C17.1667 14.5949 16.7979 15.4852 16.1415 16.1416C15.4852 16.7979 14.5949 17.1667 13.6667 17.1667ZM4.33334 17.1667C3.40508 17.1667 2.51484 16.7979 1.85846 16.1416C1.20208 15.4852 0.833336 14.5949 0.833336 13.6667C0.833336 12.7384 1.20208 11.8482 1.85846 11.1918C2.51484 10.5354 3.40508 10.1667 4.33334 10.1667C5.26159 10.1667 6.15183 10.5354 6.80821 11.1918C7.46459 11.8482 7.83334 12.7384 7.83334 13.6667C7.83334 14.5949 7.46459 15.4852 6.80821 16.1416C6.15183 16.7979 5.26159 17.1667 4.33334 17.1667ZM13.6667 7.83334C12.7384 7.83334 11.8482 7.4646 11.1918 6.80822C10.5354 6.15184 10.1667 5.2616 10.1667 4.33334C10.1667 3.40509 10.5354 2.51485 11.1918 1.85847C11.8482 1.20209 12.7384 0.833344 13.6667 0.833344C14.5949 0.833344 15.4852 1.20209 16.1415 1.85847C16.7979 2.51485 17.1667 3.40509 17.1667 4.33334C17.1667 5.2616 16.7979 6.15184 16.1415 6.80822C15.4852 7.4646 14.5949 7.83334 13.6667 7.83334ZM4.33334 7.83334C3.40508 7.83334 2.51484 7.4646 1.85846 6.80822C1.20208 6.15184 0.833336 5.2616 0.833336 4.33334C0.833336 3.40509 1.20208 2.51485 1.85846 1.85847C2.51484 1.20209 3.40508 0.833344 4.33334 0.833344C5.26159 0.833344 6.15183 1.20209 6.80821 1.85847C7.46459 2.51485 7.83334 3.40509 7.83334 4.33334C7.83334 5.2616 7.46459 6.15184 6.80821 6.80822C6.15183 7.4646 5.26159 7.83334 4.33334 7.83334Z"
-                                            fill="currentColor"
-                                        />
-                                    </svg>
-                                </i>
-                            </li>
-                            <li>
-                                <i className="text-black">
-                                    <svg
-                                        width="22"
-                                        height="20"
-                                        viewBox="0 0 22 20"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M3.5 4.75H18.5C19.2956 4.75 20.0587 5.06607 20.6213 5.62868C21.1839 6.19129 21.5 6.95435 21.5 7.75V12.25C21.5 13.0456 21.1839 13.8087 20.6213 14.3713C20.0587 14.9339 19.2956 15.25 18.5 15.25H3.5C2.70435 15.25 1.94129 14.9339 1.37868 14.3713C0.816071 13.8087 0.5 13.0456 0.5 12.25V7.75C0.5 6.95435 0.816071 6.19129 1.37868 5.62868C1.94129 5.06607 2.70435 4.75 3.5 4.75ZM3.5 6.25C3.10218 6.25 2.72064 6.40804 2.43934 6.68934C2.15804 6.97064 2 7.35218 2 7.75V12.25C2 12.6478 2.15804 13.0294 2.43934 13.3107C2.72064 13.592 3.10218 13.75 3.5 13.75H18.5C18.8978 13.75 19.2794 13.592 19.5607 13.3107C19.842 13.0294 20 12.6478 20 12.25V7.75C20 7.35218 19.842 6.97064 19.5607 6.68934C19.2794 6.40804 18.8978 6.25 18.5 6.25H3.5ZM0.5 1C0.5 0.801088 0.579018 0.610322 0.71967 0.46967C0.860322 0.329018 1.05109 0.25 1.25 0.25H20.75C20.9489 0.25 21.1397 0.329018 21.2803 0.46967C21.421 0.610322 21.5 0.801088 21.5 1C21.5 1.19891 21.421 1.38968 21.2803 1.53033C21.1397 1.67098 20.9489 1.75 20.75 1.75H1.25C1.05109 1.75 0.860322 1.67098 0.71967 1.53033C0.579018 1.38968 0.5 1.19891 0.5 1ZM0.5 19C0.5 18.8011 0.579018 18.6103 0.71967 18.4697C0.860322 18.329 1.05109 18.25 1.25 18.25H20.75C20.9489 18.25 21.1397 18.329 21.2803 18.4697C21.421 18.6103 21.5 18.8011 21.5 19C21.5 19.1989 21.421 19.3897 21.2803 19.5303C21.1397 19.671 20.9489 19.75 20.75 19.75H1.25C1.05109 19.75 0.860322 19.671 0.71967 19.5303C0.579018 19.3897 0.5 19.1989 0.5 19Z"
-                                            fill="currentColor"
-                                        />
-                                    </svg>
-                                </i>
-                            </li>
-                        </ul>
-                        <span className="pl-8">
-                            Showing 1–{filter.productsAmount} of {props.allProductsAmount} results
-                        </span>
-                    </div>
-                    <div className="flex items-center space-x-7 max-md:justify-between">
-                        <div>
-                            <label>
-                                Show
-                                <input
-                                    type="number"
-                                    value={filter.productsAmount}
-                                    onChange={handleProductsShownChange}
-                                    min={1}
-                                    max={props.allProductsAmount}
-                                    className="inline ml-4 py-4 px-3 max-w-14 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                />
-                            </label>
-                        </div>
+	const handleFilterClick = () => {
+		toggleState(isFilterShown, setIsFilterShown);
+	};
 
-                        <div className="">
-                            <label>
-                                Sort by
-                                <select className="ml-4 py-4 px-3 appearance-none" onChange={handleProductSort}>
-                                    <option value="default">Default</option>
-                                    <option value="min-price">Low price</option>
-                                    <option value="max-price">
-                                        High price
-                                    </option>
-                                </select>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+	const categories = getProductsAttributeCollection(props.products, "categories")!;
+	// const colors = getProductsDataCollection(props.products, "colors")!;
+	// const sizes = getProductsDataCollection(props.products, "sizes")!;
+	// const tags = getProductsDataCollection(props.products, "tags")!;
+
+	const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.checked) {
+            dispatcher(filterChange({ categories: [event.currentTarget.value] }));
+        } else {
+            dispatcher(filterRemove({ categories: [event.currentTarget.value] }));
+        }
+        
+	};
+
+    console.log(filter);
+
+	return (
+		<>
+			<div className="bg-secondary-bg-color py-8">
+				<div className="mx-5">
+					<div className="container 2xl w-full mx-auto flex justify-between max-md:flex-col max-md:space-y-8">
+						<div className="flex items-center max-md:justify-between">
+							<div
+								className="flex items-center pr-6 md:border-r border-border-color cursor-pointer"
+								onClick={handleFilterClick}
+							>
+								<i className="text-black mr-3">
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M22.0238 7.14285H8.92857M6.54762 7.14285H2.97619M22.0238 19.0476H8.92857M6.54762 19.0476H2.97619M16.0714 13.0952H2.97619M22.0238 13.0952H18.4524M7.7381 4.7619C8.05383 4.7619 8.35663 4.88733 8.57989 5.11058C8.80315 5.33384 8.92857 5.63664 8.92857 5.95238V8.33333C8.92857 8.64906 8.80315 8.95187 8.57989 9.17512C8.35663 9.39838 8.05383 9.52381 7.7381 9.52381C7.42236 9.52381 7.11956 9.39838 6.8963 9.17512C6.67304 8.95187 6.54762 8.64906 6.54762 8.33333V5.95238C6.54762 5.63664 6.67304 5.33384 6.8963 5.11058C7.11956 4.88733 7.42236 4.7619 7.7381 4.7619V4.7619ZM7.7381 16.6667C8.05383 16.6667 8.35663 16.7921 8.57989 17.0153C8.80315 17.2386 8.92857 17.5414 8.92857 17.8571V20.2381C8.92857 20.5538 8.80315 20.8566 8.57989 21.0799C8.35663 21.3031 8.05383 21.4286 7.7381 21.4286C7.42236 21.4286 7.11956 21.3031 6.8963 21.0799C6.67304 20.8566 6.54762 20.5538 6.54762 20.2381V17.8571C6.54762 17.5414 6.67304 17.2386 6.8963 17.0153C7.11956 16.7921 7.42236 16.6667 7.7381 16.6667ZM17.2619 10.7143C17.5776 10.7143 17.8804 10.8397 18.1037 11.063C18.327 11.2862 18.4524 11.589 18.4524 11.9048V14.2857C18.4524 14.6014 18.327 14.9042 18.1037 15.1275C17.8804 15.3508 17.5776 15.4762 17.2619 15.4762C16.9462 15.4762 16.6434 15.3508 16.4201 15.1275C16.1969 14.9042 16.0714 14.6014 16.0714 14.2857V11.9048C16.0714 11.589 16.1969 11.2862 16.4201 11.063C16.6434 10.8397 16.9462 10.7143 17.2619 10.7143V10.7143Z"
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										/>
+									</svg>
+								</i>
+								<p>Filter</p>
+							</div>
+							<span className="pl-8">
+								Showing 1–{filter.productsAmount} of {props.allProductsAmount} results
+							</span>
+						</div>
+						<div className="flex items-center space-x-7 max-md:justify-between">
+							<div>
+								<label>
+									Show
+									<input
+										type="number"
+										value={filter.productsAmount}
+										onChange={handleProductsShownChange}
+										min={1}
+										max={props.allProductsAmount}
+										className="inline ml-4 py-4 px-3 max-w-14 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+									/>
+								</label>
+							</div>
+
+							<div className="">
+								<label>
+									Sort by
+									<select
+										className="ml-4 py-4 px-3 appearance-none"
+										onChange={handleProductSort}
+									>
+										<option value="default">Default</option>
+										<option value="min-price">Low price</option>
+										<option value="max-price">High price</option>
+									</select>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{isFilterShown &&
+				createPortal(
+					<div
+						id="filter-portal"
+						className="fixed w-full h-full top-0 left-0 z-[100]"
+					>
+						<div className="flex flex-col justify-between bg-white absolute left-0 top-0 z-50 w-full h-full sm:w-[26.063rem] p-5">
+							<form action="">
+								<fieldset>
+									<legend>Filter</legend>
+									<div>
+										<label htmlFor="search_product">Search</label>
+										<Input
+											className="block"
+											type="text"
+											id="search_product"
+											placeholder="Search product..."
+										/>
+									</div>
+
+									<div>
+										<label htmlFor="search_product">Price</label>
+										<div className="flex">
+											<Input
+												className="w-1/2"
+												id="min-price"
+												type="number"
+												placeholder="Min price..."
+											/>
+											<Input
+												className="w-1/2"
+												id="max-price"
+												type="number"
+												placeholder="Max price..."
+											/>
+										</div>
+									</div>
+
+									<div>
+										<h5>Categories</h5>
+										<ul>
+											{categories.map((category, index) => (
+												<li key={index}>
+													<input
+														onChange={handleCheckboxChange}
+														type="checkbox"
+                                                        value={category}
+														id={`${category}-checkbox`}
+													></input>
+													<label htmlFor={`${category}-checkbox`}>{category}</label>
+												</li>
+											))}
+										</ul>
+									</div>
+
+									<div>
+										<label htmlFor="products_ratings">Ratings</label>
+										<select
+											className="block rounded-lg border border-secondary-color py-6 px-7 w-full"
+											name="ratings"
+											id="products_ratings"
+										>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>
+									</div>
+
+									<div>
+										<h5>Sizes</h5>
+										<ul>
+											{categories.map((category, index) => (
+												<li key={index}>
+													<input
+														onChange={handleCheckboxChange}
+														type="checkbox"
+														id={`${category}-checkbox`}
+													></input>
+													<label htmlFor={`${category}-checkbox`}>{category}</label>
+												</li>
+											))}
+										</ul>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+
+						<Overlay onClick={handleFilterClick} />
+					</div>,
+					document.body
+				)}
+		</>
+	);
 }

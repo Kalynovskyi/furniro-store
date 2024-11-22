@@ -41,6 +41,7 @@ interface ProductsPaginationProps {
 }
 
 interface ShopFilterProps {
+    products: Product[];
     productsShown: number;
     allProductsAmount: number;
 }
@@ -52,7 +53,7 @@ interface ShopFilterState {
     rating?: number| null;
     sizes?: string | null | undefined;
     colors?: string | null | undefined;
-    categories?: string | null | undefined;
+    categories?: Array<string> | null | undefined;
     tags?: string | null | undefined;
     sort?: string;
 }

@@ -134,7 +134,6 @@ export function Cart({}) {
                     </div>,
                     document.body
                 )}
-            {}
         </>
     );
 }
