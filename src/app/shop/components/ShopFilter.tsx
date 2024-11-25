@@ -1,8 +1,10 @@
-"use client";
+"use client"
+
+import { FilterAttrsList } from "./FilterAttrsList";
 
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { filterAdding, filterRemove } from "@/redux/features/shop-filter/filterSlice";
+import { filterAdding } from "@/redux/features/shop-filter/filterSlice";
 import { createPortal } from "react-dom";
 import { Overlay } from "@/components/UI/Overlay";
 import { toggleState } from "@/utils/toggleState";
@@ -31,32 +33,6 @@ export function ShopFilter(props: ShopFilterProps) {
 	const colors = getProductsAttributeCollection(props.products, "colors")!;
 	const sizes = getProductsAttributeCollection(props.products, "sizes")!;
 	// const tags = getProductsAttributeCollection(props.products, "tags")!;
-
-	const handleCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		if (event.target.checked) {
-			dispatcher(filterAdding({ categories: [event.currentTarget.value] }));
-		} else {
-			dispatcher(filterRemove({ categories: [event.currentTarget.value] }));
-		}
-	};
-
-	const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		if (event.target.checked) {
-			dispatcher(filterAdding({ sizes: [event.currentTarget.value] }));
-		} else {
-			dispatcher(filterRemove({ sizes: [event.currentTarget.value] }));
-		}
-	};
-
-    const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		if (event.target.checked) {
-			dispatcher(filterAdding({ colors: [event.currentTarget.value] }));
-		} else {
-			dispatcher(filterRemove({ colors: [event.currentTarget.value] }));
-		}
-	};
-
-	//console.log(filter.sizes);
 
 	return (
 		<>
@@ -163,20 +139,11 @@ export function ShopFilter(props: ShopFilterProps) {
 
 									<div>
 										<h5>Categories</h5>
-										<ul>
-											{categories.map((category, index) => (
-												<li key={index}>
-													<input
-														onChange={handleCategoryChange}
-														type="checkbox"
-														checked={filter.categories?.includes(category)}
-														value={category}
-														id={`${category}-checkbox`}
-													></input>
-													<label htmlFor={`${category}-checkbox`}>{category}</label>
-												</li>
-											))}
-										</ul>
+										<FilterAttrsList
+											attrs={categories}
+                                            attrName={'categories'}
+                                            filter={filter}
+										/>
 									</div>
 
 									<div>
@@ -196,38 +163,20 @@ export function ShopFilter(props: ShopFilterProps) {
 
 									<div>
 										<h5>Sizes</h5>
-										<ul>
-											{sizes.map((size, index) => (
-												<li key={index}>
-													<input
-														onChange={handleSizeChange}
-														type="checkbox"
-														checked={filter.sizes?.includes(size)}
-														value={size}
-														id={`${size.toLocaleLowerCase}-checkbox`}
-													></input>
-													<label htmlFor={`${size.toLocaleLowerCase}-checkbox`}>{size}</label>
-												</li>
-											))}
-										</ul>
+										<FilterAttrsList
+											attrs={sizes}
+                                            attrName={'sizes'}
+                                            filter={filter}
+										/>
 									</div>
 
 									<div>
 										<h5>Colors</h5>
-										<ul>
-											{colors.map((color, index) => (
-												<li key={index}>
-													<input
-														onChange={handleColorChange}
-														type="checkbox"
-														checked={filter.colors?.includes(color)}
-														value={color}
-														id={`${color.toLocaleLowerCase}-checkbox`}
-													></input>
-													<label htmlFor={`${color.toLocaleLowerCase}-checkbox`}>{color}</label>
-												</li>
-											))}
-										</ul>
+										<FilterAttrsList
+											attrs={colors}
+                                            attrName={'colors'}
+                                            filter={filter}
+										/>
 									</div>
 								</fieldset>
 							</form>

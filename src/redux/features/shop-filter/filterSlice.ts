@@ -12,14 +12,12 @@ const initialState: ShopFilterState = {
 	sort: "default",
 };
 
-
 const filterSlice = createSlice({
 	name: "filter",
 	initialState,
 	reducers: {
 		filterAdding(state, action: PayloadAction<ShopFilterState>) {
 			const currentState = current(state);
-			//console.log(action.payload.categories![0]);
 
 			if (action.payload.categories !== undefined) {
 				//In case of duplicates exit condition
@@ -35,7 +33,6 @@ const filterSlice = createSlice({
 				state.sizes?.push(action.payload.sizes![0]);
 			}
 
-            
 			if (action.payload.colors !== undefined) {
 				//In case of duplicates exit condition
 				if (state.colors?.includes(action.payload.colors![0])) return;
@@ -67,7 +64,7 @@ const filterSlice = createSlice({
 				state.sizes?.splice(sizeIndex!, 1);
 			}
 
-            if (action.payload.colors !== undefined) {
+			if (action.payload.colors !== undefined) {
 				const sizeIndex = state.colors?.indexOf(action.payload.colors![0]);
 
 				state.colors?.splice(sizeIndex!, 1);
