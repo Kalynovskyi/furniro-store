@@ -26,4 +26,6 @@ interface InputProps {
     type: string;
     placeholder?: string;
     id?: string;
+    checked?: boolean
+    value?: string | number;
 }

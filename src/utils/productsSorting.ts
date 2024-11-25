@@ -1,29 +1,45 @@
-export default function productsSorting(filter: ShopFilterState, products: Product[]){
-    let filteredProducts = products;
+export default function productsSorting(filter: ShopFilterState, products: Product[]) {
 
-    if (filter.categories?.length !== undefined && filter.categories.length > 0) {
-        const categorizedProducts = [];
-        const filterCategories = filter.categories;
-        
-        for (let index = 0; index < filteredProducts.length; index++) {
-            const productCategories = filteredProducts[index].categories;
-            const isProductInCategories = productCategories?.some(item => filterCategories.includes(item));
+	const filterProductsByAttr = (products: Product[], filter: ShopFilterState, attr: string) => {
+		const filteredProducts = [];
+		const filterAttr = filter[attr as keyof ShopFilterState];
 
-            if (isProductInCategories) {
-                categorizedProducts.push(filteredProducts[index]);
-                
-            }
-        }
-        filteredProducts = categorizedProducts;
-    }
+		for (let index = 0; index < products.length; index++) {
+			const productAttr = products[index][attr as keyof Product];
 
-    if (filter.sort !== 'default') {
-        if (filter.sort === 'min-price') {
-            filteredProducts = products.sort((a, b) => a.price! - b.price!);
-        } else if (filter.sort === 'max-price') {
-            filteredProducts = products.sort((a, b) => b.price! - a.price!);
-        }
-    }
+			if (Array.isArray(filterAttr) && Array.isArray(productAttr)) {
+				const isProductInAttr = productAttr?.some((item) => typeof item === "string" &&  filterAttr!.includes(item));
 
-    return filteredProducts;
+				if (isProductInAttr) {
+					filteredProducts.push(products[index]);
+				}
+			}
+		}
+
+		return filteredProducts;
+	};
+
+	let filteredProducts = products;
+
+	if (filter.categories?.length !== undefined && filter.categories.length > 0) {
+		filteredProducts = filterProductsByAttr(filteredProducts, filter, "categories");
+	}
+
+	if (filter.sizes?.length !== undefined && filter.sizes.length > 0) {
+		filteredProducts = filterProductsByAttr(filteredProducts, filter, "sizes");
+	}
+
+    if (filter.colors?.length !== undefined && filter.colors.length > 0) {
+		filteredProducts = filterProductsByAttr(filteredProducts, filter, "colors");
+	}
+
+	if (filter.sort !== "default") {
+		if (filter.sort === "min-price") {
+			filteredProducts = products.sort((a, b) => a.price! - b.price!);
+		} else if (filter.sort === "max-price") {
+			filteredProducts = products.sort((a, b) => b.price! - a.price!);
+		}
+	}
+
+	return filteredProducts;
 }

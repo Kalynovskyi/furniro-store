@@ -51,8 +51,8 @@ interface ShopFilterState {
     minPrice?: number | null;
     maxPrice?: number| null;
     rating?: number| null;
-    sizes?: string | null | undefined;
-    colors?: string | null | undefined;
+    sizes?: Array<string> | null | undefined;
+    colors?: Array<string> | null | undefined;
     categories?: Array<string> | null | undefined;
     tags?: string | null | undefined;
     sort?: string;

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { filterChange, filterRemove } from "@/redux/features/shop-filter/filterSlice";
+import { filterAdding, filterRemove } from "@/redux/features/shop-filter/filterSlice";
 import { createPortal } from "react-dom";
 import { Overlay } from "@/components/UI/Overlay";
 import { toggleState } from "@/utils/toggleState";
@@ -16,11 +16,11 @@ export function ShopFilter(props: ShopFilterProps) {
 	const filter: ShopFilterState = useAppSelector((state) => state.filterReducer);
 
 	const handleProductsShownChange = (event: React.FormEvent<HTMLInputElement>) => {
-		dispatcher(filterChange({ productsAmount: +event.currentTarget.value }));
+		dispatcher(filterAdding({ productsAmount: +event.currentTarget.value }));
 	};
 
 	const handleProductSort = (event: React.FormEvent<HTMLSelectElement>) => {
-		dispatcher(filterChange({ sort: event.currentTarget.value }));
+		dispatcher(filterAdding({ sort: event.currentTarget.value }));
 	};
 
 	const handleFilterClick = () => {
@@ -28,19 +28,35 @@ export function ShopFilter(props: ShopFilterProps) {
 	};
 
 	const categories = getProductsAttributeCollection(props.products, "categories")!;
-	// const colors = getProductsDataCollection(props.products, "colors")!;
-	// const sizes = getProductsDataCollection(props.products, "sizes")!;
-	// const tags = getProductsDataCollection(props.products, "tags")!;
+	const colors = getProductsAttributeCollection(props.products, "colors")!;
+	const sizes = getProductsAttributeCollection(props.products, "sizes")!;
+	// const tags = getProductsAttributeCollection(props.products, "tags")!;
 
-	const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (event.target.checked) {
-            dispatcher(filterChange({ categories: [event.currentTarget.value] }));
-        } else {
-            dispatcher(filterRemove({ categories: [event.currentTarget.value] }));
-        }
+	const handleCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		if (event.target.checked) {
+			dispatcher(filterAdding({ categories: [event.currentTarget.value] }));
+		} else {
+			dispatcher(filterRemove({ categories: [event.currentTarget.value] }));
+		}
 	};
 
-    console.log(filter);
+	const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		if (event.target.checked) {
+			dispatcher(filterAdding({ sizes: [event.currentTarget.value] }));
+		} else {
+			dispatcher(filterRemove({ sizes: [event.currentTarget.value] }));
+		}
+	};
+
+    const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		if (event.target.checked) {
+			dispatcher(filterAdding({ colors: [event.currentTarget.value] }));
+		} else {
+			dispatcher(filterRemove({ colors: [event.currentTarget.value] }));
+		}
+	};
+
+	//console.log(filter.sizes);
 
 	return (
 		<>
@@ -111,9 +127,9 @@ export function ShopFilter(props: ShopFilterProps) {
 				createPortal(
 					<div
 						id="filter-portal"
-						className="fixed w-full h-full top-0 left-0 z-[100]"
+						className="fixed w-full h-full top-0 left-0 z-[100] "
 					>
-						<div className="flex flex-col justify-between bg-white absolute left-0 top-0 z-50 w-full h-full sm:w-[26.063rem] p-5">
+						<div className="flex flex-col justify-between bg-white absolute left-0 top-0 z-50 w-full h-full sm:w-[26.063rem] p-5 overflow-y-auto">
 							<form action="">
 								<fieldset>
 									<legend>Filter</legend>
@@ -151,10 +167,10 @@ export function ShopFilter(props: ShopFilterProps) {
 											{categories.map((category, index) => (
 												<li key={index}>
 													<input
-														onChange={handleCheckboxChange}
+														onChange={handleCategoryChange}
 														type="checkbox"
-                                                        checked={filter.categories?.includes(category)}
-                                                        value={category}
+														checked={filter.categories?.includes(category)}
+														value={category}
 														id={`${category}-checkbox`}
 													></input>
 													<label htmlFor={`${category}-checkbox`}>{category}</label>
@@ -181,14 +197,34 @@ export function ShopFilter(props: ShopFilterProps) {
 									<div>
 										<h5>Sizes</h5>
 										<ul>
-											{categories.map((category, index) => (
+											{sizes.map((size, index) => (
 												<li key={index}>
 													<input
-														onChange={handleCheckboxChange}
+														onChange={handleSizeChange}
 														type="checkbox"
-														id={`${category}-checkbox`}
+														checked={filter.sizes?.includes(size)}
+														value={size}
+														id={`${size.toLocaleLowerCase}-checkbox`}
 													></input>
-													<label htmlFor={`${category}-checkbox`}>{category}</label>
+													<label htmlFor={`${size.toLocaleLowerCase}-checkbox`}>{size}</label>
+												</li>
+											))}
+										</ul>
+									</div>
+
+									<div>
+										<h5>Colors</h5>
+										<ul>
+											{colors.map((color, index) => (
+												<li key={index}>
+													<input
+														onChange={handleColorChange}
+														type="checkbox"
+														checked={filter.colors?.includes(color)}
+														value={color}
+														id={`${color.toLocaleLowerCase}-checkbox`}
+													></input>
+													<label htmlFor={`${color.toLocaleLowerCase}-checkbox`}>{color}</label>
 												</li>
 											))}
 										</ul>
