@@ -18,7 +18,7 @@ const filterSlice = createSlice({
     reducers: {
         filterChange(state, action: PayloadAction<ShopFilterState>) {
             const currentState = current(state);
-            console.log(action.payload.categories![0]);
+            //console.log(action.payload.categories![0]);
 
             if (action.payload.categories !== undefined) {
 

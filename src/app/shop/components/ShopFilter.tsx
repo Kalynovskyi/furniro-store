@@ -38,7 +38,6 @@ export function ShopFilter(props: ShopFilterProps) {
         } else {
             dispatcher(filterRemove({ categories: [event.currentTarget.value] }));
         }
-        
 	};
 
     console.log(filter);
@@ -154,6 +153,7 @@ export function ShopFilter(props: ShopFilterProps) {
 													<input
 														onChange={handleCheckboxChange}
 														type="checkbox"
+                                                        checked={filter.categories?.includes(category)}
                                                         value={category}
 														id={`${category}-checkbox`}
 													></input>
