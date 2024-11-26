@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
 
 const initialState: ShopFilterState = {
+	searchValue: '',
 	productsAmount: 16,
 	minPrice: null,
 	maxPrice: null,
@@ -41,7 +42,7 @@ const filterSlice = createSlice({
 			}
 
 			//state.categories = action.payload.categories ?? currentState.categories;
-
+			state.searchValue = action.payload.searchValue ?? currentState.searchValue;
 			state.productsAmount = action.payload.productsAmount ?? currentState.productsAmount;
 			state.minPrice = action.payload.minPrice ?? currentState.minPrice;
 			state.maxPrice = action.payload.maxPrice ?? currentState.maxPrice;

@@ -21,7 +21,7 @@ interface SliderData {
 }
 
 interface InputProps {
-    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    onChange?: ChangeEventHandler<T> | undefined;
     className?: string
     type: string;
     placeholder?: string;

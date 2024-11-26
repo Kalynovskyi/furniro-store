@@ -47,6 +47,7 @@ interface ShopFilterProps {
 }
 
 interface ShopFilterState {
+    searchValue?: string;
     productsAmount?: number;
     minPrice?: number | null;
     maxPrice?: number| null;

@@ -1,4 +1,20 @@
 export default function productsSorting(filter: ShopFilterState, products: Product[]) {
+	const searchProducts = (products: Product[], filter: ShopFilterState) => {
+		const searchValue = filter.searchValue;
+		const filteredProducts = [];
+		if (searchValue === undefined) return;
+
+		for (let index = 0; index < products.length; index++) {
+			const title = products[index].title.toLowerCase();
+			const tags = products[index].tags?.toString();
+
+			if (title.includes(searchValue.toLowerCase()) || tags!.includes(searchValue.toLowerCase())) {
+				filteredProducts.push(products[index]);
+			}
+		}
+
+		return filteredProducts;
+	};
 
 	const filterProductsByAttr = (products: Product[], filter: ShopFilterState, attr: string) => {
 		const filteredProducts = [];
@@ -8,7 +24,7 @@ export default function productsSorting(filter: ShopFilterState, products: Produ
 			const productAttr = products[index][attr as keyof Product];
 
 			if (Array.isArray(filterAttr) && Array.isArray(productAttr)) {
-				const isProductInAttr = productAttr?.some((item) => typeof item === "string" &&  filterAttr!.includes(item));
+				const isProductInAttr = productAttr?.some((item) => typeof item === "string" && filterAttr!.includes(item));
 
 				if (isProductInAttr) {
 					filteredProducts.push(products[index]);
@@ -21,6 +37,10 @@ export default function productsSorting(filter: ShopFilterState, products: Produ
 
 	let filteredProducts = products;
 
+	if (filter.searchValue?.length !== undefined && filter.searchValue.length > 2) {
+		filteredProducts = searchProducts(products, filter)!;
+	}
+
 	if (filter.categories?.length !== undefined && filter.categories.length > 0) {
 		filteredProducts = filterProductsByAttr(filteredProducts, filter, "categories");
 	}
@@ -29,7 +49,7 @@ export default function productsSorting(filter: ShopFilterState, products: Produ
 		filteredProducts = filterProductsByAttr(filteredProducts, filter, "sizes");
 	}
 
-    if (filter.colors?.length !== undefined && filter.colors.length > 0) {
+	if (filter.colors?.length !== undefined && filter.colors.length > 0) {
 		filteredProducts = filterProductsByAttr(filteredProducts, filter, "colors");
 	}
 

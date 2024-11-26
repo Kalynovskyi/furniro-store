@@ -34,6 +34,10 @@ export function ShopFilter(props: ShopFilterProps) {
 	const sizes = getProductsAttributeCollection(props.products, "sizes")!;
 	// const tags = getProductsAttributeCollection(props.products, "tags")!;
 
+    const handleProductSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        dispatcher(filterAdding({ searchValue: event.currentTarget.value }));
+    }
+
 	return (
 		<>
 			<div className="bg-secondary-bg-color py-8">
@@ -116,6 +120,8 @@ export function ShopFilter(props: ShopFilterProps) {
 											type="text"
 											id="search_product"
 											placeholder="Search product..."
+                                            value={filter.searchValue}
+                                            onChange={handleProductSearch}
 										/>
 									</div>
 
