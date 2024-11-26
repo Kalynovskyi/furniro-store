@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
 
 const initialState: ShopFilterState = {
-	searchValue: '',
+	searchValue: "",
 	productsAmount: 16,
+	productsShown: 16,
 	minPrice: null,
 	maxPrice: null,
 	rating: null,
@@ -41,12 +42,12 @@ const filterSlice = createSlice({
 				state.colors?.push(action.payload.colors![0]);
 			}
 
-			state.searchValue = action.payload.searchValue ?? currentState.searchValue;
 			state.productsAmount = action.payload.productsAmount ?? currentState.productsAmount;
+			state.searchValue = action.payload.searchValue ?? currentState.searchValue;
+			state.productsShown = action.payload.productsShown ?? currentState.productsShown;
 			state.minPrice = action.payload.minPrice ?? currentState.minPrice;
 			state.maxPrice = action.payload.maxPrice ?? currentState.maxPrice;
 			state.sort = action.payload.sort ?? currentState.sort;
-
 		},
 
 		filterRemove(state, action: PayloadAction<ShopFilterState>) {

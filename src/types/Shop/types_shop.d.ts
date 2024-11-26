@@ -1,64 +1,65 @@
 interface Product {
-    id?: number;
-    title: string;
-    subtitle?: string;
-    price?: number;
-    rating?: number;
-    description?: string;
-    sizes?: Array<string>;
-    colors?: Array<string>;
-    images?: Array<string> | undefined;
-    sku?: string;
-    categories?: Array<string>;
-    tags?: Array<string>;
-    reviews?: Array<Review>;
+	id?: number;
+	title: string;
+	subtitle?: string;
+	price?: number;
+	rating?: number;
+	description?: string;
+	sizes?: Array<string>;
+	colors?: Array<string>;
+	images?: Array<string> | undefined;
+	sku?: string;
+	categories?: Array<string>;
+	tags?: Array<string>;
+	reviews?: Array<Review>;
 }
 
 interface CartProduct {
-    product: Product;
-    quantity: number;
+	product: Product;
+	quantity: number;
 }
 
 interface Review {
-    user?: string;
-    rating?: number;
-    comment?: string;
+	user?: string;
+	rating?: number;
+	comment?: string;
 }
 
 interface ProductProps {
-    productData: Product;
+	productData: Product;
 }
 
 interface ProductsGridProps {
-    products: Product[];
-    paginationType: string;
+	products: Product[];
+	paginationType: string;
 }
 
 interface ProductsPaginationProps {
-    products: Product[];
-    productsShown: number;
-    paginationType: string;
+	products: Product[];
+	productsShown: number;
+	paginationType: string;
 }
 
 interface ShopFilterProps {
-    products: Product[];
-    productsShown: number;
-    allProductsAmount: number;
+	products: Product[];
+	productsShown: number;
+	allProductsAmount: number;
 }
 
 interface ShopFilterState {
-    searchValue?: string;
+	searchValue?: string;
     productsAmount?: number;
-    minPrice?: number | null;
-    maxPrice?: number| null;
-    rating?: number| null;
-    sizes?: Array<string> | null | undefined;
-    colors?: Array<string> | null | undefined;
-    categories?: Array<string> | null | undefined;
-    tags?: string | null | undefined;
-    sort?: string;
+	productsShown?: number;
+	minPrice?: number | null;
+	maxPrice?: number | null;
+	rating?: number | null;
+	sizes?: Array<string> | null | undefined;
+	colors?: Array<string> | null | undefined;
+	categories?: Array<string> | null | undefined;
+	tags?: string | null | undefined;
+	sort?: string;
 }
 
 interface PaginationState {
-    page: number;
+	page: number;
 }

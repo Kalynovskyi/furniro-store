@@ -25,13 +25,12 @@ export function FilterAttrsList(props: AttrsListProps) {
 		}
 	};
 
-    
-
 	return (
-		<ul>
+		<ul className="max-h-52 overflow-auto">
 			{props.attrs.map((attr: string, index: number) => (
 				<li key={index}>
 					<input
+                        className="mr-2"
 						onChange={handleAttrChange}
 						type="checkbox"
 						checked={Array.isArray(productAttr) && productAttr?.includes(attr)}

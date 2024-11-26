@@ -20,7 +20,7 @@ export function ProductsPagination(props: ProductsPaginationProps) {
 	const handleShowMore = () => {
 		dispatcher(
 			filterAdding({
-				productsAmount: productsShown + initialProductsAmount.current!,
+				productsShown: productsShown + initialProductsAmount.current!,
 			})
 		);
 	};

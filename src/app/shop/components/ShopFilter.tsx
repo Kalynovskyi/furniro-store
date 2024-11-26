@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { FilterAttrsList } from "./FilterAttrsList";
 
@@ -17,8 +17,12 @@ export function ShopFilter(props: ShopFilterProps) {
 
 	const filter: ShopFilterState = useAppSelector((state) => state.filterReducer);
 
+	const categories = getProductsAttributeCollection(props.products, "categories")!;
+	const colors = getProductsAttributeCollection(props.products, "colors")!;
+	const sizes = getProductsAttributeCollection(props.products, "sizes")!;
+
 	const handleProductsShownChange = (event: React.FormEvent<HTMLInputElement>) => {
-		dispatcher(filterAdding({ productsAmount: +event.currentTarget.value }));
+		dispatcher(filterAdding({ productsShown: +event.currentTarget.value }));
 	};
 
 	const handleProductSort = (event: React.FormEvent<HTMLSelectElement>) => {
@@ -29,21 +33,17 @@ export function ShopFilter(props: ShopFilterProps) {
 		toggleState(isFilterShown, setIsFilterShown);
 	};
 
-	const categories = getProductsAttributeCollection(props.products, "categories")!;
-	const colors = getProductsAttributeCollection(props.products, "colors")!;
-	const sizes = getProductsAttributeCollection(props.products, "sizes")!;
+	const handleProductSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+		dispatcher(filterAdding({ searchValue: event.currentTarget.value }));
+	};
 
-    const handleProductSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-        dispatcher(filterAdding({ searchValue: event.currentTarget.value }));
-    }
+	const handleMinPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+		dispatcher(filterAdding({ minPrice: +event.currentTarget.value }));
+	};
 
-    const handleMinPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
-        dispatcher(filterAdding({ minPrice: +event.currentTarget.value }));
-    }
-
-    const handleMaxPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
-        dispatcher(filterAdding({ maxPrice: +event.currentTarget.value }));
-    }
+	const handleMaxPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+		dispatcher(filterAdding({ maxPrice: +event.currentTarget.value }));
+	};
 
 	return (
 		<>
@@ -83,7 +83,7 @@ export function ShopFilter(props: ShopFilterProps) {
 									Show
 									<input
 										type="number"
-										value={filter.productsAmount}
+										value={filter.productsShown}
 										onChange={handleProductsShownChange}
 										min={1}
 										max={props.allProductsAmount}
@@ -102,8 +102,8 @@ export function ShopFilter(props: ShopFilterProps) {
 										<option value="default">Default</option>
 										<option value="min-price">Lowest price</option>
 										<option value="max-price">Highest price</option>
-                                        <option value="min-ratings">Lowest rating</option>
-                                        <option value="max-ratings">Highest rating</option>
+										<option value="min-ratings">Lowest rating</option>
+										<option value="max-ratings">Highest rating</option>
 									</select>
 								</label>
 							</div>
@@ -120,66 +120,75 @@ export function ShopFilter(props: ShopFilterProps) {
 					>
 						<div className="flex flex-col justify-between bg-white absolute left-0 top-0 z-50 w-full h-full sm:w-[26.063rem] p-5 overflow-y-auto">
 							<form action="">
-								<fieldset>
-									<legend>Filter</legend>
-									<div>
-										<label htmlFor="search_product">Search</label>
+								<fieldset className="space-y-5">
+									<legend className="w-full flex items-center justify-between">
+										<h4 className="text-2xl font-semibold">Filter</h4>
+										<span
+											className="bg-border-color w-50 h-50 rounded-full cursor-pointer flex items-center justify-center hover:opacity-70 transition-all duration-300"
+											onClick={handleFilterClick}
+										>
+											x
+										</span>
+									</legend>
+									<div className="pb-5 border-b">
+										<h5 className="block mb-4 text-lg font-medium">Search</h5>
 										<Input
-											className="block"
+											className="block !p-2 w-full"
 											type="text"
 											id="search_product"
 											placeholder="Search product..."
-                                            value={filter.searchValue}
-                                            onChange={handleProductSearch}
+											value={filter.searchValue}
+											onChange={handleProductSearch}
 										/>
 									</div>
 
-									<div>
-										<label htmlFor="search_product">Price</label>
-										<div className="flex">
+									<div className="pb-5 border-b">
+										<h5 className="block mb-4 text-lg font-medium">Price</h5>
+										<div className="flex items-center space-x-5">
 											<Input
-												className="w-1/2"
+												className="w-1/2  !p-2"
 												id="min-price"
 												type="number"
 												placeholder="Min price..."
-                                                value={filter.minPrice}
-                                                onChange={handleMinPrice}
+												value={filter.minPrice}
+												onChange={handleMinPrice}
 											/>
+											<span>-</span>
 											<Input
-												className="w-1/2"
+												className="w-1/2 !p-2"
 												id="max-price"
 												type="number"
 												placeholder="Max price..."
-                                                value={filter.maxPrice}
-                                                onChange={handleMaxPrice}
+												value={filter.maxPrice}
+												onChange={handleMaxPrice}
 											/>
 										</div>
 									</div>
 
-									<div>
-										<h5>Categories</h5>
+									<div className="pb-5 border-b">
+										<h5 className="block mb-4 text-lg font-medium">Categories</h5>
 										<FilterAttrsList
 											attrs={categories}
-                                            attrName={'categories'}
-                                            filter={filter}
+											attrName={"categories"}
+											filter={filter}
 										/>
 									</div>
 
-									<div>
-										<h5>Sizes</h5>
+									<div className="pb-5 border-b">
+										<h5 className="block mb-4 text-lg font-medium">Sizes</h5>
 										<FilterAttrsList
 											attrs={sizes}
-                                            attrName={'sizes'}
-                                            filter={filter}
+											attrName={"sizes"}
+											filter={filter}
 										/>
 									</div>
 
-									<div>
-										<h5>Colors</h5>
+									<div className="pb-5 border-b">
+										<h5 className="block mb-4 text-lg font-medium">Colors</h5>
 										<FilterAttrsList
 											attrs={colors}
-                                            attrName={'colors'}
-                                            filter={filter}
+											attrName={"colors"}
+											filter={filter}
 										/>
 									</div>
 								</fieldset>

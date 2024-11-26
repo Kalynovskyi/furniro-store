@@ -1,5 +1,4 @@
 export default function productsSorting(filter: ShopFilterState, products: Product[]) {
-
 	const searchProducts = (products: Product[], filter: ShopFilterState) => {
 		const searchValue = filter.searchValue;
 		const filteredProducts = [];
@@ -80,6 +79,7 @@ export default function productsSorting(filter: ShopFilterState, products: Produ
                 break;
         }
 	}
+
 
 	return filteredProducts;
 }
