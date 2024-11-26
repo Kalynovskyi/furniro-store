@@ -41,15 +41,12 @@ const filterSlice = createSlice({
 				state.colors?.push(action.payload.colors![0]);
 			}
 
-			//state.categories = action.payload.categories ?? currentState.categories;
 			state.searchValue = action.payload.searchValue ?? currentState.searchValue;
 			state.productsAmount = action.payload.productsAmount ?? currentState.productsAmount;
 			state.minPrice = action.payload.minPrice ?? currentState.minPrice;
 			state.maxPrice = action.payload.maxPrice ?? currentState.maxPrice;
-			// state.rating = action.payload.rating ?? currentState.rating;
-			// state.colors = action.payload.colors ?? currentState.colors;
-			// state.tags = action.payload.tags ?? currentState.tags;
-			// state.sort = action.payload.sort ?? currentState.sort;
+			state.sort = action.payload.sort ?? currentState.sort;
+
 		},
 
 		filterRemove(state, action: PayloadAction<ShopFilterState>) {

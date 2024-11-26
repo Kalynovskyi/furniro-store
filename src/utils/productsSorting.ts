@@ -1,4 +1,5 @@
 export default function productsSorting(filter: ShopFilterState, products: Product[]) {
+
 	const searchProducts = (products: Product[], filter: ShopFilterState) => {
 		const searchValue = filter.searchValue;
 		const filteredProducts = [];
@@ -41,6 +42,14 @@ export default function productsSorting(filter: ShopFilterState, products: Produ
 		filteredProducts = searchProducts(products, filter)!;
 	}
 
+    if (filter.minPrice !== null) {
+		filteredProducts = filteredProducts.filter((product) => ( product.price! >= filter.minPrice!));
+	}
+
+    if (filter.maxPrice !== null) {
+		filteredProducts = filteredProducts.filter((product) => ( product.price! <= filter.maxPrice!));
+	}
+
 	if (filter.categories?.length !== undefined && filter.categories.length > 0) {
 		filteredProducts = filterProductsByAttr(filteredProducts, filter, "categories");
 	}
@@ -54,11 +63,22 @@ export default function productsSorting(filter: ShopFilterState, products: Produ
 	}
 
 	if (filter.sort !== "default") {
-		if (filter.sort === "min-price") {
-			filteredProducts = products.sort((a, b) => a.price! - b.price!);
-		} else if (filter.sort === "max-price") {
-			filteredProducts = products.sort((a, b) => b.price! - a.price!);
-		}
+        switch (filter.sort) {
+            case "min-price":
+                filteredProducts = filteredProducts.sort((a, b) => a.price! - b.price!);
+                break;
+            case "max-price":
+                filteredProducts = filteredProducts.sort((a, b) => b.price! - a.price!);
+                break;
+            case "min-ratings":
+                filteredProducts = filteredProducts.sort((a, b) => a.rating! - b.rating!);
+                break;
+            case "max-ratings":
+                filteredProducts = filteredProducts.sort((a, b) => b.rating! - a.rating!);
+                break;
+            default:
+                break;
+        }
 	}
 
 	return filteredProducts;

@@ -32,10 +32,17 @@ export function ShopFilter(props: ShopFilterProps) {
 	const categories = getProductsAttributeCollection(props.products, "categories")!;
 	const colors = getProductsAttributeCollection(props.products, "colors")!;
 	const sizes = getProductsAttributeCollection(props.products, "sizes")!;
-	// const tags = getProductsAttributeCollection(props.products, "tags")!;
 
     const handleProductSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         dispatcher(filterAdding({ searchValue: event.currentTarget.value }));
+    }
+
+    const handleMinPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+        dispatcher(filterAdding({ minPrice: +event.currentTarget.value }));
+    }
+
+    const handleMaxPrice = (event: React.ChangeEvent<HTMLInputElement>) => {
+        dispatcher(filterAdding({ maxPrice: +event.currentTarget.value }));
     }
 
 	return (
@@ -93,8 +100,10 @@ export function ShopFilter(props: ShopFilterProps) {
 										onChange={handleProductSort}
 									>
 										<option value="default">Default</option>
-										<option value="min-price">Low price</option>
-										<option value="max-price">High price</option>
+										<option value="min-price">Lowest price</option>
+										<option value="max-price">Highest price</option>
+                                        <option value="min-ratings">Lowest rating</option>
+                                        <option value="max-ratings">Highest rating</option>
 									</select>
 								</label>
 							</div>
@@ -133,12 +142,16 @@ export function ShopFilter(props: ShopFilterProps) {
 												id="min-price"
 												type="number"
 												placeholder="Min price..."
+                                                value={filter.minPrice}
+                                                onChange={handleMinPrice}
 											/>
 											<Input
 												className="w-1/2"
 												id="max-price"
 												type="number"
 												placeholder="Max price..."
+                                                value={filter.maxPrice}
+                                                onChange={handleMaxPrice}
 											/>
 										</div>
 									</div>
@@ -150,21 +163,6 @@ export function ShopFilter(props: ShopFilterProps) {
                                             attrName={'categories'}
                                             filter={filter}
 										/>
-									</div>
-
-									<div>
-										<label htmlFor="products_ratings">Ratings</label>
-										<select
-											className="block rounded-lg border border-secondary-color py-6 px-7 w-full"
-											name="ratings"
-											id="products_ratings"
-										>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
 									</div>
 
 									<div>

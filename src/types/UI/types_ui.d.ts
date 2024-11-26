@@ -27,5 +27,5 @@ interface InputProps {
     placeholder?: string;
     id?: string;
     checked?: boolean
-    value?: string | number;
+    value?: string | number | null;
 }
