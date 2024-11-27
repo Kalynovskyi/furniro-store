@@ -5,7 +5,7 @@ export default async function getProduct(productId: string) {
         const products = await getAllProducts();
         const product = products.filter((item: Product) => (item.id === +productId ));
 
-        return product;
+        return product[0];
 
     } catch (error) {
         console.log(error);

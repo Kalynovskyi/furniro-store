@@ -16,7 +16,8 @@
             "Gray"
         ],
         "images": [
-            "/assets/images/product-1.jpg"
+            "/assets/images/product-1.jpg",
+            "/assets/images/product-13.jpg"
         ],
         "sku": "SOF123456",
         "categories": [

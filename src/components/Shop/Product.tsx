@@ -59,7 +59,7 @@ export function Product(props: ProductProps) {
             </div>
 
             <Overlay className="flex flex-col justify-center items-center opacity-0 group-hover/overlay:opacity-100">
-                <Link className="absolute w-full h-full z-10" href={`/single-product/${product.id}`}></Link>
+                <Link className="absolute w-full h-full z-10" href={`/shop/${product.id}`}></Link>
                 <div className="z-20 flex flex-col justify-center items-center">
                     <Button
                         className="bg-white text-brand-color"
