@@ -1,14 +1,12 @@
 "use client";
 
 import React from "react";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { filterAdding } from "@/redux/features/shop-filter/filterSlice";
+import { useAppSelector } from "@/redux/hooks";
 import productsSorting from "@/utils/productsSorting";
 import productsGridMarkup from "@/utils/productsGridMarkup";
 import { ProductsPagination } from "./ProductsPagination";
 
 export function ProductsGrid(props: ProductsGridProps) {
-    const dispatcher = useAppDispatch();
 	const filter: ShopFilterState = useAppSelector((state) => state.filterReducer);
 	const pagination: PaginationState = useAppSelector((state) => state.paginationReducer);
 
@@ -17,8 +15,6 @@ export function ProductsGrid(props: ProductsGridProps) {
 
 	/*Get sorted products*/
 	const Products = productsSorting(filter, props.products)!;
-
-    dispatcher(filterAdding({ productsAmount: Products.length }));
 
 	/*Create product grid markup */
 	const productsGrid = productsGridMarkup(Products, filter, pagination.page);

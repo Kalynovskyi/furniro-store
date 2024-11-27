@@ -1,7 +1,6 @@
 "use client";
 
 import { FilterAttrsList } from "./FilterAttrsList";
-
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { filterAdding } from "@/redux/features/shop-filter/filterSlice";
@@ -74,7 +73,7 @@ export function ShopFilter(props: ShopFilterProps) {
 								<p>Filter</p>
 							</div>
 							<span className="pl-8">
-								Showing 1–{filter.productsAmount} of {props.allProductsAmount} results
+								Showing 1–{filter.productsShown} of {props.allProductsAmount} results
 							</span>
 						</div>
 						<div className="flex items-center space-x-7 max-md:justify-between">
@@ -85,7 +84,6 @@ export function ShopFilter(props: ShopFilterProps) {
 										type="number"
 										value={filter.productsShown}
 										onChange={handleProductsShownChange}
-										min={1}
 										max={props.allProductsAmount}
 										className="inline ml-4 py-4 px-3 max-w-14 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
 									/>

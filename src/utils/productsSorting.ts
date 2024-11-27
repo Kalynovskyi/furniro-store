@@ -41,12 +41,12 @@ export default function productsSorting(filter: ShopFilterState, products: Produ
 		filteredProducts = searchProducts(products, filter)!;
 	}
 
-    if (filter.minPrice !== null) {
-		filteredProducts = filteredProducts.filter((product) => ( product.price! >= filter.minPrice!));
+	if (filter.minPrice !== null) {
+		filteredProducts = filteredProducts.filter((product) => product.price! >= filter.minPrice!);
 	}
 
-    if (filter.maxPrice !== null) {
-		filteredProducts = filteredProducts.filter((product) => ( product.price! <= filter.maxPrice!));
+	if (filter.maxPrice !== null) {
+		filteredProducts = filteredProducts.filter((product) => product.price! <= filter.maxPrice!);
 	}
 
 	if (filter.categories?.length !== undefined && filter.categories.length > 0) {
@@ -62,24 +62,23 @@ export default function productsSorting(filter: ShopFilterState, products: Produ
 	}
 
 	if (filter.sort !== "default") {
-        switch (filter.sort) {
-            case "min-price":
-                filteredProducts = filteredProducts.sort((a, b) => a.price! - b.price!);
-                break;
-            case "max-price":
-                filteredProducts = filteredProducts.sort((a, b) => b.price! - a.price!);
-                break;
-            case "min-ratings":
-                filteredProducts = filteredProducts.sort((a, b) => a.rating! - b.rating!);
-                break;
-            case "max-ratings":
-                filteredProducts = filteredProducts.sort((a, b) => b.rating! - a.rating!);
-                break;
-            default:
-                break;
-        }
+		switch (filter.sort) {
+			case "min-price":
+				filteredProducts = filteredProducts.sort((a, b) => a.price! - b.price!);
+				break;
+			case "max-price":
+				filteredProducts = filteredProducts.sort((a, b) => b.price! - a.price!);
+				break;
+			case "min-ratings":
+				filteredProducts = filteredProducts.sort((a, b) => a.rating! - b.rating!);
+				break;
+			case "max-ratings":
+				filteredProducts = filteredProducts.sort((a, b) => b.rating! - a.rating!);
+				break;
+			default:
+				break;
+		}
 	}
-
 
 	return filteredProducts;
 }
