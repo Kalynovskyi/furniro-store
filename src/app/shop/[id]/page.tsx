@@ -9,12 +9,10 @@ export default async function Page({ params }: PageParams) {
 
 	const starRating = () => {
 		const stars = [];
-		const rating = product.rating!;
-		const isDecimal = rating % 1 != 0;
+		const isDecimal = product.rating! % 1 != 0;
+        const rating = isDecimal ? Math.floor(product.rating!) : product.rating!
 
-		console.log(isDecimal);
-
-		for (let index = 1; index < rating; index++) {
+		for (let index = 0; index < rating; index++) {
 			console.log(index);
 
 			stars.push(
@@ -47,7 +45,6 @@ export default async function Page({ params }: PageParams) {
 							xmlns="http://www.w3.org/2000/svg"
 						>
 							<g>
-								<title>Layer 1</title>
 								<path
 									d="m10,1l0.06,6.12l0.02,1.79l0.02,3.42l-0.03,3.42l0.02,-0.01l-6.09,3.26l1.13,-6.63l-4.13,-4.62l6,-0.75l3,-6z"
 									fill="#FFC700"
